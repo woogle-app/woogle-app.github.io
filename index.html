@@ -481,6 +481,59 @@ body,button,input,textarea,select,h1,h2,h3,p,span,b,small,label,td,th,strong,div
 .card h3,.list-head h2,.sheet-head h2,.panel h3,.cmts h3,.empty strong,.profile .name,.tab,.cta,.btn,.me,.lg-label,.lg-sub b,.with b,.kpi b,.pstats b,.badge,.mtabs button,.chip[aria-pressed="true"],.seg button[aria-pressed="true"]{font-weight:700!important}
 body{font-size:18.5px;letter-spacing:-.1px}
 .card h3{font-size:23px}.body{font-size:18.5px}.meta{font-size:15.5px}
+
+/* ===== 귀엽고 상큼한 소녀감성 색 ===== */
+:root{--cream:#FFF7F5;--paper:#FFFFFF;--leather:#FF7FA8;--leather-d:#E85C8A;--maple:#FF7FA8;--ink:#4A3A48;--ink-soft:#8C7A88;--line:#F6DDE6;--orange:#FF7FA8}
+body{background:#FDEBF1}
+.app,.app.region-guri,.app.region-nam,.app.region-jin,.app.region-home{background-color:#FFF7F5;background-image:radial-gradient(circle at 12% 8%,rgba(255,214,228,.55) 0 60px,transparent 61px),radial-gradient(circle at 92% 30%,rgba(200,240,226,.5) 0 46px,transparent 47px),radial-gradient(circle at 8% 70%,rgba(226,214,255,.45) 0 52px,transparent 53px)}
+.app.region-guri{--strong:#FF7FA8}.app.region-nam{--strong:#4CC9A6}.app.region-jin{--strong:#A88BFF}.app.region-home{--strong:#FF7FA8}
+.top{background:rgba(255,247,245,.95);border-bottom:1px solid var(--line)}
+.me{background:#FF7FA8;color:#fff}
+.bell{border-color:var(--line)}
+.tab,.region-nam .tab,.region-jin .tab{background:#fff;border:2px solid var(--line);color:var(--ink)}
+.region-guri .tab[aria-selected="true"]{background:#FF9DBC;border-color:#FF9DBC;color:#fff}
+.region-nam .tab[aria-selected="true"]{background:#6FD8B9;border-color:#6FD8B9;color:#fff}
+.region-jin .tab[aria-selected="true"]{background:#B9A2FF;border-color:#B9A2FF;color:#fff}
+.hero p,.lg-sub{color:#C2577F}.lg-sub b{color:#E85C8A}
+.cta,.btn{background:#FF7FA8;color:#fff;box-shadow:0 4px 0 #E85C8A}
+.cta:active,.btn:active{box-shadow:0 1px 0 #E85C8A}
+.cta svg{color:#FFF1A8}
+.region-nam .cta{background:#4CC9A6;box-shadow:0 4px 0 #2FAE8B}
+.region-jin .cta{background:#A88BFF;box-shadow:0 4px 0 #8A6BEB}
+.seg,.region-nam .seg,.region-jin .seg,.dseg{background:#FDE6EE}
+.seg button,.dseg button{color:#B07A92}
+.seg button[aria-pressed="true"],.dseg button[aria-pressed="true"]{background:#fff;color:#E85C8A}
+.chip{background:#fff;border:2px solid var(--line);color:var(--ink)}
+.chip[aria-pressed="true"],.cat-pick button[aria-pressed="true"]{background:#FF9DBC;border-color:#FF9DBC;color:#fff}
+.card{background:#fff;border:2px solid var(--line);border-radius:22px;box-shadow:0 4px 12px rgba(232,92,138,.08)}
+.card::after{display:none}
+.badge{background:#FFF0F5;color:#C2577F}
+.badge.rg-guri{background:#FF9DBC;color:#fff}.badge.rg-nam{background:#6FD8B9;color:#fff}.badge.rg-jin{background:#B9A2FF;color:#fff}
+.heart.on path{fill:#FF7FA8}.with b{color:#E85C8A}
+.like-tag{border:2px solid #FFC2D6;color:#E85C8A;background:#FFF0F5;border-radius:999px;padding:3px 10px;font-size:15px;margin-left:-4px;flex:none}
+.like-tag.on{background:#FF7FA8;border-color:#FF7FA8;color:#fff}
+.cmt-btn{border:2px solid var(--line);background:#fff}
+.lg-form{background:#fff!important;border:2px solid var(--line);border-radius:24px;box-shadow:0 10px 24px rgba(232,92,138,.12)!important}
+.field{border:2px solid #F6D2DF;background:#FFFBFC}
+.field:focus{border-color:#FF9DBC;box-shadow:0 0 0 4px rgba(255,157,188,.25)}
+.empty{background:#fff;border:2px dashed #F6CADA}
+.mtabs button{background:#fff;border:2px solid var(--line);color:var(--ink)}
+.mtabs button[aria-selected="true"]{background:#FF9DBC;border-color:#FF9DBC;color:#fff}
+.profile,.panel{background:#fff;border:2px solid var(--line);border-radius:22px}
+.profile .name .adm,.me .adm{background:#FFD36E;color:#4A3A48}
+.pstats div,.kpi,.preview{background:#FFF0F5}
+.kpi.k1{background:#FF9DBC;color:#fff}.kpi.k1 span{color:#fff}
+.kpi.k2{background:#6FD8B9;color:#fff}.kpi.k2 span{color:#fff}
+.kpi.k3{background:#B9A2FF;color:#fff}.kpi.k3 span{color:#fff}
+.bar-track{background:#FDE6EE}.bar-fill{background:#FF9DBC}
+.restore{background:#FFD36E;color:#4A3A48}
+.rg-pick button[aria-pressed="true"].g{background:#FF9DBC;border-color:#FF9DBC;color:#fff}
+.rg-pick button[aria-pressed="true"].n{background:#6FD8B9;border-color:#6FD8B9;color:#fff}
+.rg-pick button[aria-pressed="true"].j{background:#B9A2FF;border-color:#B9A2FF;color:#fff}
+.cmt-form button{background:#FF7FA8}
+.photo-pick{border-color:#F6CADA;background:#FFF7FA}
+.leaf:nth-of-type(1) path:first-child{fill:#FF9DBC}.leaf:nth-of-type(2) path:first-child{fill:#B9A2FF}.leaf:nth-of-type(3) path:first-child{fill:#6FD8B9}.leaf:nth-of-type(4) path:first-child{fill:#FFD36E}
+body::before{background:#FFF7F5}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -500,9 +553,9 @@ body{font-size:18.5px;letter-spacing:-.1px}
 const REGIONS=[{k:"guri",n:"기원문",cls:"region-guri",b:"rg-guri",p:"g",col:"#01A1FB"},{k:"nam",n:"활동 인증",cls:"region-nam",b:"rg-nam",p:"n",col:"#FCCB01"},{k:"jin",n:"연찬 보고",cls:"region-jin",b:"rg-jin",p:"j",col:"#FC9EC9"}];
 const RG=Object.fromEntries(REGIONS.map(r=>[r.k,r]));
 const BD={
- guri:{lead:"마음 쓰이는 사람을 위해 함께 기원해요",cta:"나의 기원문 공유하기",list:"등록된 기원 이야기",write:"나의 기원문 쓰기",submit:"기원문 올리기",tl:"기원할 사람",tph:"예: 우리 엄마, 김민준",bl:"기원 내용",bph:"고민이나 바라는 일을 자유롭게 적어 주세요.",terr:"기원할 사람의 이름을 적어 주세요.",withTxt:"명이 함께 기원 중",likeLbl:"함께 기원하기",likedLbl:"함께 기원했어요"},
- nam:{lead:"오늘 한 활동을 인증하고 서로 응원해요",cta:"활동 인증 올리기",list:"활동 인증 모음",write:"활동 인증 쓰기",submit:"인증 올리기",tl:"제목",tph:"예: 오늘 아침 독서 30분",bl:"인증 내용",bph:"무엇을 했는지 자유롭게 적어 주세요.",terr:"제목을 적어 주세요.",withTxt:"명이 함께 응원 중",likeLbl:"응원하기",likedLbl:"응원했어요"},
- jin:{lead:"연찬한 내용을 나누고 함께 배워요",cta:"연찬 보고 쓰기",list:"연찬 보고 모음",write:"연찬 보고 쓰기",submit:"보고 올리기",tl:"제목",tph:"예: 10월 넷째 주 연찬 보고",bl:"보고 내용",bph:"연찬한 내용과 느낀 점을 적어 주세요.",terr:"제목을 적어 주세요.",withTxt:"명이 함께 공감 중",likeLbl:"공감하기",likedLbl:"공감했어요"}
+ guri:{lead:"함께 기원해요",cta:"나의 기원문 공유하기",list:"등록된 기원 이야기",write:"나의 기원문 쓰기",submit:"기원문 올리기",tl:"기원할 사람",tph:"예: 우리 엄마, 김민준",bl:"기원 내용",bph:"고민이나 바라는 일을 자유롭게 적어 주세요.",terr:"기원할 사람의 이름을 적어 주세요.",withTxt:"명이 함께 기원 중",likeLbl:"함께 기원하기",likedLbl:"함께 기원했어요"},
+ nam:{lead:"오늘 한 활동을 인증하고 서로 응원해요",cta:"활동 인증 올리기",list:"활동 인증 모음",write:"활동 인증 쓰기",submit:"인증 올리기",tl:"제목",tph:"예: 오늘 아침 독서 30분",bl:"인증 내용",bph:"무엇을 했는지 자유롭게 적어 주세요.",terr:"제목을 적어 주세요.",withTxt:"명이 좋아요",likeLbl:"좋아요",likedLbl:"좋아요 눌렀어요"},
+ jin:{lead:"연찬한 내용을 나누고 함께 배워요",cta:"연찬 보고 쓰기",list:"연찬 보고 모음",write:"연찬 보고 쓰기",submit:"보고 올리기",tl:"제목",tph:"예: 10월 넷째 주 연찬 보고",bl:"보고 내용",bph:"연찬한 내용과 느낀 점을 적어 주세요.",terr:"제목을 적어 주세요.",withTxt:"명이 좋아요",likeLbl:"좋아요",likedLbl:"좋아요 눌렀어요"}
 };
 const postTitle=p=>p.region==="guri"?titleOf(p.target):p.target;
 const CATS=["건강","시험","취업","우정&연애","가족"];
@@ -637,7 +690,7 @@ function postCard(p,opts={}){
    <p class="body${open?"":" clamp"}" ${open?"":`data-act="expand" data-id="${p.id}"`}>${esc(p.body)}</p>
    <div class="card-foot">
      <button class="heart${on?" on":""}${st.justLiked===p.id?" pop":""}" data-act="like" data-id="${p.id}" ${on?`disabled aria-label="${BD[p.region].likedLbl}"`:`aria-label="${BD[p.region].likeLbl}"`}>${I.heart}${st.justLiked===p.id?burst():""}</button>
-     <span class="with"><b>${n}</b>${BD[p.region]?BD[p.region].withTxt:"명이 함께 기원 중"}</span>
+     ${p.region!=="guri"?`<span class="like-tag${on?" on":""}">${on?"좋아요 ✓":"좋아요"}</span>`:""}<span class="with"><b>${n}</b>${BD[p.region]?BD[p.region].withTxt:"명이 함께 기원 중"}</span>
      ${opts.full?"":`<button class="cmt-btn" data-act="open" data-id="${p.id}">${I.bubble}<span>댓글 ${cc}</span></button>`}
    </div></article>`;
 }
@@ -655,7 +708,7 @@ function renderMain(){
    <button class="cta" data-act="write" ${store.canWrite?"":"disabled"}>${I.spark}${BD[st.region].cta}</button></section>
   <section class="gut">
    <div class="list-head"><h2>${BD[st.region].list}<small>${total}</small></h2>
-    <div class="seg" role="group" aria-label="정렬"><button data-act="sort" data-s="new" aria-pressed="${st.sort==="new"}">최신순</button><button data-act="sort" data-s="like" aria-pressed="${st.sort==="like"}">기원 많은순</button></div></div>
+    <div class="seg" role="group" aria-label="정렬"><button data-act="sort" data-s="new" aria-pressed="${st.sort==="new"}">최신순</button><button data-act="sort" data-s="like" aria-pressed="${st.sort==="like"}">${st.region==="guri"?"기원 많은순":"좋아요 많은순"}</button></div></div>
    ${st.region==="guri"?`<div class="filters" role="group" aria-label="고민 분류">${CATS.map(c=>`<button class="chip" data-act="cat" data-c="${esc(c)}" aria-pressed="${st.cats.has(c)}">${esc(c)}</button>`).join("")}${st.cats.size?`<button class="chip" data-act="catclear">전체 보기</button>`:""}</div>`:""}
    <div class="cards">${list.length?list.map(p=>postCard(p)).join(""):emptyHTML(total)}</div>
   </section>
