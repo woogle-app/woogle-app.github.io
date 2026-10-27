@@ -553,9 +553,9 @@ body::before{background:#FFF7F5}
 const REGIONS=[{k:"guri",n:"기원문",cls:"region-guri",b:"rg-guri",p:"g",col:"#01A1FB"},{k:"nam",n:"활동 인증",cls:"region-nam",b:"rg-nam",p:"n",col:"#FCCB01"},{k:"jin",n:"연찬 보고",cls:"region-jin",b:"rg-jin",p:"j",col:"#FC9EC9"}];
 const RG=Object.fromEntries(REGIONS.map(r=>[r.k,r]));
 const BD={
- guri:{lead:"함께 기원해요",cta:"나의 기원문 공유하기",list:"등록된 기원 이야기",write:"나의 기원문 쓰기",submit:"기원문 올리기",tl:"기원할 사람",tph:"예: 우리 엄마, 김민준",bl:"기원 내용",bph:"고민이나 바라는 일을 자유롭게 적어 주세요.",terr:"기원할 사람의 이름을 적어 주세요.",withTxt:"명이 함께 기원 중",likeLbl:"함께 기원하기",likedLbl:"함께 기원했어요"},
- nam:{lead:"오늘 한 활동을 인증하고 서로 응원해요",cta:"활동 인증 올리기",list:"활동 인증 모음",write:"활동 인증 쓰기",submit:"인증 올리기",tl:"제목",tph:"예: 오늘 아침 독서 30분",bl:"인증 내용",bph:"무엇을 했는지 자유롭게 적어 주세요.",terr:"제목을 적어 주세요.",withTxt:"명이 좋아요",likeLbl:"좋아요",likedLbl:"좋아요 눌렀어요"},
- jin:{lead:"연찬한 내용을 나누고 함께 배워요",cta:"연찬 보고 쓰기",list:"연찬 보고 모음",write:"연찬 보고 쓰기",submit:"보고 올리기",tl:"제목",tph:"예: 10월 넷째 주 연찬 보고",bl:"보고 내용",bph:"연찬한 내용과 느낀 점을 적어 주세요.",terr:"제목을 적어 주세요.",withTxt:"명이 좋아요",likeLbl:"좋아요",likedLbl:"좋아요 눌렀어요"}
+ guri:{lead:"한 사람 한 사람의 소중한 마음을 모아 함께 기원해요",cta:"나의 기원문 공유하기",list:"등록된 기원 이야기",write:"나의 기원문 쓰기",submit:"기원문 올리기",tl:"기원할 사람",tph:"예: 우리 엄마, 김민준",bl:"기원 내용",bph:"고민이나 바라는 일을 자유롭게 적어 주세요.",terr:"기원할 사람의 이름을 적어 주세요.",withTxt:"명이 함께 기원 중",likeLbl:"함께 기원하기",likedLbl:"함께 기원했어요"},
+ nam:{lead:"오늘 한 활동을 인증하고 서로 응원해요",cta:"활동 인증 올리기",list:"활동 인증 이야기",write:"활동 인증 쓰기",submit:"인증 올리기",tl:"제목",tph:"예: 오늘 아침 독서 30분",bl:"인증 내용",bph:"무엇을 했는지 자유롭게 적어 주세요.",terr:"제목을 적어 주세요.",withTxt:"명이 좋아요",likeLbl:"좋아요",likedLbl:"좋아요 눌렀어요"},
+ jin:{lead:"연찬한 내용을 나누고 함께 배워요",cta:"연찬 보고 쓰기",list:"연찬 보고 이야기",write:"연찬 보고 쓰기",submit:"보고 올리기",tl:"제목",tph:"예: 10월 넷째 주 연찬 보고",bl:"보고 내용",bph:"연찬한 내용과 느낀 점을 적어 주세요.",terr:"제목을 적어 주세요.",withTxt:"명이 좋아요",likeLbl:"좋아요",likedLbl:"좋아요 눌렀어요"}
 };
 const postTitle=p=>p.region==="guri"?titleOf(p.target):p.target;
 const CATS=["건강","시험","취업","우정&연애","가족"];
