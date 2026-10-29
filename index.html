@@ -576,6 +576,7 @@ body::before{background:#FFF7F5}
 .lg-logo{width:auto!important;max-width:min(72%,290px)!important;max-height:24vh;max-height:24dvh}
 .trio-img{width:auto!important;max-width:92%!important;max-height:24vh;max-height:24dvh;margin:10px auto 0!important}
 .lg-form{gap:8px!important;padding:14px 16px!important}
+.trio-foot{display:block;width:92%;max-width:400px;height:auto;margin:18px auto 26px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -755,7 +756,7 @@ function renderMain(){
    ${st.region==="guri"?`<div class="filters" role="group" aria-label="고민 분류">${CATS.map(c=>`<button class="chip" data-act="cat" data-c="${esc(c)}" aria-pressed="${st.cats.has(c)}">${esc(c)}</button>`).join("")}${st.cats.size?`<button class="chip" data-act="catclear">전체 보기</button>`:""}</div>`:""}
    <div class="cards">${list.length?list.map(p=>postCard(p)).join(""):emptyHTML(total)}</div>
   </section>
-  <div class="trio trio-sm"><img class="o o1" src="oct-blue.png" alt=""><img class="o o2" src="oct-yellow.png" alt=""><img class="o o3" src="oct-pink.png" alt=""></div>`;
+  <img class="trio-foot" src="https://c--4bd4191c-7b60-4fc3-b060-eb7e26b89e78-prod.lovable.cloud/storage/v1/object/public/photos/site/trio-orig.png" alt="" width="1360" height="664">`;
   st.justLiked=null;
 }
 function emptyHTML(total){
@@ -782,7 +783,7 @@ function renderMy(){
    ${body}
    <div style="display:flex;justify-content:center;padding-block:4px 30px"><button class="linkish" data-act="logout">닉네임 바꾸기</button></div>
   </div>
-  <div class="trio trio-sm"><img class="o o1" src="oct-blue.png" alt=""><img class="o o2" src="oct-yellow.png" alt=""><img class="o o3" src="oct-pink.png" alt=""></div>`;
+  <img class="trio-foot" src="https://c--4bd4191c-7b60-4fc3-b060-eb7e26b89e78-prod.lovable.cloud/storage/v1/object/public/photos/site/trio-orig.png" alt="" width="1360" height="664">`;
   st.justLiked=null;
 }
 
