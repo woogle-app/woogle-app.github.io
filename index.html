@@ -566,6 +566,10 @@ body::before{background:#FFF7F5}
 /* 두 번째 화면 상단 어워즈 문어 배너 */
 .awards-banner{padding-block:10px 4px}
 .awards-banner img{display:block;width:100%;height:auto;border-radius:20px;border:2px solid var(--line);box-shadow:0 4px 12px rgba(232,92,138,.12)}
+
+/* 문어 3마리 잘리지 않게 */
+.login{overflow:visible!important;min-height:auto!important;padding-bottom:28px!important}
+.trio-img{width:92%!important;max-width:400px!important;margin:22px auto 0!important;object-fit:contain}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -706,7 +710,7 @@ function renderLogin(){
     <p class="err" id="nick-err"></p>
     <button class="btn" id="nick-go" type="submit">시작하기</button>
    </form>
-   <img class="trio-img" src="trio-hi.png" alt="">
+   <img class="trio-img" src="trio-full.png" alt="">
   </div>`;
 }
 
