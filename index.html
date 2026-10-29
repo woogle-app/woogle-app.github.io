@@ -562,6 +562,10 @@ body::before{background:#FFF7F5}
 
 /* 메인 하단 문어 3마리 (고해상도 원본) */
 .trio-img{display:block;width:100%;max-width:440px;margin:18px auto 0;height:auto}
+
+/* 두 번째 화면 상단 어워즈 문어 배너 */
+.awards-banner{padding-block:10px 4px}
+.awards-banner img{display:block;width:100%;height:auto;border-radius:20px;border:2px solid var(--line);box-shadow:0 4px 12px rgba(232,92,138,.12)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -731,6 +735,7 @@ function renderMain(){
   list.sort(st.sort==="new"?(a,b)=>b.createdAt-a.createdAt:(a,b)=>(likeCount(b.id)-likeCount(a.id))||(b.createdAt-a.createdAt));
   const total=livePosts().filter(p=>p.region===st.region).length;
   $("#view").innerHTML=`${headerHTML()}
+  <div class="awards-banner gut"><img src="https://c--4bd4191c-7b60-4fc3-b060-eb7e26b89e78-prod.lovable.cloud/storage/v1/object/public/photos/site/awards-octo.webp" alt="왕관과 드레스를 입은 문어 3마리" width="900" height="502"></div>
   <nav class="tabs gut" role="tablist" aria-label="게시판">${REGIONS.map(x=>`<button class="tab" role="tab" aria-selected="${x.k===st.region}" data-act="region" data-r="${x.k}"><span class="dotc" style="background:${x.col}"></span>${x.n}</button>`).join("")}</nav>
   <section class="hero gut"><p>${BD[st.region].lead}</p>
    <button class="cta" data-act="write" ${store.canWrite?"":"disabled"}>${I.spark}${BD[st.region].cta}</button></section>
