@@ -132,11 +132,25 @@ footer{margin-top:40px;padding:40px 18px 90px}footer h2{font-size:28px}footer p{
 
 /* hero small */
 .hero{height:52svh;min-height:340px;max-height:460px}.hero .tx{bottom:22px}.hero h1{font-size:32px;margin:6px 0}.hero .line{margin:8px 0}.hero .sub{font-size:11.5px}.scroll{display:none}
+
+/* top actions */
+.hd{flex-direction:column;align-items:stretch;padding:0;background:rgba(10,11,16,.9)!important;backdrop-filter:blur(12px);color:var(--ink)!important;border-bottom:1px solid rgba(212,175,99,.3)}
+.hrow{display:flex;align-items:center;justify-content:space-between;padding:9px 16px 7px}
+.acts{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;border-top:1px solid var(--hair)}
+.acts a,.acts button{display:flex;align-items:center;justify-content:center;gap:5px;padding:9px 2px;font:600 10px Inter,"Noto Sans KR",sans-serif;letter-spacing:.14em;background:none;border:0;color:var(--ink);cursor:pointer;border-left:1px solid var(--hair)}
+.acts a:first-child{border-left:0}
+.acts .bk{background:linear-gradient(110deg,#5B5FF0 0%,#8E6CF5 40%,#D4AF63 50%,#8E6CF5 60%,#5B5FF0 100%);background-size:250% 100%;animation:shine 3.5s linear infinite;color:#fff}
+@keyframes shine{to{background-position:-250% 0}}
+.acts svg{width:13px;height:13px}
+.hero{margin-top:84px}
+footer{padding-bottom:40px}
+section,footer{scroll-margin-top:92px}
 </style></head><body>
-<header class="hd" id="hd"><div class="brand">LINE HOTEL<small>MYEONGDONG · SEOUL</small></div><div class="r"><button class="lang" id="langBtn">EN</button><button class="burger" id="burger" aria-label="menu"></button></div></header>
+<header class="hd" id="hd"><div class="hrow"><div class="brand">LINE HOTEL<small>MYEONGDONG · SEOUL</small></div><div class="r"><button class="lang" id="langBtn">EN</button><button class="burger" id="burger" aria-label="menu"></button></div></div>
+<nav class="acts"><a class="bk" id="bk" href="https://be.wingsbooking.com/en/LHM1/redirect/" target="_blank" rel="noopener">BOOK</a><button id="aMap">MAP</button><button id="aEat">EAT</button><a id="aCall" href="tel:+82237898111">CALL</a></nav></header>
 <div class="menu" id="menu"><button class="x" id="mx">×</button><div id="mlinks"></div><div class="langs" id="mlangs"><button data-l="en">ENGLISH</button><button data-l="ko">한국어</button><button data-l="zh">中文</button><button data-l="ja">日本語</button></div></div>
 <div id="app"></div>
-<div class="bar"><a href="tel:+82237898111">CALL</a><button id="barMap">MAP</button><a class="bk" id="bk" href="https://be.wingsbooking.com/en/LHM1/redirect/" target="_blank" rel="noopener">BOOK NOW</a></div>
+
 <div class="modal" id="modal"><div class="in"><div id="mtitle" class="serif" style="font-size:20px"></div><div class="qbig" id="mqr"></div><div id="msub" style="font-size:11px;color:#7B786F"></div><button class="ghost" style="color:#000;border-color:#000;margin-top:12px" onclick="closeModal()">CLOSE</button></div></div>
 <div class="toast" id="toast"></div>
 <script>
@@ -286,10 +300,12 @@ const X={en:{nav:["About","Rooms","Your stay","Location","Eat","Concierge","Cont
  ko:{nav:["호텔 소개","객실","이용 안내","오시는 길","맛집","컨시어지","연락처"],eyebrow:"MYEONGDONG · SEOUL · SINCE 2019",h1:"We will be<br>your <em>line.</em>",sub:"을지로입구역 바로 앞, 유리 외관의 시티 호텔 — 문을 나서면 바로 명동입니다.",ab:"도심 속 세련된 머무름",room:"아홉 가지 객실",stay:"이용 안내",loc:"모든 것이 가까이",eat:"주변 맛집",ask:"무엇이든 물어보세요",contact:"찾아오시는 길",guide:"옆으로 넘겨 사진 보기",area:"면적",bed:"침대",guest:"인원",view:"창문",yes:"있음",no:"없음",showTaxi:"택시 카드",copy:"주소 복사",rideT:"지하철로"},
  zh:{nav:["关于酒店","客房","入住指南","交通","美食","礼宾咨询","联系我们"],eyebrow:"MYEONGDONG · SEOUL · SINCE 2019",h1:"We will be<br>your <em>line.</em>",sub:"乙支路入口站正前方的玻璃外观城市酒店——出门就是明洞。",ab:"都市里的精致停留",room:"九种房型",stay:"入住指南",loc:"一切近在咫尺",eat:"周边美食",ask:"随时为您解答",contact:"联系我们",guide:"左右滑动查看更多照片",area:"面积",bed:"床型",guest:"人数",view:"窗户",yes:"有",no:"无",showTaxi:"出租车卡",copy:"复制地址",rideT:"乘地铁"},
  ja:{nav:["ホテルについて","客室","ご滞在案内","アクセス","グルメ","コンシェルジュ","お問い合わせ"],eyebrow:"MYEONGDONG · SEOUL · SINCE 2019",h1:"We will be<br>your <em>line.</em>",sub:"乙支路入口駅の目の前、ガラス張りのシティホテル。ドアを出ればそこは明洞。",ab:"都会の洗練されたステイ",room:"9つの客室タイプ",stay:"ご滞在案内",loc:"すべてがすぐそば",eat:"周辺グルメ",ask:"何でもお尋ねください",contact:"アクセス・連絡先",guide:"スワイプで写真をもっと見る",area:"面積",bed:"ベッド",guest:"定員",view:"窓",yes:"あり",no:"なし",showTaxi:"タクシーカード",copy:"住所をコピー",rideT:"地下鉄で"}};
+const ACT={en:["BOOK NOW","MAP","EAT","CALL"],ko:["예약하기","지도","맛집","전화"],zh:["立即预订","地图","美食","电话"],ja:["予約する","地図","グルメ","電話"]};
+const AIC=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11h16a8 8 0 0 1-16 0zM9 7c0-1.5 1-2 1-3.5M14 7c0-1.5 1-2 1-3.5"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>'];
 const IDS=["about","rooms","stay","location","eat","concierge","contact"];
 let rg="sup",msgs=[],hi=0;
 function render(){const t=T[L],x=X[L];document.body.className=L;document.documentElement.lang=L;
- $("#langBtn").textContent=({en:"EN",ko:"KO",zh:"中",ja:"日"})[L];$("#bk").textContent=t.book.toUpperCase?t.book.toUpperCase():t.book;
+ ["bk","aMap","aEat","aCall"].forEach((id,i)=>$("#"+id).innerHTML=AIC[i]+"<span>"+ACT[L][i]+"</span>");$("#langBtn").textContent=({en:"EN",ko:"KO",zh:"中",ja:"日"})[L];
  $("#mlinks").innerHTML=IDS.map((id,i)=>`<a href="#${id}" data-c><i>0${i+1}</i>${esc(x.nav[i])}</a>`).join("");
  $("#mlangs").querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.l===L));
  const rooms=ROOMS.filter(r=>r.g===rg);
@@ -363,7 +379,7 @@ $("#burger").onclick=()=>$("#menu").classList.add("on");$("#mx").onclick=()=>$("
 const LS=["en","ko","zh","ja"];$("#langBtn").onclick=()=>{L=LS[(LS.indexOf(L)+1)%4];save();render()};
 $("#mlangs").querySelectorAll("button").forEach(b=>b.onclick=()=>{L=b.dataset.l;save();render();$("#menu").classList.remove("on")});
 function save(){try{localStorage.setItem("line_lang",L)}catch(e){}msgs=[]}
-$("#barMap").onclick=()=>document.getElementById("location").scrollIntoView({behavior:"smooth"});
+$("#aMap").onclick=()=>document.getElementById("location").scrollIntoView({behavior:"smooth"});$("#aEat").onclick=()=>document.getElementById("eat").scrollIntoView({behavior:"smooth"});
 $("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};
 render();
 </script></body></html>
