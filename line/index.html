@@ -129,6 +129,9 @@ footer{margin-top:40px;padding:40px 18px 90px}footer h2{font-size:28px}footer p{
 .ghost{padding:8px 11px;font-size:9.5px}
 .bar a,.bar button{padding:11px 4px;font-size:9.5px}
 .menu a{font-size:24px;padding:8px 0}
+
+/* hero small */
+.hero{height:52svh;min-height:340px;max-height:460px}.hero .tx{bottom:22px}.hero h1{font-size:32px;margin:6px 0}.hero .line{margin:8px 0}.hero .sub{font-size:11.5px}.scroll{display:none}
 </style></head><body>
 <header class="hd" id="hd"><div class="brand">LINE HOTEL<small>MYEONGDONG · SEOUL</small></div><div class="r"><button class="lang" id="langBtn">EN</button><button class="burger" id="burger" aria-label="menu"></button></div></header>
 <div class="menu" id="menu"><button class="x" id="mx">×</button><div id="mlinks"></div><div class="langs" id="mlangs"><button data-l="en">ENGLISH</button><button data-l="ko">한국어</button><button data-l="zh">中文</button><button data-l="ja">日本語</button></div></div>
@@ -355,7 +358,7 @@ function lineMap(){const W=360,H=250,a=37.5598,b=37.5682,c=126.9755,d=126.9905,X
  const hx=Xp(CFG.lng),hy=Yp(CFG.lat);s+=`<circle cx="${hx}" cy="${hy}" r="16" fill="none" stroke="#fff" stroke-width=".8"/><circle cx="${hx}" cy="${hy}" r="5" fill="#fff"/><text x="${hx+20}" y="${hy+14}" fill="#fff" font-size="13" font-family="Cormorant Garamond" font-style="italic">Line Hotel</text>`;
  return s+`<text x="${W-8}" y="14" fill="rgba(255,255,255,.4)" font-size="7.5" text-anchor="end" font-family="Inter" letter-spacing="1.5">● FOOD · SCHEMATIC</text></svg>`}
 setInterval(()=>{const im=document.querySelectorAll(".hero img");if(!im.length)return;im[hi]&&im[hi].classList.remove("on");hi=(hi+1)%im.length;im[hi].classList.add("on")},5000);
-addEventListener("scroll",()=>$("#hd").classList.toggle("solid",scrollY>innerHeight*.75),{passive:true});
+addEventListener("scroll",()=>$("#hd").classList.toggle("solid",scrollY>innerHeight*.35),{passive:true});
 $("#burger").onclick=()=>$("#menu").classList.add("on");$("#mx").onclick=()=>$("#menu").classList.remove("on");$("#menu").addEventListener("click",e=>{if(e.target.closest("[data-c]"))$("#menu").classList.remove("on")});
 const LS=["en","ko","zh","ja"];$("#langBtn").onclick=()=>{L=LS[(LS.indexOf(L)+1)%4];save();render()};
 $("#mlangs").querySelectorAll("button").forEach(b=>b.onclick=()=>{L=b.dataset.l;save();render();$("#menu").classList.remove("on")});
