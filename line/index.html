@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#101217">
 <meta property="og:title" content="LINE HOTEL MYEONGDONG">
 <meta property="og:description" content="Myeongdong is your front yard. Rooms, local guide & directions.">
-<meta property="og:image" content="img/hero1.jpg">
+<meta property="og:image" content="img/h1d.jpg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,9 +45,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* hero */
 .hero{position:relative;padding:14px var(--pad) 0;max-width:var(--w);margin:0 auto}
 .frame{position:relative;border-radius:var(--r1);overflow:hidden;aspect-ratio:4/5;background:var(--surf)}
-.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .9s var(--ease),transform 6s linear}
-.frame img.on{opacity:1;transform:scale(1)}
-.frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,18,23,0) 35%,rgba(16,18,23,.55) 62%,rgba(16,18,23,.94) 100%)}
+.frame picture{position:absolute;inset:0;opacity:0;transition:opacity .9s var(--ease)}
+.frame picture img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 6s linear}
+.frame picture.on{opacity:1}
+.frame picture.on img{transform:scale(1)}
+.frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,18,23,0) 52%,rgba(16,18,23,.5) 72%,rgba(16,18,23,.92) 100%)}
 .hcopy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px}
 .hcopy .loc{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--brass);font-weight:600;margin-bottom:10px}
 .hcopy h1{font-family:var(--disp);font-weight:600;font-size:clamp(34px,8.6vw,64px);line-height:1.04;letter-spacing:-.015em;overflow-wrap:break-word;min-width:0}
@@ -202,7 +204,7 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
  :root{--pad:32px}
  .hd nav{display:flex}
  .lang{margin-left:0}
- .frame{aspect-ratio:16/8}
+ .frame{aspect-ratio:1920/700}
  .hcopy{padding:40px}
  .rail{grid-auto-columns:calc((100% - 24px)/3);margin:0;padding:2px 0 10px}
  .rooms{grid-auto-columns:calc((100% - 36px)/4)}
@@ -211,7 +213,7 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
  .sheet .pn{left:50%;right:auto;width:560px;bottom:auto;top:50%;border-radius:24px;transform:translate(-50%,-46%);opacity:0;transition:transform .3s var(--ease),opacity .25s}
  .sheet.show .pn{transform:translate(-50%,-50%);opacity:1}
 }
-@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}.rv{opacity:1;transform:none}.frame img{transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}.rv{opacity:1;transform:none}.frame picture img{transform:none}}
 @media (hover:hover) and (pointer:fine){.act:hover{background:#232835}.act.pri:hover{background:#E1BE82}.eat a:hover{border-color:var(--brass)}}
 </style>
 </head>
@@ -226,8 +228,11 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
 <main id="top">
 <div class="hero">
  <div class="frame" id="frame">
-  <img class="on" src="img/hero1.jpg" alt="LINE HOTEL Myeongdong" fetchpriority="high">
-  <img src="img/l_night.jpg" alt="" loading="lazy"><img src="img/hero2.jpg" alt="" loading="lazy"><img src="img/l_market.jpg" alt="" loading="lazy"><img src="img/hero3.jpg" alt="" loading="lazy">
+  <picture class="on"><source media="(min-width:760px)" srcset="img/h1d.jpg"><img src="img/h1m.jpg" alt="Superior Double room, LINE HOTEL Myeongdong" fetchpriority="high"></picture>
+  <picture><source media="(min-width:760px)" srcset="img/h2d.jpg"><img src="img/h2m.jpg" alt="Superior Twin room" loading="lazy"></picture>
+  <picture><img src="img/l_night.jpg" alt="Myeongdong at night" loading="lazy"></picture>
+  <picture><source media="(min-width:760px)" srcset="img/h3d.jpg"><img src="img/h3m.jpg" alt="Superior Triple room" loading="lazy"></picture>
+  <picture><img src="img/l_market.jpg" alt="Myeongdong street food" loading="lazy"></picture>
   <div class="dots" id="dots"></div>
   <div class="hcopy"><span class="loc" id="hLoc"></span><h1 id="hH">Myeongdong is your front yard.</h1><p id="hP">1 minute from Euljiro 1-ga Station. Shopping streets, street food and Namsan, all on foot.</p></div>
  </div>
@@ -507,7 +512,7 @@ function closeRoom(){const sh=$("#sheet");sh.classList.remove("show");sh.setAttr
 $$("[data-x]").forEach(e=>e.onclick=closeRoom);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeRoom();});
 $("#lang").onclick=()=>{L=LANGS[(LANGS.indexOf(L)+1)%LANGS.length];store.set("lh_lang",L);render();};
-(function slider(){const im=$$("#frame img"),d=$("#dots");let i=0;d.innerHTML=im.map((_,k)=>`<button aria-label="Photo ${k+1}" class="${k?"":"on"}"></button>`).join("");const db=$$("button",d);
+(function slider(){const im=$$("#frame picture"),d=$("#dots");let i=0;d.innerHTML=im.map((_,k)=>`<button aria-label="Photo ${k+1}" class="${k?"":"on"}"></button>`).join("");const db=$$("button",d);
  const go=k=>{im[i].classList.remove("on");db[i].classList.remove("on");i=k;im[i].classList.add("on");db[i].classList.add("on");};
  db.forEach((b,k)=>b.onclick=()=>go(k));if(!matchMedia("(prefers-reduced-motion: reduce)").matches)setInterval(()=>go((i+1)%im.length),5200);})();
 render();
