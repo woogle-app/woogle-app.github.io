@@ -48,15 +48,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hd .book{height:42px;padding:0 18px;border-radius:var(--r3);background:var(--brass);color:var(--onbrass);font-weight:800;font-size:16px;display:flex;align-items:center}
 /* hero */
 .hero{position:relative;padding:14px var(--pad) 0;max-width:var(--w);margin:0 auto}
-.frame{position:relative;border-radius:var(--r1);overflow:hidden;aspect-ratio:4/5;background:var(--surf)}
+.frame{position:relative;border-radius:var(--r1);overflow:hidden;aspect-ratio:4/3;background:var(--surf)}
 .frame picture{position:absolute;inset:0;opacity:0;transition:opacity .9s var(--ease)}
 .frame picture img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 6s linear}
 .frame picture.on{opacity:1}
 .frame picture.on img{transform:scale(1)}
 .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,18,23,0) 52%,rgba(16,18,23,.5) 72%,rgba(16,18,23,.92) 100%)}
-.hcopy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px}
-.hcopy .loc{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--brass);font-weight:600;margin-bottom:10px}
-.hcopy h1{font-family:var(--disp);font-weight:600;font-size:clamp(34px,8.6vw,64px);line-height:1.04;letter-spacing:-.015em;overflow-wrap:break-word;min-width:0}
+.hcopy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px 18px}
+.hcopy .loc{text-shadow:0 1px 6px rgba(0,0,0,.6);display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--brass);font-weight:600;margin-bottom:10px}
+.hcopy h1{font-family:var(--disp);font-weight:600;font-size:clamp(28px,7.4vw,52px);line-height:1.04;letter-spacing:-.015em;overflow-wrap:break-word;min-width:0}
 .hcopy p{margin-top:10px;color:#DCD5CA;font-size:15.5px;max-width:44ch}
 .dots{position:absolute;top:16px;right:16px;z-index:3;display:flex;gap:6px}
 .dots button{width:22px;height:3px;border-radius:2px;background:rgba(255,255,255,.35);transition:background-color .3s}
@@ -223,7 +223,7 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
  :root{--pad:32px}
  .guide{grid-template-columns:repeat(4,minmax(0,1fr))}
  .cis{grid-template-columns:repeat(2,minmax(0,1fr))}
- .frame{aspect-ratio:1920/700}
+ .frame{aspect-ratio:1920/520}
  .hcopy{padding:40px}
  .rail{grid-auto-columns:calc((100% - 24px)/3);margin:0;padding:2px 0 10px}
  .rooms{grid-auto-columns:calc((100% - 36px)/4)}
@@ -236,11 +236,13 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
 @media (hover:hover) and (pointer:fine){.act:hover{background:#232835}.act.pri:hover{background:#E1BE82}.eat a:hover{border-color:var(--brass)}}
 
 /* ---- BRIDGE overrides ---- */
-.hd{background:rgba(242,237,227,.82);border-bottom:1px solid var(--line)}
+.hd{background:rgba(242,237,227,.86);border-bottom:1px solid var(--line)}
+.tabs{border-top:1px solid var(--line)}
+.tabs a{color:var(--mute);border-color:var(--line);background:var(--surf)}
 .logo{font-weight:700;letter-spacing:-.02em;font-size:21px}
 .sec-h h2,.hcopy2 h1{font-weight:700;letter-spacing:-.035em}
 .sec-h h2.h3{font-size:clamp(22px,5vw,30px)}
-.frame{aspect-ratio:5/4}
+.frame{aspect-ratio:16/10}
 .frame::after{display:none}
 .stk{position:absolute;left:14px;bottom:14px;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
 .stk span{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:var(--r3);background:var(--brass);color:#fff;font-weight:700;font-size:14px;box-shadow:0 6px 20px rgba(28,26,23,.25)}
@@ -322,16 +324,15 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
 .lk-t{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:13.5px;font-weight:600}
 .lk-t span{display:inline-flex;gap:5px;align-items:center}.lk-t .ic{color:var(--yel)}
 .route .lnk{margin-top:10px}
-@media (min-width:760px){.mks{grid-template-columns:repeat(3,minmax(0,1fr))}.ddcard{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}.ddimgs{aspect-ratio:auto;min-height:380px}.duo{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.frame{aspect-ratio:16/5.6}.hcopy2 h1{font-size:clamp(32px,4.6vw,54px)}.studios{grid-template-columns:repeat(3,minmax(0,1fr))}.cis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:760px){.mks{grid-template-columns:repeat(3,minmax(0,1fr))}.ddcard{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}.ddimgs{aspect-ratio:auto;min-height:380px}.duo{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.frame{aspect-ratio:16/4.4}.hcopy2 h1{font-size:clamp(32px,4.6vw,54px)}.studios{grid-template-columns:repeat(3,minmax(0,1fr))}.cis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (hover:hover) and (pointer:fine){.act:hover{background:#FAF6EE}.act.pri:hover{background:#EC5A40}}
 </style>
 </head>
 <body>
 <header class="hd"><div class="wrap">
  <a class="logo" href="#top">BRIDGE<small>Hwanghak-dong · Sindang</small></a>
- <nav aria-label="Sections"><a href="#ddm" data-t="nav0">Neighbourhood</a><a href="#stay" data-t="nav1">Studios</a><a href="#prep" data-t="nav2">Before you fly</a><a href="#go" data-t="nav3">Getting here</a><a href="#eat" data-t="nav4">Eat</a></nav>
  <button class="lang" id="lang" aria-label="Language">EN</button>
-</div></header>
+</div><nav class="tabs" aria-label="Sections"><div class="wrap" id="tabs"></div></nav></header>
 
 <main id="top">
 <div class="hero">
@@ -596,7 +597,8 @@ function nm(e){const p=e.n.split(/ (?=[가-힣])/);return L==="ko"?(p[1]||p[0]):
 const W=(a,b)=>walkMin(dist(CFG.lat,CFG.lng,a,b));
 function render(){
  const t=T[L];document.documentElement.lang=L;
- $$("[data-t^=nav]").forEach((a,i)=>a.textContent=t.nav[i]);
+ const TB=["ddm","hood","stay","prep","go","eat"];
+ $("#tabs").innerHTML=TB.map((id,i)=>`<a href="#${id}">${(i==1?{en:"Markets",ko:"시장",zh:"市场",ja:"市場"}[L]:t.nav[i>1?i-1:i])}</a>`).join("");
  $("#lang").innerHTML=ic("globe","sm")+" "+LNAME[L];
  $("#hLoc").innerHTML=ic("pin","sm")+t.loc;$("#hH").textContent=t.h;$("#hP").textContent=t.p;
  $("#stk").innerHTML=`<span>${ic("train","sm")}${t.stk[0]}</span><span class="y">${ic("bag","sm")}${t.stk[1]} · ${W(DM.lat,DM.lng)} ${t.walk}</span>`;

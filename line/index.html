@@ -48,15 +48,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hd .book{height:42px;padding:0 18px;border-radius:var(--r3);background:var(--brass);color:var(--onbrass);font-weight:800;font-size:16px;display:flex;align-items:center}
 /* hero */
 .hero{position:relative;padding:14px var(--pad) 0;max-width:var(--w);margin:0 auto}
-.frame{position:relative;border-radius:var(--r1);overflow:hidden;aspect-ratio:4/5;background:var(--surf)}
+.frame{position:relative;border-radius:var(--r1);overflow:hidden;aspect-ratio:4/3;background:var(--surf)}
 .frame picture{position:absolute;inset:0;opacity:0;transition:opacity .9s var(--ease)}
 .frame picture img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 6s linear}
 .frame picture.on{opacity:1}
 .frame picture.on img{transform:scale(1)}
 .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,18,23,0) 52%,rgba(16,18,23,.5) 72%,rgba(16,18,23,.92) 100%)}
-.hcopy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px}
-.hcopy .loc{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--brass);font-weight:600;margin-bottom:10px}
-.hcopy h1{font-family:var(--disp);font-weight:600;font-size:clamp(34px,8.6vw,64px);line-height:1.04;letter-spacing:-.015em;overflow-wrap:break-word;min-width:0}
+.hcopy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:16px 18px}
+.hcopy .loc{text-shadow:0 1px 6px rgba(0,0,0,.6);display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--brass);font-weight:600;margin-bottom:10px}
+.hcopy h1{font-family:var(--disp);font-weight:600;font-size:clamp(28px,7.4vw,52px);line-height:1.04;letter-spacing:-.015em;overflow-wrap:break-word;min-width:0}
 .hcopy p{margin-top:10px;color:#DCD5CA;font-size:15.5px;max-width:44ch}
 .dots{position:absolute;top:16px;right:16px;z-index:3;display:flex;gap:6px}
 .dots button{width:22px;height:3px;border-radius:2px;background:rgba(255,255,255,.35);transition:background-color .3s}
@@ -223,7 +223,7 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
  :root{--pad:32px}
  .guide{grid-template-columns:repeat(4,minmax(0,1fr))}
  .cis{grid-template-columns:repeat(2,minmax(0,1fr))}
- .frame{aspect-ratio:1920/700}
+ .frame{aspect-ratio:1920/520}
  .hcopy{padding:40px}
  .rail{grid-auto-columns:calc((100% - 24px)/3);margin:0;padding:2px 0 10px}
  .rooms{grid-auto-columns:calc((100% - 36px)/4)}
