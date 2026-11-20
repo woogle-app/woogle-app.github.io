@@ -1,272 +1,516 @@
 <!DOCTYPE html>
-<html lang="ko"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LINE HOTEL MYEONGDONG</title>
-<meta name="description" content="을지로입구역 앞 명동 라인호텔 · 92 rooms · Myeongdong, Seoul">
-<meta property="og:title" content="LINE HOTEL MYEONGDONG"><meta property="og:image" content="img/hero1.jpg">
-<meta name="theme-color" content="#ffffff">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<meta name="description" content="LINE HOTEL MYEONGDONG — 1 minute from Euljiro 1-ga Station. Rooms, Myeongdong guide, before-you-fly checklist and directions.">
+<meta name="theme-color" content="#101217">
+<meta property="og:title" content="LINE HOTEL MYEONGDONG">
+<meta property="og:description" content="Myeongdong is your front yard. Rooms, local guide & directions.">
+<meta property="og:image" content="img/hero1.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap">
 <style>
-:root{--bg:#fff;--soft:#F5F5F7;--ink:#111114;--mute:#86868B;--line:#E8E8ED;--acc:#5B5FF0}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,"Noto Sans KR",-apple-system,"PingFang SC","Hiragino Sans",sans-serif;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
-.hd{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(16px)}
-.hr{max-width:560px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px 8px}
-.logo{font:700 15px Inter;letter-spacing:.32em}.logo span{display:block;font:500 8.5px Inter;letter-spacing:.42em;color:var(--mute);margin-top:1px}
-.lang{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:600;cursor:pointer}
-.acts{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:4px 16px 10px}
-.acts a,.acts button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 0 7px;border:0;border-radius:14px;background:var(--soft);font-size:11.5px;font-weight:600;cursor:pointer}
-.acts svg{width:18px;height:18px}.acts .bk{background:var(--ink);color:#fff}
-main{max-width:560px;margin:0 auto}
-.hero{margin:4px 16px 0;border-radius:22px;overflow:hidden;position:relative;aspect-ratio:16/10;background:var(--soft)}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}.hero img.on{opacity:1}
-.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:5px}.dots i{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.55);transition:.3s}.dots i.on{width:18px;background:#fff}
-.intro{padding:22px 20px 6px}
-.intro h1{font:700 28px/1.2 Inter,"Noto Sans KR";letter-spacing:-.02em;margin:0 0 8px}
-.intro h1 b{color:var(--acc)}
-.intro p{margin:0;color:var(--mute);font-size:14.5px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.tags span{font-size:12px;padding:5px 10px;border-radius:999px;background:var(--soft)}
-section{padding:40px 0 0}
-.st{display:flex;align-items:flex-end;justify-content:space-between;padding:0 20px;margin-bottom:14px}
-.st h2{font:700 22px/1.2 Inter,"Noto Sans KR";letter-spacing:-.02em;margin:0}
-.seg{display:flex;background:var(--soft);border-radius:999px;padding:3px}.seg button{border:0;background:none;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:600;color:var(--mute);cursor:pointer}.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.1)}
-.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 6px;scrollbar-width:none}.rail::-webkit-scrollbar{display:none}
-.rc{flex:none;width:76%;scroll-snap-align:center;cursor:pointer;border:0;background:none;padding:0;text-align:left}
-.rc img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block;background:var(--soft)}
-.rc h3{font-size:16px;margin:10px 2px 2px}.rc p{margin:0 2px;font-size:13px;color:var(--mute)}
-.cards{padding:0 20px;display:grid;gap:10px}
-.row{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--soft);border-radius:16px}
-.row .t{flex:1}.row b{font-size:14.5px;font-weight:600}.row small{display:block;font-size:12px;color:var(--mute)}
-.row .v{font:700 18px Inter}.row .v small{display:inline;font-size:11px;font-weight:500}
-.ln{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;color:#fff;font:700 10px Inter;margin-right:2px}
-.btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:14px;border-radius:14px;background:var(--ink);color:#fff;font-weight:600;font-size:14px;border:0;cursor:pointer}
-.btn.l{background:var(--soft);color:var(--ink)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.eat{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 20px}
-.eat a{background:var(--soft);border-radius:16px;padding:13px 14px}.eat b{display:block;font-size:13.5px;line-height:1.3}.eat small{display:block;color:var(--mute);font-size:11.5px;margin-top:4px}
-details{border-bottom:1px solid var(--line);margin:0 20px}details summary{list-style:none;display:flex;justify-content:space-between;padding:16px 0;font-weight:600;cursor:pointer}details summary::-webkit-details-marker{display:none}
-details summary:after{content:"+";font-weight:400;font-size:20px;line-height:1;color:var(--mute)}details[open] summary:after{content:"−"}
-details .c{padding:0 0 16px;color:#444;font-size:14px}details .c p{margin:0 0 6px}
-footer{margin-top:44px;padding:28px 20px 40px;background:var(--soft);font-size:13px;color:var(--mute)}footer b{color:var(--ink)}
+:root{
+ --bg:#101217;--bg2:#161920;--surf:#1C2029;--line:#2A2F3A;--ink:#F4EFE7;--mute:#A8A196;--dim:#6F6A62;
+ --brass:#D7B172;--brass2:#B8924F;--onbrass:#1A1408;
+ --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","PingFang SC","Hiragino Sans",sans-serif;
+ --disp:"Playfair Display","Pretendard Variable",Georgia,serif;
+ --r1:22px;--r2:14px;--r3:999px;--w:1120px;--pad:20px;
+ --ease:cubic-bezier(.23,1,.32,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;letter-spacing:-.005em;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:8px}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ic.sm{width:15px;height:15px}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 var(--pad)}
+/* header */
+.hd{position:sticky;top:0;z-index:40;background:rgba(16,18,23,.78);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.hd .wrap{display:flex;align-items:center;gap:12px;height:60px}
+.logo{font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:.02em;white-space:nowrap}
+.logo small{display:block;font-family:var(--sans);font-size:11px;color:var(--mute);letter-spacing:.02em;font-weight:500;margin-top:-3px}
+.hd nav{display:none;gap:22px;margin-left:auto;font-size:14px;color:var(--mute)}
+.hd nav a:hover{color:var(--ink)}
+.lang{margin-left:auto;display:flex;align-items:center;gap:6px;height:36px;padding:0 12px;border:1px solid var(--line);border-radius:var(--r3);font-size:13px;color:var(--ink)}
+.hd .book{height:36px;padding:0 16px;border-radius:var(--r3);background:var(--brass);color:var(--onbrass);font-weight:700;font-size:14px;display:flex;align-items:center}
+/* hero */
+.hero{position:relative;padding:14px var(--pad) 0;max-width:var(--w);margin:0 auto}
+.frame{position:relative;border-radius:var(--r1);overflow:hidden;aspect-ratio:4/5;background:var(--surf)}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .9s var(--ease),transform 6s linear}
+.frame img.on{opacity:1;transform:scale(1)}
+.frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,18,23,0) 35%,rgba(16,18,23,.55) 62%,rgba(16,18,23,.94) 100%)}
+.hcopy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px}
+.hcopy .loc{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--brass);font-weight:600;margin-bottom:10px}
+.hcopy h1{font-family:var(--disp);font-weight:600;font-size:clamp(34px,8.6vw,64px);line-height:1.04;letter-spacing:-.015em;overflow-wrap:break-word;min-width:0}
+.hcopy p{margin-top:10px;color:#DCD5CA;font-size:15.5px;max-width:44ch}
+.dots{position:absolute;top:16px;right:16px;z-index:3;display:flex;gap:6px}
+.dots button{width:22px;height:3px;border-radius:2px;background:rgba(255,255,255,.35);transition:background-color .3s}
+.dots button.on{background:var(--ink)}
+/* action strip */
+.acts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}
+.act{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;height:76px;border-radius:var(--r2);background:var(--surf);border:1px solid var(--line);font-size:13px;font-weight:600;transition:transform .16s var(--ease),background-color .2s}
+.act:active{transform:scale(.97)}
+.act.pri{background:var(--brass);color:var(--onbrass);border-color:var(--brass)}
+.act .ic{width:22px;height:22px}
+/* sections */
+section{padding:64px 0 8px}
+.sec-h{margin-bottom:22px}
+.sec-h h2{font-family:var(--disp);font-weight:600;font-size:clamp(28px,6.4vw,44px);line-height:1.1;letter-spacing:-.01em;overflow-wrap:break-word}
+.sec-h p{color:var(--mute);margin-top:8px;max-width:52ch}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+/* myeongdong rail */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:78%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px var(--pad) 10px;margin:0 calc(var(--pad)*-1);scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.spot{scroll-snap-align:start;position:relative;border-radius:var(--r1);overflow:hidden;aspect-ratio:4/5;background:var(--surf)}
+.spot img{width:100%;height:100%;object-fit:cover}
+.spot::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,11,14,.9))}
+.spot .tx{position:absolute;left:16px;right:16px;bottom:16px;z-index:2}
+.spot .wk{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;color:var(--onbrass);background:var(--brass);padding:4px 10px;border-radius:var(--r3)}
+.spot h3{font-size:21px;font-weight:700;margin-top:10px;line-height:1.25}
+.spot p{color:#D8D1C6;font-size:14px;margin-top:4px}
+.spot.txt{display:flex;align-items:flex-end;background:linear-gradient(160deg,#252a35,#171a21);border:1px solid var(--line)}
+.spot.txt::after{display:none}
+.spot.txt .tx{position:static;padding:18px}
+/* day plan */
+.day{margin-top:26px;border-top:1px solid var(--line)}
+.day li{list-style:none;display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.day time{font-family:var(--disp);font-size:20px;color:var(--brass);line-height:1.3}
+.day b{display:block;font-size:16px}
+.day p{color:var(--mute);font-size:14.5px;margin-top:2px}
+/* rooms */
+.seg{display:inline-flex;padding:4px;border-radius:var(--r3);background:var(--surf);border:1px solid var(--line);margin-bottom:16px}
+.seg button{height:36px;padding:0 18px;border-radius:var(--r3);font-size:14px;font-weight:600;color:var(--mute);transition:background-color .2s,color .2s}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.rooms{grid-auto-columns:72%}
+.room{scroll-snap-align:start;text-align:left;border-radius:var(--r1);overflow:hidden;background:var(--surf);border:1px solid var(--line);transition:transform .16s var(--ease)}
+.room:active{transform:scale(.98)}
+.room .ph{aspect-ratio:4/3;overflow:hidden}
+.room .ph img{width:100%;height:100%;object-fit:cover}
+.room .rt{padding:14px 16px 16px}
+.room h3{font-size:17px;font-weight:700}
+.room .meta{display:flex;flex-wrap:wrap;gap:6px 12px;color:var(--mute);font-size:13.5px;margin-top:6px}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:var(--r3);border:1px solid var(--line);color:var(--mute)}
+.tag.win{color:var(--brass);border-color:rgba(215,177,114,.45)}
+.amen{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px;margin-top:22px;color:var(--mute);font-size:14.5px}
+.amen li{list-style:none;display:flex;gap:8px;align-items:center}
+.amen .ic{color:var(--brass);width:17px;height:17px}
 /* sheet */
-.sheet{position:fixed;inset:0;z-index:60;display:none}.sheet.on{display:block}
-.sheet .bg{position:absolute;inset:0;background:rgba(0,0,0,.45)}
-.sheet .pn{position:absolute;left:0;right:0;bottom:0;max-height:92vh;overflow:auto;background:#fff;border-radius:22px 22px 0 0;max-width:560px;margin:0 auto;padding-bottom:20px;animation:up .25s ease}
-@keyframes up{from{transform:translateY(40px);opacity:.6}}
-.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal::-webkit-scrollbar{display:none}.gal img{flex:none;width:100%;aspect-ratio:2/1;object-fit:cover;scroll-snap-align:start}
-.pn .in{padding:16px 20px}.pn h3{font-size:21px;margin:0 0 4px}
-.spec{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:14px 0}.spec div{background:var(--soft);border-radius:12px;padding:10px 6px;text-align:center}.spec b{display:block;font-size:14px}.spec span{font-size:10.5px;color:var(--mute)}
-.x{position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;font-size:18px;cursor:pointer;z-index:2}
-.cnt{position:absolute;left:14px;top:14px;background:rgba(0,0,0,.5);color:#fff;font-size:11px;padding:2px 8px;border-radius:999px}
-.toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 16px;border-radius:999px;font-size:13px;opacity:0;transition:.2s;z-index:80;pointer-events:none}.toast.on{opacity:1}
-.taxi{display:none;margin:10px 20px 0;padding:20px;border:2px solid var(--ink);border-radius:16px;text-align:center}.taxi b{display:block;font-size:24px;line-height:1.35;margin:6px 0}
-</style></head><body>
-<header class="hd"><div class="hr"><div class="logo">LINE HOTEL<span>MYEONGDONG</span></div><button class="lang" id="lang">EN</button></div>
-<nav class="acts" id="acts"></nav></header>
-<main id="app"></main>
-<div class="sheet" id="sheet"><div class="bg" id="sbg"></div><div class="pn" id="pn"></div></div>
-<div class="toast" id="toast"></div>
-<script>
+.sheet{position:fixed;inset:0;z-index:60;display:none}
+.sheet.open{display:block}
+.sheet .bd{position:absolute;inset:0;background:rgba(0,0,0,.6);opacity:0;transition:opacity .25s}
+.sheet.show .bd{opacity:1}
+.sheet .pn{position:absolute;left:0;right:0;bottom:0;max-height:92dvh;overflow:auto;background:var(--bg2);border-radius:24px 24px 0 0;transform:translateY(100%);transition:transform .38s cubic-bezier(.32,.72,0,1);padding-bottom:calc(20px + env(safe-area-inset-bottom))}
+.sheet.show .pn{transform:none}
+.pn .gal{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.pn .gal::-webkit-scrollbar{display:none}
+.pn .gal img{scroll-snap-align:start;width:100%;aspect-ratio:4/3;object-fit:cover}
+.pn .x{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;background:rgba(16,18,23,.7);display:grid;place-items:center;z-index:2}
+.pn .bd2{padding:18px var(--pad) 0}
+.pn h3{font-family:var(--disp);font-size:28px;font-weight:600}
+.pn .cnt{font-size:12.5px;color:var(--mute);margin-top:6px}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:16px 0}
+.spec div{background:var(--surf);border:1px solid var(--line);border-radius:var(--r2);padding:12px}
+.spec b{display:block;font-size:17px}
+.spec span{font-size:12.5px;color:var(--mute)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:var(--r2);background:var(--brass);color:var(--onbrass);font-weight:700;font-size:16px;width:100%;transition:transform .16s var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+/* pre */
+.pre-bar{position:relative;height:38px;border-radius:var(--r3);background:var(--surf);border:1px solid var(--line);overflow:hidden;margin-bottom:14px}
+.pre-bar i{position:absolute;inset:0;background:linear-gradient(90deg,var(--brass2),var(--brass));transform-origin:left;transition:transform .5s var(--ease)}
+.pre-bar span{position:relative;display:flex;align-items:center;height:100%;padding:0 16px;font-size:13.5px;font-weight:700;mix-blend-mode:difference;color:#fff}
+.pre{list-style:none;display:grid;gap:10px}
+.pre li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:16px;border-radius:var(--r2);background:var(--surf);border:1px solid var(--line);transition:border-color .2s}
+.pre li.on{border-color:rgba(215,177,114,.5)}
+.pre li.on b{color:var(--mute);text-decoration:line-through;text-decoration-color:var(--brass)}
+.tick{width:44px;height:44px;border-radius:12px;border:1.5px solid var(--dim);display:grid;place-items:center;color:transparent;transition:background-color .2s,border-color .2s,transform .16s var(--ease)}
+.tick:active{transform:scale(.94)}
+.pre li.on .tick{background:var(--brass);border-color:var(--brass);color:var(--onbrass)}
+.pre b{font-size:16px}
+.pre p{color:var(--mute);font-size:14.5px;margin-top:2px}
+.lnk{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:14px;font-weight:700;color:var(--brass)}
+/* routes */
+.routes{display:grid;gap:10px}
+.route{padding:18px;border-radius:var(--r2);background:var(--surf);border:1px solid var(--line)}
+.route .top{display:flex;align-items:center;gap:12px}
+.route .top .ic{width:26px;height:26px;color:var(--brass)}
+.route h3{font-size:17px;font-weight:700}
+.route .sub{font-size:13.5px;color:var(--mute)}
+.route .best{margin-left:auto;font-size:12px;font-weight:700;color:var(--onbrass);background:var(--brass);padding:3px 10px;border-radius:var(--r3);white-space:nowrap}
+.steps{list-style:none;margin-top:12px;padding-left:12px;border-left:1.5px dashed var(--line)}
+.steps li{position:relative;padding:4px 0 4px 14px;color:#D8D1C6;font-size:14.5px}
+.steps li::before{content:"";position:absolute;left:-17px;top:13px;width:8px;height:8px;border-radius:50%;background:var(--brass)}
+.stns{display:grid;gap:8px;margin-top:22px}
+.stn{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--r2);background:var(--surf);border:1px solid var(--line)}
+.ln{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;color:#fff;font-weight:800;font-size:13px}
+.stn b{font-size:15.5px}
+.stn .m{margin-left:auto;font-size:14px;color:var(--brass);font-weight:700;white-space:nowrap}
+.map{margin-top:14px;border-radius:var(--r1);overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--surf)}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.2) contrast(1.05)}
+.mapbtns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+.taxi{margin-top:14px;padding:20px;border-radius:var(--r1);background:var(--ink);color:#15161A}
+.taxi small{font-size:13px;font-weight:600;color:#6B655C}
+.taxi .ko{font-size:24px;font-weight:800;line-height:1.35;margin-top:6px;letter-spacing:-.02em}
+.taxi .en{font-size:14px;color:#57524A;margin-top:6px}
+.taxi button{margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#15161A;border:1px solid #CFC8BC;border-radius:var(--r3);padding:8px 14px}
+/* eat */
+.tip{display:flex;gap:12px;padding:16px;border-radius:var(--r2);background:linear-gradient(135deg,rgba(215,177,114,.16),rgba(215,177,114,.04));border:1px solid rgba(215,177,114,.35);margin-bottom:14px}
+.tip .ic{color:var(--brass);margin-top:2px}
+.tip b{display:block}
+.tip p{color:#D8D1C6;font-size:14.5px}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:12px}
+.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;height:36px;padding:0 15px;border-radius:var(--r3);border:1px solid var(--line);font-size:14px;color:var(--mute);transition:background-color .2s,color .2s}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.eats{list-style:none;border-top:1px solid var(--line)}
+.eat{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.eat b{font-size:16px}
+.eat p{grid-column:1;color:var(--mute);font-size:14.5px}
+.eat .h{grid-column:1;font-size:13px;color:var(--dim)}
+.eat a{grid-row:1/4;grid-column:2;align-self:center;display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:var(--r3);border:1px solid var(--line);font-size:13.5px;font-weight:600;white-space:nowrap}
+.eat .d{color:var(--brass);font-weight:700}
+/* info */
+.acc{border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;font-size:17px;font-weight:700;cursor:pointer}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"";width:10px;height:10px;border-right:1.7px solid var(--mute);border-bottom:1.7px solid var(--mute);transform:rotate(45deg);transition:transform .2s;margin-right:4px}
+.acc details[open] summary::after{transform:rotate(-135deg)}
+.acc .in{padding:0 0 18px;color:var(--mute);font-size:15px}
+.acc .in li{margin-left:18px;margin-bottom:4px}
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:12px}
+.kv div{padding:14px;border-radius:var(--r2);background:var(--surf);border:1px solid var(--line)}
+.kv span{font-size:12.5px;color:var(--mute)}
+.kv b{display:block;font-size:20px;color:var(--ink);font-family:var(--disp)}
+footer{margin-top:60px;padding:36px 0 calc(40px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--mute);font-size:14px}
+footer .logo{color:var(--ink);font-size:22px;margin-bottom:12px}
+footer .ct{display:grid;gap:6px;margin-bottom:18px}
+footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
+.cred{font-size:12px;color:var(--dim);line-height:1.5}
+.cred a{text-decoration:underline}
+@media (min-width:760px){
+ :root{--pad:32px}
+ .hd nav{display:flex}
+ .lang{margin-left:0}
+ .frame{aspect-ratio:16/8}
+ .hcopy{padding:40px}
+ .rail{grid-auto-columns:calc((100% - 24px)/3);margin:0;padding:2px 0 10px}
+ .rooms{grid-auto-columns:calc((100% - 36px)/4)}
+ .acts{grid-template-columns:repeat(4,minmax(0,1fr));max-width:640px}
+ .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+ .sheet .pn{left:50%;right:auto;width:560px;bottom:auto;top:50%;border-radius:24px;transform:translate(-50%,-46%);opacity:0;transition:transform .3s var(--ease),opacity .25s}
+ .sheet.show .pn{transform:translate(-50%,-50%);opacity:1}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}.rv{opacity:1;transform:none}.frame img{transform:none}}
+@media (hover:hover) and (pointer:fine){.act:hover{background:#232835}.act.pri:hover{background:#E1BE82}.eat a:hover{border-color:var(--brass)}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="wrap">
+ <a class="logo" href="#top">LINE HOTEL<small>Myeongdong · Seoul</small></a>
+ <nav aria-label="Sections"><a href="#md" data-t="nav0">Myeongdong</a><a href="#rooms" data-t="nav1">Rooms</a><a href="#prep" data-t="nav2">Before you fly</a><a href="#go" data-t="nav3">Getting here</a><a href="#eat" data-t="nav4">Eat</a></nav>
+ <button class="lang" id="lang" aria-label="Language">EN</button>
+ <a class="book" id="hdBook" target="_blank" rel="noopener" data-t="book">Book</a>
+</div></header>
 
+<main id="top">
+<div class="hero">
+ <div class="frame" id="frame">
+  <img class="on" src="img/hero1.jpg" alt="LINE HOTEL Myeongdong" fetchpriority="high">
+  <img src="img/l_night.jpg" alt="" loading="lazy"><img src="img/hero2.jpg" alt="" loading="lazy"><img src="img/l_market.jpg" alt="" loading="lazy"><img src="img/hero3.jpg" alt="" loading="lazy">
+  <div class="dots" id="dots"></div>
+  <div class="hcopy"><span class="loc" id="hLoc"></span><h1 id="hH">Myeongdong is your front yard.</h1><p id="hP">1 minute from Euljiro 1-ga Station. Shopping streets, street food and Namsan, all on foot.</p></div>
+ </div>
+ <div class="acts" id="acts"></div>
+</div>
+
+<div class="wrap">
+<section id="md">
+ <div class="sec-h rv"><h2 id="mdT"></h2><p id="mdP"></p></div>
+ <div class="rail" id="spots"></div>
+ <ol class="day rv" id="day"></ol>
+</section>
+
+<section id="rooms">
+ <div class="sec-h rv"><h2 id="rmT"></h2><p id="rmP"></p></div>
+ <div class="seg" id="seg"></div>
+ <div class="rail rooms" id="roomRail"></div>
+ <ul class="amen" id="amen"></ul>
+</section>
+
+<section id="prep" class="rv"></section>
+
+<section id="go">
+ <div class="sec-h rv"><h2 id="goT"></h2><p id="goP"></p></div>
+ <div class="two">
+  <div class="routes rv" id="routes"></div>
+  <div class="rv">
+   <div class="map"><iframe title="Map" loading="lazy" src="https://maps.google.com/maps?q=37.565327,126.983674&z=16&output=embed"></iframe></div>
+   <div class="mapbtns"><a class="btn ghost" id="gmBtn" target="_blank" rel="noopener">Google Maps</a><a class="btn ghost" id="nmBtn" target="_blank" rel="noopener">Naver Map</a></div>
+   <div class="stns" id="stns"></div>
+   <div class="taxi"><small id="txS"></small><div class="ko">서울특별시 중구 명동3길 36<br>라인호텔 명동</div><div class="en">36 Myeongdong 3-gil, Jung-gu, Seoul</div><button id="txC"></button></div>
+  </div>
+ </div>
+</section>
+
+<section id="eat">
+ <div class="sec-h rv"><h2 id="eatT"></h2><p id="eatP"></p></div>
+ <div class="tip rv" id="eatTip"></div>
+ <div class="chips" id="chips"></div>
+ <ul class="eats" id="eats"></ul>
+</section>
+
+<section id="info">
+ <div class="sec-h rv"><h2 id="infT"></h2></div>
+ <div class="kv rv" id="kv"></div>
+ <div class="acc rv" id="acc"></div>
+</section>
+</div>
+</main>
+
+<footer><div class="wrap">
+ <div class="logo">LINE HOTEL</div>
+ <div class="ct" id="ct"></div>
+ <p class="cred" id="cred"></p>
+</div></footer>
+
+<div class="sheet" id="sheet" aria-hidden="true"><div class="bd" data-x></div><div class="pn" role="dialog" aria-modal="true" aria-labelledby="shT"><button class="x" data-x aria-label="Close"></button><div class="gal" id="gal"></div><div class="bd2"><h3 id="shT"></h3><div class="cnt" id="shC"></div><div class="spec" id="spec"></div><p id="shP" style="color:var(--mute);font-size:14.5px;margin-bottom:16px"></p><a class="btn" id="shB" target="_blank" rel="noopener"></a></div></div></div>
+
+<script>
+/* ===== shared: before-you-fly checklist + helpers (LINE & BRIDGE) ===== */
+const PRE = {
+ en:{t:"Before you fly",p:"Eight things to sort out at home. Tick them off — we'll remember on this phone.",done:"done",items:[
+  ["e-Arrival Card","Required for all visitors since 2026. Submit it online within 3 days before landing and keep the confirmation.","https://www.e-arrivalcard.go.kr","Open e-Arrival"],
+  ["K-ETA check","Many visa-free nationalities are exempt from K-ETA until 31 Dec 2026. Check yours on the official site.","https://www.k-eta.go.kr","Check K-ETA"],
+  ["Data on landing","Buy an eSIM or pocket Wi-Fi before you fly, so maps and taxis work the minute you land."],
+  ["Korean apps","Install Naver Map (subway & walking), Kakao T (taxi), Papago (translate). Google Maps walking directions are limited in Korea."],
+  ["Reserve restaurants","Popular places book out 2–4 weeks ahead. CatchTable Global lets you sign up with email and pay deposits by foreign card.","https://apps.apple.com/app/id1639046576","Get CatchTable"],
+  ["Transit card","Pick up a T-money or WOWPASS card at the airport convenience store for subway and buses."],
+  ["Power plug","Korea uses 220V with type C/F plugs (two round pins). Bring an adapter."],
+  ["Passport for shopping","Many stores give an instant tax refund on the spot — just show your passport."]]},
+ ko:{t:"출발 전 체크리스트",p:"집에서 미리 끝내면 좋은 8가지. 체크하면 이 폰에 저장돼요.",done:"완료",items:[
+  ["전자입국신고서(e-Arrival)","2026년부터 모든 외국인 필수. 도착 3일 전부터 온라인 제출하고 확인증을 저장하세요.","https://www.e-arrivalcard.go.kr","e-Arrival 바로가기"],
+  ["K-ETA 확인","무비자 입국 국가 상당수는 2026년 12월 31일까지 K-ETA 면제예요. 공식 사이트에서 국적별로 확인하세요.","https://www.k-eta.go.kr","K-ETA 확인"],
+  ["데이터 준비","eSIM이나 포켓와이파이를 미리 사 두면 도착하자마자 지도·택시를 쓸 수 있어요."],
+  ["한국 필수 앱","네이버 지도(지하철·도보), 카카오 T(택시), 파파고(번역). 한국에선 구글 지도 도보 안내가 제한적이에요."],
+  ["맛집 사전 예약","인기 식당은 2~4주 전에 마감돼요. 캐치테이블 글로벌은 이메일 가입·해외카드 예약금 결제가 돼요.","https://apps.apple.com/app/id1639046576","캐치테이블 받기"],
+  ["교통카드","공항 편의점에서 티머니나 WOWPASS 카드를 사면 지하철·버스 OK."],
+  ["전원 플러그","한국은 220V, C/F 타입(둥근 핀 2개)이에요. 어댑터를 챙기세요."],
+  ["쇼핑엔 여권","여권만 보여주면 즉시 세금 환급해 주는 매장이 많아요."]]},
+ zh:{t:"出发前清单",p:"在家就能搞定的8件事。打勾后会保存在这台手机上。",done:"完成",items:[
+  ["电子入境卡 e-Arrival","2026年起所有外国旅客必填。抵达前3天内在线提交，并保存确认页。","https://www.e-arrivalcard.go.kr","填写入境卡"],
+  ["确认 K-ETA","许多免签国家至2026年12月31日免办K-ETA，请在官网按国籍确认。","https://www.k-eta.go.kr","查询K-ETA"],
+  ["落地即上网","出发前买好eSIM或随身Wi-Fi，落地就能用地图和打车。"],
+  ["韩国必备App","Naver地图（地铁·步行）、Kakao T（打车）、Papago（翻译）。谷歌地图在韩国步行导航有限。"],
+  ["提前订餐厅","热门餐厅提前2–4周就订满。CatchTable国际版可用邮箱注册、外卡付订金。","https://apps.apple.com/app/id1639046576","下载CatchTable"],
+  ["交通卡","在机场便利店买T-money或WOWPASS卡，地铁公交都能刷。"],
+  ["电源插头","韩国220V，C/F型插头（两个圆孔）。记得带转换头。"],
+  ["购物带护照","很多商店出示护照即可当场退税。"]]},
+ ja:{t:"出発前チェックリスト",p:"日本で済ませておきたい8つのこと。チェックはこの端末に保存されます。",done:"完了",items:[
+  ["電子入国申告書 e-Arrival","2026年から全ての外国人に必須。到着3日前から事前にオンライン提出し、確認画面を保存。","https://www.e-arrivalcard.go.kr","e-Arrivalへ"],
+  ["K-ETAの確認","多くのビザ免除国は2026年12月31日までK-ETA免除。公式サイトで国籍ごとに確認を。","https://www.k-eta.go.kr","K-ETAを確認"],
+  ["到着してすぐネット","eSIMかポケットWi-Fiを事前に用意すれば、着いてすぐ地図とタクシーが使えます。"],
+  ["韓国の必須アプリ","NAVER Map（地下鉄・徒歩）、Kakao T（タクシー）、Papago（翻訳）。韓国ではGoogleマップの徒歩案内は限定的です。"],
+  ["レストランを予約","人気店は2〜4週間前に埋まります。CatchTable Globalはメール登録・海外カードで予約金OK。","https://apps.apple.com/app/id1639046576","CatchTableを入手"],
+  ["交通カード","空港のコンビニでT-moneyかWOWPASSを買えば地下鉄・バスに乗れます。"],
+  ["電源プラグ","韓国は220V、C/Fタイプ（丸ピン2本）。変換プラグを忘れずに。"],
+  ["買い物はパスポート","パスポートを見せればその場で免税してくれる店が多いです。"]]}
+};
+const LANGS=["en","ko","zh","ja"], LNAME={en:"EN",ko:"한국어",zh:"中文",ja:"日本語"};
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+function pickLang(key){const s=store.get(key,null);if(s&&LANGS.includes(s))return s;const n=(navigator.language||"en").slice(0,2);return LANGS.includes(n)?n:"en";}
+function dist(a,b,c,d){const R=6371e3,t=Math.PI/180,x=(d-b)*t*Math.cos((a+c)/2*t),y=(c-a)*t;return Math.round(Math.sqrt(x*x+y*y)*R);}
+function walkMin(m){return Math.max(1,Math.round(m*1.3/75));}
+function gmap(e){return e.pid?`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(e.n)}&query_place_id=${e.pid}`:`https://www.google.com/maps/search/?api=1&query=${e.lat},${e.lng}`;}
+function nmap(q){return `https://map.naver.com/p/search/${encodeURIComponent(q)}`;}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+const ICON={
+ check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+ arrow:'<path d="M7 17L17 7M9 7h8v8"/>',
+ pin:'<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+ phone:'<path d="M6.5 3.5h3l1.5 4-2 1.3a11 11 0 0 0 6.2 6.2l1.3-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2z"/>',
+ bed:'<path d="M3 18V7M3 13h18v5M21 13a3 3 0 0 0-3-3h-7v3"/><circle cx="7" cy="10.5" r="1.8"/>',
+ fork:'<path d="M7 3v8a2 2 0 0 0 2 2v8M11 3v8M7 7h4M16 21V3c2 1 3 3.5 3 6.5V14h-3"/>',
+ cal:'<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+ plane:'<path d="M2.5 13.5l7-2 4-7.5h2l-1.5 7.5 5.5-1.5 1 1.5-6 3.5-4 4.5H9l1-4-6 .5z"/>',
+ train:'<rect x="5" y="3.5" width="14" height="13" rx="3"/><path d="M5 11h14M8.5 20l2-3.5M15.5 20l-2-3.5"/><circle cx="9" cy="14" r=".8"/><circle cx="15" cy="14" r=".8"/>',
+ bus:'<rect x="4" y="3.5" width="16" height="14" rx="2.5"/><path d="M4 11h16M7.5 20v-2.5M16.5 20v-2.5"/><circle cx="8" cy="14.3" r=".8"/><circle cx="16" cy="14.3" r=".8"/>',
+ car:'<path d="M4 16.5V12l2-5h12l2 5v4.5M4 16.5h16M6.5 19.5v-3M17.5 19.5v-3M4 12h16"/>',
+ mail:'<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/>',
+ globe:'<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 3.5 5.5 3.5 8.5S14.5 17.9 12 20.5M12 3.5C9.5 6.1 8.5 9 8.5 12s1 5.9 3.5 8.5"/>',
+ copy:'<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/>',
+ close:'<path d="M6 6l12 12M18 6L6 18"/>',
+ bag:'<path d="M5 8h14l-1 12.5H6zM9 8V6.5a3 3 0 0 1 6 0V8"/>',
+ key:'<circle cx="8" cy="15" r="4"/><path d="M11 12l8.5-8.5M16 7l2.5 2.5M14 9l2 2"/>',
+ walk:'<circle cx="13" cy="4.5" r="1.8"/><path d="M10 21l2-6 2.5 2.5V21M8 11l2.5-3.5h3L16 11l2.5 1M12.5 7.5L11 13"/>',
+ cart:'<path d="M3 4h2.5l2.2 11h10.6L20.5 7H7"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/>'
+};
+function ic(n,c=""){return `<svg class="ic ${c}" viewBox="0 0 24 24" aria-hidden="true">${ICON[n]||""}</svg>`;}
+function renderPre(el,lang,key){
+ const d=PRE[lang],st=store.get(key,{});
+ const n=d.items.filter((_,i)=>st[i]).length;
+ el.innerHTML=`<div class="sec-h"><h2>${d.t}</h2><p>${d.p}</p></div>
+ <div class="pre-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${d.items.length}" aria-valuenow="${n}"><i style="transform:scaleX(${n/d.items.length})"></i><span>${n}/${d.items.length} ${d.done}</span></div>
+ <ol class="pre">${d.items.map((it,i)=>`<li class="${st[i]?"on":""}"><button class="tick" data-i="${i}" aria-pressed="${!!st[i]}" aria-label="${esc(it[0])}">${ic("check")}</button><div><b>${it[0]}</b><p>${it[1]}</p>${it[2]?`<a class="lnk" href="${it[2]}" target="_blank" rel="noopener">${it[3]} ${ic("arrow","sm")}</a>`:""}</div></li>`).join("")}</ol>`;
+ $$(".tick",el).forEach(b=>b.onclick=()=>{const s=store.get(key,{});s[b.dataset.i]=!s[b.dataset.i];store.set(key,s);renderPre(el,lang,key);});
+}
+function copyText(t,btn,label){(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{const o=btn.innerHTML;btn.textContent=label;setTimeout(()=>btn.innerHTML=o,1400)}).catch(()=>{});}
+function reveal(){if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){$$(".rv").forEach(e=>e.classList.add("in"));return;}
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px"});$$(".rv").forEach(e=>io.observe(e));}
 
 const BOOK="https://be.wingsbooking.com/en/LHM1/redirect/";
-const CFG={email:"rsvn@line-hotel.co.kr",addrKo:"서울특별시 중구 명동3길 36",addrEn:"36 Myeongdong 3-gil, Jung-gu, Seoul",lat:37.565327,lng:126.983674,checkin:"15:00",checkout:"11:00",phone:"+82-2-3789-8111",wifi:"LINE_HOTEL",rooms:92};
-/* 사진: images/ 폴더에 아래 파일명으로 넣으면 자동 표시 */
-
-const BED={D:{en:"Double",ko:"더블",zh:"大床",ja:"ダブル"},S:{en:"Single",ko:"싱글",zh:"单人床",ja:"シングル"}};
+const CFG={email:"rsvn@line-hotel.co.kr",tel:"+82-2-3789-8111",lat:37.565327,lng:126.983674,addrKo:"서울특별시 중구 명동3길 36",addrEn:"36 Myeongdong 3-gil, Jung-gu, Seoul (04534)"};
 const ROOMS=[
- {id:"superDouble",g:"sup",n:{en:"Superior Double",ko:"슈페리어 더블",zh:"高级大床房",ja:"スーペリアダブル"},a:16.5,b:[["D",1]],c:2,w:1},
- {id:"superTwin",g:"sup",n:{en:"Superior Twin",ko:"슈페리어 트윈",zh:"高级双床房",ja:"スーペリアツイン"},a:19.8,b:[["S",2]],c:2,w:1},
- {id:"superFamily",g:"sup",n:{en:"Superior Family Twin",ko:"슈페리어 패밀리 트윈",zh:"高级家庭房",ja:"スーペリアファミリーツイン"},a:21.8,b:[["D",1],["S",1]],c:3,w:1},
- {id:"superTriple",g:"sup",n:{en:"Superior Triple",ko:"슈페리어 트리플",zh:"高级三人房",ja:"スーペリアトリプル"},a:21.8,b:[["S",3]],c:3,w:1},
- {id:"quad",g:"sup",n:{en:"Quad",ko:"쿼드",zh:"四人房",ja:"クアッド"},a:21.8,b:[["D",1],["S",2]],c:4,w:0},
- {id:"ecoDouble",g:"eco",n:{en:"Economy Double",ko:"이코노미 더블",zh:"经济大床房",ja:"エコノミーダブル"},a:13.2,b:[["D",1]],c:2,w:0},
- {id:"ecoTwin",g:"eco",n:{en:"Economy Twin",ko:"이코노미 트윈",zh:"经济双床房",ja:"エコノミーツイン"},a:13.8,b:[["S",2]],c:2,w:0},
- {id:"ecoFamily",g:"eco",n:{en:"Economy Family Twin",ko:"이코노미 패밀리 트윈",zh:"经济家庭房",ja:"エコノミーファミリーツイン"},a:17.5,b:[["D",1],["S",1]],c:3,w:0},
- {id:"ecoTriple",g:"eco",n:{en:"Economy Triple",ko:"이코노미 트리플",zh:"经济三人房",ja:"エコノミートリプル"},a:19.8,b:[["S",3]],c:3,w:0}];
-const STATIONS=[
- {id:"euljiro",lat:37.566027,lng:126.982632,ln:[["2","#00A84D"]]},
- {id:"myeongdong",lat:37.560990,lng:126.986331,ln:[["4","#00A5DE"]]},
- {id:"cityhall",lat:37.565712,lng:126.977041,ln:[["1","#0052A4"],["2","#00A84D"]]}];
+ {id:"superDouble",g:"sup",n:{en:"Superior Double",ko:"슈페리어 더블",zh:"高级大床房",ja:"スーペリアダブル"},a:16.5,b:"D",c:2,w:1},
+ {id:"superTwin",g:"sup",n:{en:"Superior Twin",ko:"슈페리어 트윈",zh:"高级双床房",ja:"スーペリアツイン"},a:19.8,b:"SS",c:2,w:1},
+ {id:"superFamily",g:"sup",n:{en:"Superior Family Twin",ko:"슈페리어 패밀리 트윈",zh:"高级家庭房",ja:"スーペリアファミリーツイン"},a:21.8,b:"DS",c:3,w:1},
+ {id:"superTriple",g:"sup",n:{en:"Superior Triple",ko:"슈페리어 트리플",zh:"高级三人房",ja:"スーペリアトリプル"},a:21.8,b:"SSS",c:3,w:1},
+ {id:"quad",g:"sup",n:{en:"Quad",ko:"쿼드",zh:"四人房",ja:"クアッド"},a:21.8,b:"DSS",c:4,w:0},
+ {id:"ecoDouble",g:"eco",n:{en:"Economy Double",ko:"이코노미 더블",zh:"经济大床房",ja:"エコノミーダブル"},a:13.2,b:"D",c:2,w:0},
+ {id:"ecoTwin",g:"eco",n:{en:"Economy Twin",ko:"이코노미 트윈",zh:"经济双床房",ja:"エコノミーツイン"},a:13.8,b:"SS",c:2,w:0},
+ {id:"ecoFamily",g:"eco",n:{en:"Economy Family Twin",ko:"이코노미 패밀리 트윈",zh:"经济家庭房",ja:"エコノミーファミリーツイン"},a:17.5,b:"DS",c:3,w:0},
+ {id:"ecoTriple",g:"eco",n:{en:"Economy Triple",ko:"이코노미 트리플",zh:"经济三人房",ja:"エコノミートリプル"},a:19.8,b:"SSS",c:3,w:0}];
+const STNS=[{id:"euljiro",lat:37.566027,lng:126.982632,ln:[["2","#00A84D"]]},{id:"myeongdong",lat:37.560990,lng:126.986331,ln:[["4","#00A5DE"]]},{id:"cityhall",lat:37.565712,lng:126.977041,ln:[["1","#0052A4"],["2","#00A84D"]]}];
+const SPOTS=[
+ {img:"l_market2.jpg",lat:37.5636,lng:126.9850,k:"shop"},
+ {img:"l_market.jpg",lat:37.5627,lng:126.9853,k:"food"},
+ {img:"l_night.jpg",lat:37.5647,lng:126.9815,k:"lotte"},
+ {img:"b_fall.jpg",lat:37.5690,lng:126.9780,k:"cgc"},
+ {img:"l_tower.jpg",lat:37.5580,lng:126.9830,k:"namsan"},
+ {img:"l_namdaemun.jpg",lat:37.5590,lng:126.9770,k:"ndm"}];
 const EAT=[
- {n:"Hansik Wangbijib 한식왕비집",k:"bbq",lat:37.5646777,lng:126.9838194,pid:"ChIJuUKJVACjfDURnW1f6CkorhQ",h:"11:00–23:00",r:5.0,d:{en:"Premium Korean beef BBQ — staff grill for you.",zh:"高档韩牛烤肉，店员帮忙烤。",ja:"上質な韓牛焼肉。スタッフが焼いてくれます。",ko:"한우 구이, 직원이 직접 구워 줌."}},
- {n:"Myeongdong K-Galbi 명동케이갈비",k:"bbq",lat:37.5639565,lng:126.9833604,pid:"ChIJw875ccGjfDURHPlQrl5nHU0",h:"11:00–22:00",r:5.0,d:{en:"Galbi, dumplings & noodles on the same street.",zh:"同一条街的排骨、饺子和冷面。",ja:"同じ通りのカルビ・餃子・冷麺。",ko:"같은 골목 갈비·만두·냉면."}},
- {n:"Hyodam Kalguksu Dakhanmari 효담칼국수",k:"korean",lat:37.5642308,lng:126.9835303,pid:"ChIJc0C6oz6jfDURbtfsLoz5jXc",h:"10:30–22:15",r:4.9,d:{en:"Whole-chicken hot pot & knife-cut noodles.",zh:"一只鸡火锅与刀削面。",ja:"タッカンマリと手打ちカルグクス。",ko:"닭한마리·칼국수."}},
- {n:"Cheonggiwa Town 청기와타운",k:"bbq",lat:37.5658449,lng:126.9836629,pid:"ChIJv801Z7ajfDUROYhtvutzDHU",h:"11:30–22:00",r:4.6,d:{en:"Marinated galbi grilled at your table.",zh:"桌边烤腌制排骨。",ja:"味付けカルビをテーブルで。",ko:"양념갈비 테이블 그릴."}},
- {n:"Yangjaeok 양재옥 (Lotte Dept. B1)",k:"korean",lat:37.5645473,lng:126.9816625,pid:"ChIJNz0or5OjfDUR9VY_N6Hv0iM",h:"10:30–20:00",r:5.0,d:{en:"Clean pork gomtang soup in a hanok-style room.",zh:"韩屋风格的猪肉清汤。",ja:"韓屋風店内の豚コムタン。",ko:"한옥풍 돼지곰탕."}},
- {n:"Myeongdong Kyoja 명동교자",k:"korean",lat:37.5610151,lng:126.9860829,pid:"ChIJW7FBDfCifDURHTpisLbVUH0",h:"10:30–21:00",r:4.2,d:{en:"Michelin-listed kalguksu & dumplings since 1966.",zh:"米其林推荐刀削面与饺子。",ja:"ミシュラン掲載のカルグクスと餃子。",ko:"미쉐린 칼국수·만두."}},
- {n:"Baekok 백옥 명동",k:"korean",lat:37.5628788,lng:126.9840097,pid:"ChIJSToECHyjfDUR3mIgAZejP40",h:"11:00–22:00",r:4.8,d:{en:"Pork-bone soup & napa cabbage dumplings.",zh:"猪骨汤与白菜饺子。",ja:"豚骨スープと白菜餃子。",ko:"곰탕·배추만두."}},
- {n:"Myeongdong Myeonggejang 명게장",k:"korean",lat:37.5624609,lng:126.9837814,pid:"ChIJYaJFOm6jfDURYzu2yub9rRY",h:"—",r:4.9,d:{en:"Soy-marinated crab & Hanwoo, multilingual menu.",zh:"酱蟹与韩牛，多语菜单。",ja:"カンジャンケジャンと韓牛。",ko:"간장게장·한우, 다국어 메뉴."}},
- {n:"Seoul Gogi Jip 서울고기집",k:"bbq",lat:37.5668244,lng:126.9817311,pid:"ChIJE-tgZe6ifDURIFm32n2QRmg",h:"10:00–23:00",r:4.3,d:{en:"Local pork-belly BBQ set, great value.",zh:"本地五花肉套餐，实惠。",ja:"ローカル豚焼肉セット。",ko:"삼겹살 세트, 가성비."}},
- {n:"Sukseongdo Euljiro 숙성도",k:"bbq",lat:37.5656003,lng:126.9893695,pid:"ChIJY6KlJwCjfDURlSJDG8w4HBg",h:"11:30–22:30",r:4.9,d:{en:"Aged black-pork BBQ, English tablet ordering.",zh:"熟成黑猪烤肉，英文平板点餐。",ja:"熟成黒豚焼肉。",ko:"숙성 흑돼지 구이."}}
-];
+ {n:"Myeongdong Kyoja 명동교자",k:"korean",lat:37.5610151,lng:126.9860829,pid:"ChIJW7FBDfCifDURHTpisLbVUH0",h:"10:30–21:00",d:{en:"Michelin-listed kalguksu & dumplings since 1966. Expect a short queue.",ko:"1966년부터 이어온 미쉐린 칼국수·만두. 줄이 조금 있어요.",zh:"1966年开业的米其林推荐刀切面与饺子，需稍排队。",ja:"1966年創業、ミシュラン掲載のカルグクスと餃子。少し並びます。"}},
+ {n:"Hansik Wangbijib 한식왕비집",k:"bbq",lat:37.5646777,lng:126.9838194,pid:"ChIJuUKJVACjfDURnW1f6CkorhQ",h:"11:00–23:00",d:{en:"Korean beef BBQ — staff grill at your table.",ko:"한우 구이, 직원이 테이블에서 구워 줘요.",zh:"韩牛烤肉，店员在桌边帮烤。",ja:"韓牛焼肉。スタッフが焼いてくれます。"}},
+ {n:"Hyodam Dakhanmari 효담칼국수",k:"korean",lat:37.5642308,lng:126.9835303,pid:"ChIJc0C6oz6jfDURbtfsLoz5jXc",h:"10:30–22:15",d:{en:"Whole-chicken hot pot with knife-cut noodles.",ko:"닭한마리와 칼국수.",zh:"一只鸡火锅配刀切面。",ja:"タッカンマリとカルグクス。"}},
+ {n:"Cheonggiwa Town 청기와타운",k:"bbq",lat:37.5658449,lng:126.9836629,pid:"ChIJv801Z7ajfDUROYhtvutzDHU",h:"11:30–22:00",d:{en:"Marinated galbi grilled at the table.",ko:"양념갈비 테이블 그릴.",zh:"桌边烤调味排骨。",ja:"味付けカルビを卓上で。"}},
+ {n:"Sukseongdo Euljiro 숙성도",k:"bbq",lat:37.5656003,lng:126.9893695,pid:"ChIJY6KlJwCjfDURlSJDG8w4HBg",h:"11:30–22:30",d:{en:"Aged black-pork BBQ — one of the most booked in town.",ko:"숙성 흑돼지 구이, 예약 경쟁이 센 곳.",zh:"熟成黑猪烤肉，非常难订。",ja:"熟成黒豚焼肉、予約が取りにくい人気店。"}},
+ {n:"Yangjaeok 양재옥 (Lotte B1)",k:"korean",lat:37.5645473,lng:126.9816625,pid:"ChIJNz0or5OjfDUR9VY_N6Hv0iM",h:"10:30–20:00",d:{en:"Clear pork gomtang in Lotte Department Store.",ko:"롯데백화점 지하 돼지곰탕.",zh:"乐天百货地下的猪肉清汤。",ja:"ロッテ百貨店地下の豚コムタン。"}},
+ {n:"Baekok 백옥",k:"korean",lat:37.5628788,lng:126.9840097,pid:"ChIJSToECHyjfDUR3mIgAZejP40",h:"11:00–22:00",d:{en:"Bone soup and napa-cabbage dumplings.",ko:"곰탕과 배추만두.",zh:"骨汤与白菜饺子。",ja:"コムタンと白菜餃子。"}},
+ {n:"Myeongdong Myeonggejang 명게장",k:"korean",lat:37.5624609,lng:126.9837814,pid:"ChIJYaJFOm6jfDURYzu2yub9rRY",h:"",d:{en:"Soy-marinated crab with multilingual menu.",ko:"간장게장, 다국어 메뉴.",zh:"酱蟹，多语菜单。",ja:"カンジャンケジャン、多言語メニュー。"}},
+ {n:"Seoul Gogi Jip 서울고기집",k:"bbq",lat:37.5668244,lng:126.9817311,pid:"ChIJE-tgZe6ifDURIFm32n2QRmg",h:"10:00–23:00",d:{en:"Pork-belly BBQ sets, good value.",ko:"삼겹살 세트, 가성비.",zh:"五花肉套餐，实惠。",ja:"サムギョプサルのセット、コスパ良し。"}}];
 const T={
- en:{tab:["Home","Rooms","Check-in","Getting here","Eat","Ask"],k:"MYEONGDONG · SEOUL",h:"Your line to the heart of Myeongdong",p:"92 rooms, 1 min to Euljiro 1-ga Station. Shopping, street food and Lotte Department Store right outside.",chips:["24h front desk","Free Wi-Fi","Luggage storage","Non-smoking"],
-  abT:"About LINE HOTEL",abP:"LINE HOTEL MYEONGDONG is a sleek glass-clad city hotel right in front of Euljiro 1-ga Station, facing Lotte Department Store. 92 rooms in 9 types — from cosy economy doubles to quads for families — with a 24-hour multilingual front desk and luggage storage. Myeongdong's shopping and street food start at our door.",facts:[["92","rooms"],["9","room types"],["1 min","Euljiro 1-ga"],["24h","front desk"]],
-  qa:[["Rooms","Room types & photos"],["Check-in","15:00 · passport"],["Getting here","Line 2 · Line 4"],["Food nearby","Scan QR → map"],["Ask us 24/7","Any language"],["Taxi card","Show the driver"]],
-  rideT:"Ride from here",rides:[["City Hall","1 stop","2",2],["Seoul Station","Line 4","4",5],["DDP · Dongdaemun","night shopping","2",6],["Seongsu","cafés · pop-ups","2",20],["Hongdae","music · clubs","2",20],["Gangnam","K-pop · COEX","2",25]],
-  roomsT:"Rooms",roomsP:"9 room types for solo travellers, couples, friends and families. All rooms: free Wi-Fi, satellite TV, A/C & heating, shower (no bathtub).",sup:"Superior",eco:"Economy",win:"Window",nowin:"No window",guests:"guests",book:"Book now",
-  rt:[["Superior Double","approx. 16㎡ · 2 guests","1 double bed · shower","double"],["Superior Twin","2 guests","2 single beds · shower","twin"],["Superior Family Twin","3 guests","Twin + extra bed · shower","family"]],
-  inRoom:"In every room",inList:["Free Wi-Fi","Satellite TV","A/C & heating","Hair dryer","Slippers","Shampoo & conditioner","Body wash & soap","In-house phone"],
-  hotel:"Hotel facilities",hList:["24-hour front desk","Coffee & tea in lobby","Microwave & water dispenser","Luggage storage","Elevator","Non-smoking hotel","No on-site parking"],
-  ciT:"Check-in guide",ciSteps:[["Arrive from 15:00","Late check-in until midnight — tell us your arrival time in advance."],["Show passport & card","Photo ID and credit card are required at the front desk."],["Get your key","Our multilingual staff will guide you to your room."],["Check-out by 11:00","Leave your bags with us after check-out and keep exploring."]],
-  rules:"House rules",ruleList:["No smoking anywhere in the hotel.","No pets.","One child 6 or under stays free using existing bedding.","No on-site parking — please use public transport."],
-  areaT:"Getting here",areaP:"Three subway stations within a 10-minute walk.",stn:{euljiro:"Euljiro 1-ga Station",myeongdong:"Myeongdong Station",cityhall:"City Hall Station"},walk:"min walk",openMap:"Walking route",
-  air:"From Incheon Airport",airTxt:"AREX to Seoul Station → Line 4 to Myeongdong (about 60 min), or airport limousine bus to Myeongdong / Euljiro then walk.",
-  near:"Around the hotel",nearList:[["Myeongdong Street","Shopping & night street food · 3 min"],["Lotte Department Store","Directly opposite · 1 min"],["Myeongdong Cathedral","6 min walk"],["Deoksugung Palace","10–15 min walk"],["Namsan & N Seoul Tower","15 min walk + cable car"],["Cheonggyecheon Stream","8 min walk"]],
-  eatT:"Eat nearby",eatP:"Tap a QR to enlarge — scan to open Google Maps.",all:"All",cats:{korean:"Korean",bbq:"BBQ"},away:"m",
-  aiT:"Ask LINE HOTEL",aiP:"Questions about your stay or Myeongdong — in your language.",aiPh:"Type your question…",send:"Send",hi:"Hi! Ask me about check-in, luggage, Wi-Fi, directions, food or emergencies.",sugg:["How do I get here from the airport?","Can I store luggage?","Best Korean BBQ nearby?","Is there parking?"],
-  taxi:"Please take me here",copy:"Copy",copied:"Copied",qrTip:"Scan with your phone camera",ci:"Check-in",co:"Check-out",addr:"Address",call:"Front desk"},
- ko:{tab:["홈","객실","체크인","오시는 길","맛집","문의"],k:"MYEONGDONG · SEOUL",h:"명동 한가운데로 이어지는 라인",p:"92객실, 을지로입구역 도보 1분. 롯데백화점·명동거리·먹거리가 바로 앞.",chips:["24시간 프런트","무료 와이파이","짐 보관","전 객실 금연"],
-  abT:"라인호텔 소개",abP:"라인호텔 명동은 을지로입구역 바로 앞, 롯데백화점 맞은편에 있는 유리 외관의 세련된 시티 호텔입니다. 이코노미 더블부터 가족용 쿼드까지 9개 타입 92객실, 24시간 다국어 프런트와 짐 보관 서비스. 문을 나서면 바로 명동 쇼핑과 먹거리가 시작됩니다.",facts:[["92","객실"],["9","객실 타입"],["1분","을지로입구역"],["24h","프런트"]],
-  qa:[["객실 안내","객실 타입·사진"],["체크인","15:00 · 신분증"],["오시는 길","2호선 · 4호선"],["주변 맛집","QR → 지도"],["24시간 문의","모든 언어"],["택시 카드","기사님께 보여주기"]],
-  rideT:"여기서 지하철로",rides:[["시청","1정거장","2",2],["서울역","4호선","4",5],["DDP·동대문","야간 쇼핑","2",6],["성수","카페·팝업","2",20],["홍대","공연·클럽","2",20],["강남","K-pop·코엑스","2",25]],
-  roomsT:"객실 안내",roomsP:"혼자·커플·친구·가족 모두를 위한 9가지 객실. 전 객실 무료 와이파이, 위성 TV, 냉난방, 샤워부스(욕조 없음).",sup:"슈페리어",eco:"이코노미",win:"창문 있음",nowin:"창문 없음",guests:"인",book:"예약하기",
-  rt:[["슈페리어 더블","약 16㎡ · 2인","더블베드 1 · 샤워부스","double"],["슈페리어 트윈","2인","싱글베드 2 · 샤워부스","twin"],["슈페리어 패밀리 트윈","3인","트윈 + 엑스트라베드 · 샤워부스","family"]],
-  inRoom:"객실 비품",inList:["무료 와이파이","위성 TV","냉난방","드라이어","슬리퍼","샴푸·컨디셔너","바디워시·비누","내선 전화"],
-  hotel:"호텔 시설",hList:["24시간 프런트","로비 무료 커피·차","전자레인지·정수기","짐 보관","엘리베이터","전 구역 금연","주차 불가"],
-  ciT:"체크인 안내",ciSteps:[["15:00부터 체크인","자정까지 늦은 체크인 가능 — 도착 시간을 미리 알려 주세요."],["신분증·카드 제시","프런트에서 신분증과 신용카드가 필요합니다."],["객실 키 수령","다국어 직원이 객실까지 안내합니다."],["체크아웃 11:00","체크아웃 후에도 짐을 맡기고 여행을 이어가세요."]],
-  rules:"이용 규칙",ruleList:["호텔 전 구역 금연.","반려동물 동반 불가.","만 6세 이하 1인 기존 침구 사용 시 무료.","주차 불가 — 대중교통을 이용해 주세요."],
-  areaT:"오시는 길",areaP:"도보 10분 안에 지하철역 3곳.",stn:{euljiro:"을지로입구역",myeongdong:"명동역",cityhall:"시청역"},walk:"분 도보",openMap:"도보 길찾기",
-  air:"인천공항에서",airTxt:"공항철도로 서울역 → 4호선 명동역 (약 60분), 또는 공항리무진으로 명동·을지로 하차 후 도보.",
-  near:"호텔 주변",nearList:[["명동거리","쇼핑·야시장 먹거리 · 3분"],["롯데백화점 본점","바로 맞은편 · 1분"],["명동성당","도보 6분"],["덕수궁","도보 10~15분"],["남산·N서울타워","도보 15분 + 케이블카"],["청계천","도보 8분"]],
-  eatT:"주변 맛집",eatP:"QR을 누르면 크게 보이고, 휴대폰으로 찍으면 지도가 열립니다.",all:"전체",cats:{korean:"한식",bbq:"고기"},away:"m",
-  aiT:"라인호텔 문의",aiP:"숙박·명동 여행 무엇이든, 내 언어로.",aiPh:"질문을 입력하세요…",send:"보내기",hi:"안녕하세요! 체크인·짐·와이파이·길찾기·맛집·긴급상황 무엇이든 물어보세요.",sugg:["공항에서 어떻게 가요?","짐 보관 되나요?","근처 고깃집 추천?","주차 되나요?"],
-  taxi:"이곳으로 가 주세요",copy:"복사",copied:"복사했습니다",qrTip:"휴대폰 카메라로 스캔",ci:"체크인",co:"체크아웃",addr:"주소",call:"프런트"},
- zh:{tab:["首页","客房","入住","交通","美食","咨询"],k:"明洞 · 首尔",h:"直达明洞中心的一条线",p:"92间客房，乙支路入口站步行1分钟。乐天百货、明洞街和小吃就在门口。",chips:["24小时前台","免费Wi-Fi","行李寄存","全面禁烟"],
-  abT:"关于 LINE HOTEL",abP:"LINE HOTEL 明洞是一座玻璃外观的时尚城市酒店，就在乙支路入口站正前方、乐天百货对面。9种房型共92间客房——从经济大床房到家庭四人房，24小时多语言前台与行李寄存。出门就是明洞购物与美食。",facts:[["92","客房"],["9","房型"],["1分钟","乙支路入口"],["24h","前台"]],
-  qa:[["客房","房型与照片"],["入住","15:00 · 护照"],["交通","2号线 · 4号线"],["周边美食","扫码看地图"],["24小时咨询","任何语言"],["出租车卡","给司机看"]],
-  rideT:"从这里乘地铁",rides:[["市厅","1站","2",2],["首尔站","4号线","4",5],["DDP·东大门","夜间购物","2",6],["圣水","咖啡·快闪","2",20],["弘大","演出·夜店","2",20],["江南","K-pop·COEX","2",25]],
-  roomsT:"客房",roomsP:"适合独行、情侣、朋友和家庭的9种房型。所有客房：免费Wi-Fi、卫星电视、冷暖空调、淋浴（无浴缸）。",sup:"高级",eco:"经济",win:"有窗",nowin:"无窗",guests:"人",book:"立即预订",
-  rt:[["高级大床房","约16㎡ · 2人","1张双人床 · 淋浴","double"],["高级双床房","2人","2张单人床 · 淋浴","twin"],["高级家庭双床房","3人","双床+加床 · 淋浴","family"]],
-  inRoom:"客房设施",inList:["免费Wi-Fi","卫星电视","冷暖空调","吹风机","拖鞋","洗发水·护发素","沐浴露·香皂","内线电话"],
-  hotel:"酒店设施",hList:["24小时前台","大堂咖啡与茶","微波炉·饮水机","行李寄存","电梯","全面禁烟","不提供停车"],
-  ciT:"入住指南",ciSteps:[["15:00起入住","最晚可至午夜入住，请提前告知到达时间。"],["出示护照和信用卡","前台需要证件和信用卡。"],["领取房卡","多语言员工会为您引路。"],["11:00前退房","退房后可寄存行李继续游玩。"]],
-  rules:"入住须知",ruleList:["酒店全面禁烟。","禁止携带宠物。","6岁及以下儿童1名使用现有床铺免费。","不提供停车，请乘坐公共交通。"],
-  areaT:"交通指南",areaP:"步行10分钟内有3个地铁站。",stn:{euljiro:"乙支路入口站",myeongdong:"明洞站",cityhall:"市厅站"},walk:"分钟步行",openMap:"步行路线",
-  air:"从仁川机场",airTxt:"乘AREX到首尔站→换乘4号线到明洞站（约60分钟），或乘机场巴士到明洞/乙支路后步行。",
-  near:"酒店周边",nearList:[["明洞街","购物与夜市小吃 · 3分钟"],["乐天百货总店","正对面 · 1分钟"],["明洞圣堂","步行6分钟"],["德寿宫","步行10–15分钟"],["南山·N首尔塔","步行15分钟+缆车"],["清溪川","步行8分钟"]],
-  eatT:"周边美食",eatP:"点击二维码放大，扫码打开谷歌地图。",all:"全部",cats:{korean:"韩餐",bbq:"烤肉"},away:"米",
-  aiT:"LINE HOTEL 咨询",aiP:"关于入住或明洞的问题，用您的语言提问。",aiPh:"请输入问题…",send:"发送",hi:"您好！可以问我入住、行李、Wi-Fi、交通、美食或紧急情况。",sugg:["从机场怎么来？","可以寄存行李吗？","附近烤肉推荐？","有停车场吗？"],
-  taxi:"请带我去这里",copy:"复制",copied:"已复制",qrTip:"用手机相机扫描",ci:"入住",co:"退房",addr:"地址",call:"前台"},
- ja:{tab:["ホーム","客室","チェックイン","アクセス","グルメ","相談"],k:"明洞 · ソウル",h:"明洞の真ん中へつながる“ライン”",p:"全92室、乙支路入口駅から徒歩1分。ロッテ百貨店・明洞通り・屋台グルメが目の前。",chips:["24時間フロント","無料Wi-Fi","荷物預かり","全館禁煙"],
-  abT:"LINE HOTELについて",abP:"LINE HOTEL 明洞は、乙支路入口駅の目の前、ロッテ百貨店向かいに建つガラス張りのスタイリッシュなシティホテル。エコノミーダブルからファミリー向けクアッドまで9タイプ全92室、24時間多言語フロントと荷物預かり。ドアを出ればすぐ明洞のショッピングとグルメです。",facts:[["92","客室"],["9","客室タイプ"],["1分","乙支路入口"],["24h","フロント"]],
-  qa:[["客室","タイプと写真"],["チェックイン","15:00 · パスポート"],["アクセス","2号線 · 4号線"],["周辺グルメ","QR→地図"],["24時間相談","どの言語でも"],["タクシーカード","運転手に見せる"]],
-  rideT:"ここから地下鉄で",rides:[["市庁","1駅","2",2],["ソウル駅","4号線","4",5],["DDP・東大門","夜のショッピング","2",6],["聖水","カフェ・ポップアップ","2",20],["弘大","ライブ・クラブ","2",20],["江南","K-POP・COEX","2",25]],
-  roomsT:"客室",roomsP:"ひとり旅・カップル・友人・家族向けの9タイプ。全室無料Wi-Fi、衛星テレビ、冷暖房、シャワー（バスタブなし）。",sup:"スーペリア",eco:"エコノミー",win:"窓あり",nowin:"窓なし",guests:"名",book:"予約する",
-  rt:[["スーペリアダブル","約16㎡ · 2名","ダブルベッド1 · シャワー","double"],["スーペリアツイン","2名","シングルベッド2 · シャワー","twin"],["スーペリアファミリーツイン","3名","ツイン＋エキストラベッド · シャワー","family"]],
-  inRoom:"客室アメニティ",inList:["無料Wi-Fi","衛星テレビ","冷暖房","ドライヤー","スリッパ","シャンプー・コンディショナー","ボディソープ・石鹸","館内電話"],
-  hotel:"館内設備",hList:["24時間フロント","ロビーのコーヒー・お茶","電子レンジ・ウォーターサーバー","荷物預かり","エレベーター","全館禁煙","駐車場なし"],
-  ciT:"チェックイン案内",ciSteps:[["15:00からチェックイン","深夜0時まで可能。到着時間を事前にお知らせください。"],["パスポートとカードを提示","フロントで身分証とクレジットカードが必要です。"],["ルームキー受け取り","多言語スタッフがご案内します。"],["11:00までにチェックアウト","チェックアウト後も荷物をお預かりします。"]],
-  rules:"ハウスルール",ruleList:["館内全面禁煙。","ペット不可。","6歳以下のお子様1名は添い寝無料。","駐車場はありません。公共交通機関をご利用ください。"],
-  areaT:"アクセス",areaP:"徒歩10分圏内に地下鉄駅が3つ。",stn:{euljiro:"乙支路入口駅",myeongdong:"明洞駅",cityhall:"市庁駅"},walk:"分（徒歩）",openMap:"徒歩ルート",
-  air:"仁川空港から",airTxt:"AREXでソウル駅→4号線で明洞駅（約60分）、またはリムジンバスで明洞・乙支路下車、徒歩。",
-  near:"ホテル周辺",nearList:[["明洞通り","ショッピング・屋台 · 3分"],["ロッテ百貨店本店","向かい · 1分"],["明洞聖堂","徒歩6分"],["徳寿宮","徒歩10〜15分"],["南山・Nソウルタワー","徒歩15分＋ケーブルカー"],["清渓川","徒歩8分"]],
-  eatT:"周辺グルメ",eatP:"QRをタップで拡大、スマホで読み取るとGoogleマップが開きます。",all:"すべて",cats:{korean:"韓国料理",bbq:"焼肉"},away:"m",
-  aiT:"LINE HOTELに相談",aiP:"滞在や明洞のことを、あなたの言語で。",aiPh:"質問を入力…",send:"送信",hi:"こんにちは！チェックイン・荷物・Wi-Fi・アクセス・グルメ・緊急時など何でもどうぞ。",sugg:["空港からの行き方は？","荷物を預けられますか？","近くの焼肉は？","駐車場はありますか？"],
-  taxi:"ここまでお願いします",copy:"コピー",copied:"コピーしました",qrTip:"スマホのカメラで読み取り",ci:"チェックイン",co:"チェックアウト",addr:"住所",call:"フロント"}
+en:{nav:["Myeongdong","Rooms","Before you fly","Getting here","Eat"],book:"Book",loc:"Euljiro 1-ga Station · 1 min",h:"Myeongdong is your front yard.",p:"Shopping streets, street food and Namsan — all on foot from our door.",acts:["Book","Map","Eat","Call"],
+ mdT:"Myeongdong, on foot",mdP:"Everything below is a short walk from the lobby. Swipe through, then use the day plan.",
+ spots:{shop:["Myeongdong shopping street","K-beauty flagships, sneakers and souvenirs. Best 11:00–21:00."],food:["Street food stalls","Tteokbokki, egg bread, grilled lobster and more. Stalls set up from late afternoon."],lotte:["Lotte Department Store & Duty Free","Luxury, food hall and duty free across the road."],cgc:["Cheonggyecheon Stream","Lit-up evening walk along the stream."],namsan:["Namsan & N Seoul Tower","Cable car up for the night view of Seoul."],ndm:["Namdaemun Market","Korea's oldest market — ginseng, kitchenware, hotteok."]},
+ walk:"min walk",
+ day:[["10:00","Kalguksu breakfast","Michelin-listed noodles at Myeongdong Kyoja."],["11:30","K-beauty run","Shops on the main street open around 10:30–11:00."],["15:00","Namdaemun Market","Hotteok, ginseng and kitchen finds."],["18:00","Namsan sunset","Cable car or a 30-min walk up to the tower."],["20:00","Street food night","Stalls line the main street every evening."],["22:00","Cheonggyecheon","An easy stroll back past the lit-up stream."]],
+ rmT:"Rooms",rmP:"9 room types for solo travellers, couples, friends and families. Tap a room for photos.",seg:["Superior","Economy"],win:"Window",nowin:"No window",guests:"guests",size:"Size",beds:"Beds",cap:"Guests",bed:{D:"Double",S:"Single"},bookRoom:"Check rates & book",photo:"Swipe for more photos",
+ amen:["Free Wi-Fi","A/C & heating","Satellite TV","Hair dryer","Shampoo & body wash","Slippers","24h front desk","Luggage storage"],
+ goT:"Getting here",goP:"From Incheon Airport in about an hour. Three subway stations within a 10-minute walk.",
+ routes:[["bus","Airport bus 6001","Direct · no transfers",1,["Bus stop 5 (T1) / 29 (T2), ticket about ₩17,000","Get off at Myeong-dong stop","Walk about 7 min to the hotel"]],["train","AREX + subway","Cheapest",0,["AREX to Seoul Station","Line 4 to Myeongdong Station (2 stops)","Walk about 8 min — or Line 1→2 to Euljiro 1-ga, 1 min"]],["car","Taxi","Door to door, about 60–80 min",0,["Roughly ₩70,000–100,000 depending on traffic","Show the taxi card below to the driver"]]],
+ best:"Easiest",stn:{euljiro:"Euljiro 1-ga Station",myeongdong:"Myeongdong Station",cityhall:"City Hall Station"},txS:"Show this to your taxi driver",copy:"Copy address",copied:"Copied",
+ eatT:"Eat & reserve",eatP:"Our favourite tables around the hotel, sorted by distance.",tipT:"Book before you fly",tipP:"Busy BBQ spots fill up weeks ahead. Search the name on CatchTable Global, or ask the front desk to call for you.",cats:{all:"All",korean:"Korean",bbq:"BBQ"},map:"Map",m:"m",
+ infT:"Good to know",kv:[["Check-in","15:00"],["Check-out","11:00"]],acc:[["Hotel facilities",["24-hour front desk","Coffee & tea in the lobby","Microwave & water dispenser","Luggage storage before check-in and after check-out","Elevator","No on-site parking"]],["House rules",["Non-smoking hotel","No pets","One child aged 6 or under stays free using existing bedding","Photo ID and credit card required at check-in"]],["Late arrival",["Tell us your arrival time by email — the front desk is open 24 hours."]]],
+ ct:["Email","Phone"],cred:"Neighbourhood photos via Wikimedia Commons:"},
+ko:{nav:["명동","객실","출발 전","오시는 길","맛집"],book:"예약",loc:"을지로입구역 1분",h:"명동이 앞마당인 호텔",p:"쇼핑 거리, 길거리 음식, 남산까지 전부 걸어서.",acts:["예약","지도","맛집","전화"],
+ mdT:"걸어서 즐기는 명동",mdP:"로비에서 몇 분이면 닿는 곳들이에요. 넘겨 보고 아래 하루 코스를 참고하세요.",
+ spots:{shop:["명동 쇼핑 거리","K-뷰티 플래그십, 스니커즈, 기념품. 11~21시가 좋아요."],food:["명동 길거리 음식","떡볶이·계란빵·랍스터구이. 늦은 오후부터 노점이 열려요."],lotte:["롯데백화점 · 면세점","길 건너 바로, 명품·푸드홀·면세점."],cgc:["청계천","조명이 켜진 저녁 산책길."],namsan:["남산 · N서울타워","케이블카 타고 서울 야경 감상."],ndm:["남대문시장","인삼·주방용품·호떡, 한국에서 가장 오래된 시장."]},
+ walk:"분 도보",
+ day:[["10:00","칼국수 아침","미쉐린 명동교자에서 시작."],["11:30","K-뷰티 쇼핑","메인 거리 매장은 10:30~11시쯤 열어요."],["15:00","남대문시장","호떡·인삼·주방용품."],["18:00","남산 일몰","케이블카 또는 30분 산책."],["20:00","길거리 음식","매일 저녁 메인 거리에 노점이 늘어서요."],["22:00","청계천","불 켜진 개천 따라 천천히 귀가."]],
+ rmT:"객실",rmP:"혼자, 커플, 친구, 가족 모두를 위한 9가지 객실. 눌러서 사진을 보세요.",seg:["슈페리어","이코노미"],win:"창문",nowin:"창문 없음",guests:"인",size:"면적",beds:"침대",cap:"인원",bed:{D:"더블",S:"싱글"},bookRoom:"요금 확인 · 예약",photo:"옆으로 넘겨 사진 더 보기",
+ amen:["무료 Wi-Fi","냉난방","위성 TV","헤어드라이어","샴푸·바디워시","슬리퍼","24시간 프런트","짐 보관"],
+ goT:"오시는 길",goP:"인천공항에서 약 1시간. 도보 10분 안에 지하철역 3곳.",
+ routes:[["bus","공항버스 6001","환승 없이 한 번에",1,["T1 5번 / T2 29번 승차장, 요금 약 17,000원","명동 정류장 하차","호텔까지 도보 약 7분"]],["train","공항철도 + 지하철","가장 저렴",0,["공항철도로 서울역","4호선 명동역 (2정거장)","도보 약 8분 — 또는 1→2호선 을지로입구역 1분"]],["car","택시","문 앞까지, 약 60~80분",0,["교통 상황에 따라 약 7~10만 원","아래 택시 카드를 기사님께 보여주세요"]]],
+ best:"가장 편해요",stn:{euljiro:"을지로입구역",myeongdong:"명동역",cityhall:"시청역"},txS:"택시 기사님께 보여주세요",copy:"주소 복사",copied:"복사됨",
+ eatT:"맛집 & 예약",eatP:"호텔 근처 추천 식당, 가까운 순서예요.",tipT:"출발 전에 예약하세요",tipP:"인기 고깃집은 몇 주 전에 마감돼요. 캐치테이블 글로벌에서 이름을 검색하거나 프런트에 전화 예약을 부탁하세요.",cats:{all:"전체",korean:"한식",bbq:"고기"},map:"지도",m:"m",
+ infT:"이용 안내",kv:[["체크인","15:00"],["체크아웃","11:00"]],acc:[["호텔 시설",["24시간 프런트","로비 커피·차","전자레인지·정수기","체크인 전·체크아웃 후 짐 보관","엘리베이터","주차 불가"]],["이용 규칙",["전 객실 금연","반려동물 불가","만 6세 이하 1명 기존 침구 사용 시 무료","체크인 시 신분증·신용카드 필요"]],["늦은 도착",["도착 시간을 이메일로 알려 주세요. 프런트는 24시간 운영해요."]]],
+ ct:["이메일","전화"],cred:"동네 사진 출처 Wikimedia Commons:"},
+zh:{nav:["明洞","客房","出发前","交通","美食"],book:"预订",loc:"乙支路入口站 1分钟",h:"明洞就是你家门口",p:"购物街、街头小吃、南山，出门步行即达。",acts:["预订","地图","美食","电话"],
+ mdT:"步行玩明洞",mdP:"以下地点从大堂步行几分钟即到。滑动查看，再参考一日行程。",
+ spots:{shop:["明洞购物街","韩妆旗舰店、球鞋与伴手礼，11:00–21:00最佳。"],food:["明洞街头小吃","炒年糕、鸡蛋面包、烤龙虾，傍晚开始出摊。"],lotte:["乐天百货·免税店","马路对面，奢侈品、美食街与免税店。"],cgc:["清溪川","夜晚灯光下的溪边散步。"],namsan:["南山·N首尔塔","坐缆车看首尔夜景。"],ndm:["南大门市场","人参、厨具、糖饼，韩国最古老的市场。"]},
+ walk:"分钟步行",
+ day:[["10:00","刀切面早餐","从米其林推荐的明洞饺子开始。"],["11:30","韩妆购物","主街店铺约10:30–11:00开门。"],["15:00","南大门市场","糖饼、人参、厨具。"],["18:00","南山日落","坐缆车或步行30分钟上山。"],["20:00","街头小吃夜","每晚主街摆满小吃摊。"],["22:00","清溪川","沿着灯光溪流慢慢走回酒店。"]],
+ rmT:"客房",rmP:"9种房型，适合独行、情侣、朋友与家庭。点击查看照片。",seg:["高级","经济"],win:"有窗",nowin:"无窗",guests:"人",size:"面积",beds:"床型",cap:"人数",bed:{D:"大床",S:"单人床"},bookRoom:"查看房价并预订",photo:"左右滑动查看更多照片",
+ amen:["免费Wi-Fi","冷暖空调","卫星电视","吹风机","洗发水·沐浴露","拖鞋","24小时前台","行李寄存"],
+ goT:"交通",goP:"从仁川机场约1小时。步行10分钟内有3个地铁站。",
+ routes:[["bus","机场巴士 6001","直达，无需换乘",1,["T1 5号 / T2 29号站台，票价约17,000韩元","在明洞站下车","步行约7分钟到酒店"]],["train","机场铁路 + 地铁","最便宜",0,["机场铁路到首尔站","4号线到明洞站（2站）","步行约8分钟——或1→2号线乙支路入口站1分钟"]],["car","出租车","门到门，约60–80分钟",0,["视交通约7–10万韩元","把下方出租车卡给司机看"]]],
+ best:"最方便",stn:{euljiro:"乙支路入口站",myeongdong:"明洞站",cityhall:"市厅站"},txS:"请出示给出租车司机",copy:"复制地址",copied:"已复制",
+ eatT:"美食与预订",eatP:"酒店周边推荐，按距离排序。",tipT:"出发前先订位",tipP:"热门烤肉店提前几周就订满。在CatchTable国际版搜索店名，或请前台帮忙电话预订。",cats:{all:"全部",korean:"韩餐",bbq:"烤肉"},map:"地图",m:"米",
+ infT:"入住须知",kv:[["入住","15:00"],["退房","11:00"]],acc:[["酒店设施",["24小时前台","大堂咖啡与茶","微波炉与饮水机","入住前·退房后行李寄存","电梯","无停车场"]],["入住规定",["全楼禁烟","禁止携带宠物","6岁及以下儿童1名使用现有床铺免费","入住时需出示证件和信用卡"]],["晚到",["请发邮件告知到达时间，前台24小时服务。"]]],
+ ct:["邮箱","电话"],cred:"街区照片来自 Wikimedia Commons："},
+ja:{nav:["明洞","客室","出発前","アクセス","グルメ"],book:"予約",loc:"乙支路入口駅 徒歩1分",h:"明洞が庭になるホテル",p:"ショッピング街も屋台も南山も、ぜんぶ歩いて。",acts:["予約","地図","グルメ","電話"],
+ mdT:"歩いて楽しむ明洞",mdP:"ロビーから数分のスポットばかり。スワイプして、下の1日プランも参考に。",
+ spots:{shop:["明洞ショッピング街","韓国コスメの旗艦店、スニーカー、お土産。11〜21時がおすすめ。"],food:["明洞の屋台グルメ","トッポッキ、ケランパン、ロブスター焼き。夕方から屋台が並びます。"],lotte:["ロッテ百貨店・免税店","道の向かい。ブランド、フードホール、免税店。"],cgc:["清渓川","ライトアップされた夜の散歩道。"],namsan:["南山・Nソウルタワー","ケーブルカーでソウルの夜景へ。"],ndm:["南大門市場","高麗人参、キッチン用品、ホットク。韓国最古の市場。"]},
+ walk:"分（徒歩）",
+ day:[["10:00","カルグクスの朝ごはん","ミシュラン掲載の明洞餃子から。"],["11:30","コスメ巡り","メイン通りの店は10:30〜11時ごろ開店。"],["15:00","南大門市場","ホットク、高麗人参、キッチン雑貨。"],["18:00","南山の夕暮れ","ケーブルカーか徒歩30分で。"],["20:00","屋台グルメ","毎晩メイン通りに屋台が並びます。"],["22:00","清渓川","光る川沿いをのんびり帰り道に。"]],
+ rmT:"客室",rmP:"一人旅、カップル、友人、家族向けの9タイプ。タップで写真を表示。",seg:["スーペリア","エコノミー"],win:"窓あり",nowin:"窓なし",guests:"名",size:"広さ",beds:"ベッド",cap:"定員",bed:{D:"ダブル",S:"シングル"},bookRoom:"料金を見て予約",photo:"スワイプで写真をもっと見る",
+ amen:["無料Wi-Fi","冷暖房","衛星テレビ","ドライヤー","シャンプー・ボディソープ","スリッパ","24時間フロント","荷物預かり"],
+ goT:"アクセス",goP:"仁川空港から約1時間。徒歩10分圏内に地下鉄駅が3つ。",
+ routes:[["bus","空港バス 6001","乗り換えなし",1,["T1 5番 / T2 29番乗り場、運賃約17,000ウォン","明洞停留所で下車","ホテルまで徒歩約7分"]],["train","空港鉄道 + 地下鉄","いちばん安い",0,["空港鉄道でソウル駅へ","4号線で明洞駅（2駅）","徒歩約8分 — または1→2号線で乙支路入口駅、徒歩1分"]],["car","タクシー","ドアツードア、約60〜80分",0,["交通状況により約7〜10万ウォン","下のタクシーカードを運転手に見せてください"]]],
+ best:"いちばん楽",stn:{euljiro:"乙支路入口駅",myeongdong:"明洞駅",cityhall:"市庁駅"},txS:"タクシーの運転手に見せてください",copy:"住所をコピー",copied:"コピーしました",
+ eatT:"グルメと予約",eatP:"ホテル周辺のおすすめ、近い順です。",tipT:"出発前に予約を",tipP:"人気の焼肉店は数週間前に埋まります。CatchTable Globalで店名を検索するか、フロントに電話予約を頼んでください。",cats:{all:"すべて",korean:"韓国料理",bbq:"焼肉"},map:"地図",m:"m",
+ infT:"ご案内",kv:[["チェックイン","15:00"],["チェックアウト","11:00"]],acc:[["館内設備",["24時間フロント","ロビーのコーヒー・お茶","電子レンジ・ウォーターサーバー","チェックイン前・アウト後の荷物預かり","エレベーター","駐車場なし"]],["ご利用ルール",["全館禁煙","ペット不可","6歳以下のお子様1名は添い寝無料","チェックイン時に身分証とクレジットカードが必要"]],["遅い到着",["到着時間をメールでお知らせください。フロントは24時間対応です。"]]],
+ ct:["メール","電話"],cred:"街の写真：Wikimedia Commons"}
 };
-/* ============ helpers ============ */
-let L = "en";
-try{ const s=localStorage.getItem("line_lang"); if(s&&T[s]) L=s; else { const nl=(navigator.language||"").slice(0,2); if(T[nl]) L=nl; } }catch(e){}
-const $=s=>document.querySelector(s);
-const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-function dist(a,b,c,d){const R=6371000,p=x=>x*Math.PI/180;const x=p(d-b)*Math.cos(p((a+c)/2)),y=p(c-a);return Math.round(Math.hypot(x,y)*R)}
-function walkMin(m){return Math.max(1,Math.round(m*1.25/75))}
-function gmapsPlace(e){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(e.n)+"&query_place_id="+e.pid}
-function gmapsWalk(lat,lng){return "https://www.google.com/maps/dir/?api=1&origin="+lat+","+lng+"&destination="+CFG.lat+","+CFG.lng+"&travelmode=walking"}
-const _x=0;const naverTo="https://map.naver.com/p/search/"+encodeURIComponent("서울 중구 난계로17길 58-13");
-function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("on"),1600)}
-async function copyText(t){try{await navigator.clipboard.writeText(t);toast(T[L].copied)}catch(e){toast("⌘C / Ctrl+C")}}
-function qr(el,text,size){el.innerHTML="";if(!window.QRCode){el.textContent="QR";return}new QRCode(el,{text,width:size||256,height:size||256,correctLevel:QRCode.CorrectLevel.M})}
-function showQR(title,url,sub){$("#mtitle").textContent=title;$("#msub").textContent=sub||T[L].qrTip;qr($("#mqr"),url,480);$("#modal").classList.add("on")}
-function closeModal(){$("#modal").classList.remove("on")}
-const ICON={
- home:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>',
- key:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M15 8l2 2"/></svg>',
- bed:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18V7M3 13h18v5M21 18v-3a3 3 0 0 0-3-3h-7v1"/><circle cx="7" cy="10.5" r="1.6"/></svg>',
- pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
- bowl:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11h18a9 9 0 0 1-18 0zM8 7c0-1.5 1-2 1-3.5M12 7c0-1.5 1-2 1-3.5M16 7c0-1.5 1-2 1-3.5"/></svg>',
- chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg>',
- wifi:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg>'
-};
+const CRED=[["Myeongdong night market (Sgroey, CC BY-SA 4.0)","https://commons.wikimedia.org/wiki/File:Myeongdong_night_market_seoul_1.jpg"],["Myeongdong at night (Christian Bolz, CC BY-SA 4.0)","https://commons.wikimedia.org/wiki/File:Myeongdong_at_night.jpg"],["N Seoul Tower (Eugene Lim, CC BY 2.0)","https://commons.wikimedia.org/wiki/File:N_Seoul_Tower_(13952097192).jpg"],["Namdaemun-ro by night (Tristan Surtel, CC BY-SA 4.0)","https://commons.wikimedia.org/wiki/File:Namdaemun-ro_and_Aloft_Seoul_Myeongdong_by_night.jpg"],["Cheonggyecheon waterfall (fillter, CC0)","https://commons.wikimedia.org/wiki/File:Cheonggyecheon_Waterfall_at_Night.jpg"]];
 
-const FAQ=[
- {k:/airport|incheon|gimpo|arex|공항|机场|空港/i,a:{en:"From Incheon Airport: AREX to Seoul Station → Line 4 to Myeongdong (about 60 min), then 8 min on foot. Or take the airport limousine bus to Myeongdong / Euljiro.",zh:"仁川机场：AREX到首尔站→4号线到明洞站（约60分钟），步行8分钟。或乘机场巴士到明洞/乙支路。",ja:"仁川空港から：AREXでソウル駅→4号線で明洞駅（約60分）、徒歩8分。またはリムジンバスで明洞・乙支路へ。",ko:"인천공항: 공항철도로 서울역 → 4호선 명동역(약 60분), 도보 8분. 또는 공항리무진으로 명동·을지로 하차."}},
- {k:/luggage|bag|storage|짐|보관|行李|荷物/i,a:{en:"Yes — we keep your luggage at the front desk before check-in and after check-out.",zh:"可以，入住前和退房后可在前台寄存行李。",ja:"はい、チェックイン前・チェックアウト後はフロントでお預かりします。",ko:"네, 체크인 전·체크아웃 후 프런트에서 짐을 보관해 드립니다."}},
- {k:/park|car|주차|停车|駐車/i,a:{en:"Sorry, there is no on-site parking. Public parking is available nearby; the subway is the easiest way.",zh:"抱歉，酒店不提供停车，建议乘坐地铁。",ja:"申し訳ありません、駐車場はございません。地下鉄が便利です。",ko:"죄송하지만 호텔 주차는 불가합니다. 주변 공영주차장이나 지하철을 이용해 주세요."}},
- {k:/wi-?fi|internet|password|와이파이|비밀번호|网络|密码|パスワード/i,a:{en:"Free Wi-Fi in all rooms. The network name and password are on the card in your room.",zh:"所有客房免费Wi-Fi，名称和密码在房内卡片上。",ja:"全室無料Wi-Fi。ネットワーク名とパスワードは客室のカードに記載しています。",ko:"전 객실 무료 와이파이입니다. 이름·비밀번호는 객실 안내카드에 있습니다."}},
- {k:/check.?out|체크아웃|退房|アウト/i,a:{en:"Check-out is by 11:00. We can keep your bags after check-out.",zh:"退房时间11:00，退房后可寄存行李。",ja:"チェックアウトは11:00まで。その後も荷物をお預かりします。",ko:"체크아웃은 11:00까지이며, 이후 짐 보관 가능합니다."}},
- {k:/check.?in|late|passport|체크인|여권|入住|护照|チェックイン/i,a:{en:"Check-in from 15:00 until midnight. Please bring your passport and a credit card, and let us know if you'll arrive late.",zh:"入住时间15:00至午夜，请携带护照和信用卡，晚到请提前告知。",ja:"チェックインは15:00〜深夜0時。パスポートとクレジットカードをご用意ください。",ko:"체크인은 15:00~자정, 신분증(여권)과 신용카드를 지참해 주세요. 늦게 도착하시면 미리 알려 주세요."}},
- {k:/bbq|meat|고기|갈비|烤肉|焼肉/i,a:{en:"Korean BBQ picks: Hansik Wangbijib (1 min), Myeongdong K-Galbi (same street), Cheonggiwa Town, Sukseongdo. See the Eat tab for QR maps.",zh:"烤肉推荐：韩食王妃家（1分钟）、明洞K排骨、青瓦小镇、熟成道。详见「美食」。",ja:"焼肉なら：韓食王妃家（1分）、明洞Kカルビ、青瓦タウン、熟成道。「グルメ」タブへ。",ko:"고기는 한식왕비집(1분), 명동케이갈비(같은 골목), 청기와타운, 숙성도 추천. '맛집' 탭 참고."}},
- {k:/food|eat|restaurant|breakfast|맛집|식당|아침|美食|早餐|ご飯|朝/i,a:{en:"Try Myeongdong Kyoja (kalguksu), Hyodam (chicken hot pot, same street), Baekok (gomtang) or street food on Myeongdong Street at night.",zh:"推荐明洞饺子（刀削面）、孝潭一只鸡、白玉（清汤），晚上去明洞街吃小吃。",ja:"明洞餃子（カルグクス）、孝潭タッカンマリ、白玉（コムタン）、夜は明洞の屋台へ。",ko:"명동교자(칼국수), 효담(닭한마리), 백옥(곰탕), 밤에는 명동거리 노점을 추천합니다."}},
- {k:/subway|station|metro|길|역|지하철|地铁|站|駅/i,a:{en:"Euljiro 1-ga Station (Line 2) is 2 min away, Myeongdong Station (Line 4) about 8 min, City Hall (Line 1·2) about 9 min.",zh:"乙支路入口站（2号线）步行2分钟，明洞站（4号线）约8分钟，市厅站约9分钟。",ja:"乙支路入口駅（2号線）徒歩2分、明洞駅（4号線）約8分、市庁駅約9分。",ko:"을지로입구역(2호선) 도보 2분, 명동역(4호선) 약 8분, 시청역(1·2호선) 약 9분."}},
- {k:/taxi|택시|出租|タクシー/i,a:{en:"Show the driver: 서울 중구 명동3길 36 라인호텔 (Home → Taxi card).",zh:"请向司机出示：서울 중구 명동3길 36 라인호텔（首页→出租车卡）。",ja:"運転手に「서울 중구 명동3길 36 라인호텔」を見せてください。",ko:"기사님께 '서울 중구 명동3길 36 라인호텔'을 보여주세요 (홈 → 택시 카드)."}},
- {k:/smok|담배|흡연|吸烟|喫煙|タバコ/i,a:{en:"The whole hotel is non-smoking. Please use designated outdoor areas.",zh:"酒店全面禁烟，请到室外指定区域吸烟。",ja:"館内は全面禁煙です。屋外の指定場所をご利用ください。",ko:"호텔 전 구역 금연입니다. 실외 지정 장소를 이용해 주세요."}},
- {k:/emergenc|hospital|police|sick|응급|병원|경찰|医院|警察|病院|救急/i,a:{en:"Emergency: 112 police · 119 fire/ambulance · 1330 Korea Travel Hotline (24h, EN/中文/日本語). Front desk: +82-2-3789-8111",zh:"紧急：112 警察 · 119 急救 · 1330 旅游热线。前台：+82-2-3789-8111",ja:"緊急：112 警察 · 119 救急 · 1330 観光ホットライン。フロント：+82-2-3789-8111",ko:"긴급: 112 경찰 · 119 소방/구급 · 1330 관광통역안내. 프런트: 02-3789-8111"}},
- {k:/shop|lotte|cathedral|namsan|tower|쇼핑|롯데|남산|购物|乐天|買い物/i,a:{en:"Lotte Department Store is right opposite, Myeongdong Street 3 min, Myeongdong Cathedral 6 min, Namsan & N Seoul Tower about 15 min walk + cable car.",zh:"乐天百货就在对面，明洞街3分钟，明洞圣堂6分钟，南山N首尔塔步行约15分钟+缆车。",ja:"ロッテ百貨店は向かい、明洞通り3分、明洞聖堂6分、南山タワーは徒歩15分＋ケーブルカー。",ko:"롯데백화점 바로 맞은편, 명동거리 3분, 명동성당 6분, 남산타워는 도보 15분 + 케이블카."}}
-];
-const MISS={en:"I don't have that answer here — please call the front desk: +82-2-3789-8111 (24h).",zh:"这个问题请联系前台：+82-2-3789-8111（24小时）。",ja:"その質問はフロントへ：+82-2-3789-8111（24時間）。",ko:"그 질문은 프런트(02-3789-8111, 24시간)로 문의해 주세요."};
-function detectLang(q){if(/[\u3040-\u30ff]/.test(q))return"ja";if(/[\uac00-\ud7a3]/.test(q))return"ko";if(/[\u4e00-\u9fff]/.test(q))return"zh";return L}
-function faq(q){const g=detectLang(q),h=FAQ.find(f=>f.k.test(q));return (h?h.a:MISS)[g]}
-
-
-const U={
- ko:{acts:["예약","지도","맛집","전화"],h1:"명동 한가운데,<br><b>을지로입구역 1분</b>",sub:"롯데백화점 맞은편 유리 외관의 시티 호텔. 명동 쇼핑과 먹거리가 문 앞에 있습니다.",tags:["92객실","24시간 프런트","무료 Wi-Fi","짐 보관"],rooms:"객실",sup:"슈페리어",eco:"이코노미",g:"인",win:"창문",nowin:"창문 없음",area:"면적",bed:"침대",cap:"인원",view:"창문",yes:"있음",no:"없음",book:"이 객실 예약하기",loc:"위치",gmap:"구글 지도",nmap:"네이버 지도",min:"분",eat:"주변 맛집",info:"이용 안내",ci:"체크인 · 체크아웃",ciT:"체크인 15:00 – 24:00 · 체크아웃 11:00<br>신분증(여권)과 신용카드가 필요합니다. 체크인 전·체크아웃 후 짐 보관 가능.",rules:"이용 규칙",air:"공항에서 오는 법",faq:"자주 묻는 질문",taxi:"택시 기사님께 보여주기",copy:"주소 복사",amen:"객실 비품"},
- en:{acts:["Book","Map","Eat","Call"],h1:"Heart of Myeongdong,<br><b>1 min from Euljiro 1-ga</b>",sub:"A glass-clad city hotel facing Lotte Department Store. Myeongdong's shopping and street food are right at the door.",tags:["92 rooms","24h front desk","Free Wi-Fi","Luggage storage"],rooms:"Rooms",sup:"Superior",eco:"Economy",g:" guests",win:"Window",nowin:"No window",area:"Size",bed:"Bed",cap:"Guests",view:"Window",yes:"Yes",no:"No",book:"Book this room",loc:"Location",gmap:"Google Maps",nmap:"Naver Map",min:"min",eat:"Eat nearby",info:"Information",ci:"Check-in · Check-out",ciT:"Check-in 15:00 – 24:00 · Check-out 11:00<br>Passport and credit card required. Luggage storage before check-in and after check-out.",rules:"House rules",air:"From the airport",faq:"FAQ",taxi:"Show to taxi driver",copy:"Copy address",amen:"In the room"},
- zh:{acts:["预订","地图","美食","电话"],h1:"明洞中心，<br><b>乙支路入口站1分钟</b>",sub:"乐天百货对面的玻璃外观城市酒店，明洞购物与美食就在门口。",tags:["92间客房","24小时前台","免费Wi-Fi","行李寄存"],rooms:"客房",sup:"高级",eco:"经济",g:"人",win:"有窗",nowin:"无窗",area:"面积",bed:"床型",cap:"人数",view:"窗户",yes:"有",no:"无",book:"预订此房型",loc:"位置",gmap:"谷歌地图",nmap:"Naver地图",min:"分钟",eat:"周边美食",info:"入住须知",ci:"入住 · 退房",ciT:"入住 15:00 – 24:00 · 退房 11:00<br>需出示护照和信用卡。入住前及退房后可寄存行李。",rules:"酒店规定",air:"机场交通",faq:"常见问题",taxi:"出示给出租车司机",copy:"复制地址",amen:"客房设施"},
- ja:{acts:["予約","地図","グルメ","電話"],h1:"明洞の中心、<br><b>乙支路入口駅から1分</b>",sub:"ロッテ百貨店向かいのガラス張りシティホテル。明洞のショッピングとグルメがすぐそこ。",tags:["全92室","24時間フロント","無料Wi-Fi","荷物預かり"],rooms:"客室",sup:"スーペリア",eco:"エコノミー",g:"名",win:"窓あり",nowin:"窓なし",area:"広さ",bed:"ベッド",cap:"定員",view:"窓",yes:"あり",no:"なし",book:"この客室を予約",loc:"アクセス",gmap:"Googleマップ",nmap:"Naverマップ",min:"分",eat:"周辺グルメ",info:"ご利用案内",ci:"チェックイン · アウト",ciT:"チェックイン 15:00 – 24:00 · チェックアウト 11:00<br>パスポートとクレジットカードが必要です。荷物預かりあり。",rules:"ハウスルール",air:"空港からのアクセス",faq:"よくある質問",taxi:"タクシー運転手に見せる",copy:"住所をコピー",amen:"客室アメニティ"}};
-const IC=['<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11h16a8 8 0 0 1-16 0zM9 7c0-1.5 1-2 1-3.5M14 7c0-1.5 1-2 1-3.5"/></svg>','<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>'];
-if(!U[L])L="ko";
-let rg="sup",hi=0;const HERO=["img/hero1.jpg","img/hero2.jpg","img/hero3.jpg","img/hero4.jpg"];
-const GMAP="https://www.google.com/maps/search/?api=1&query=LINE+HOTEL+MYEONGDONG&query_place_id=ChIJYWYskf-jfDURDmPIowGF2U8";
-const NMAP="https://map.naver.com/p/search/"+encodeURIComponent("라인호텔 명동");
-function render(){const u=U[L],t=T[L];document.documentElement.lang=L;
- $("#lang").textContent=({ko:"EN",en:"中文",zh:"日本語",ja:"한국어"})[L];
- $("#acts").innerHTML=`<a class="bk" href="${BOOK}" target="_blank" rel="noopener">${IC[0]}${u.acts[0]}</a><button data-to="loc">${IC[1]}${u.acts[1]}</button><button data-to="eat">${IC[2]}${u.acts[2]}</button><a href="tel:+82237898111">${IC[3]}${u.acts[3]}</a>`;
- const R=ROOMS.filter(r=>r.g===rg);
- const near=EAT.map(e=>({...e,m:dist(CFG.lat,CFG.lng,e.lat,e.lng)})).sort((a,b)=>a.m-b.m).slice(0,8);
- $("#app").innerHTML=`
- <div class="hero">${HERO.map((h,i)=>`<img src="${h}" class="${i===hi?"on":""}" alt="LINE HOTEL">`).join("")}<div class="dots">${HERO.map((_,i)=>`<i class="${i===hi?"on":""}"></i>`).join("")}</div></div>
- <div class="intro"><h1>${u.h1}</h1><p>${esc(u.sub)}</p><div class="tags">${u.tags.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div>
-
- <section id="rooms"><div class="st"><h2>${esc(u.rooms)}</h2><div class="seg"><button data-g="sup" class="${rg==="sup"?"on":""}">${esc(u.sup)}</button><button data-g="eco" class="${rg==="eco"?"on":""}">${esc(u.eco)}</button></div></div>
-  <div class="rail">${R.map(r=>`<button class="rc" data-r="${r.id}"><img src="img/${r.id}-card.jpg" alt="" loading="lazy"><h3>${esc(r.n[L])}</h3><p>${r.a}㎡ · ${r.c}${esc(u.g)} · ${esc(r.w?u.win:u.nowin)}</p></button>`).join("")}</div></section>
-
- <section id="loc"><div class="st"><h2>${esc(u.loc)}</h2></div><div class="cards">
-  ${STATIONS.map(st=>`<a class="row" href="${gmapsWalk(st.lat,st.lng)}" target="_blank" rel="noopener"><div>${st.ln.map(l=>`<span class="ln" style="background:${l[1]}">${l[0]}</span>`).join("")}</div><div class="t"><b>${esc(t.stn[st.id])}</b></div><div class="v">${walkMin(dist(st.lat,st.lng,CFG.lat,CFG.lng))}<small> ${esc(u.min)}</small></div></a>`).join("")}
-  <div class="row"><div class="t"><b>${esc(L==="ko"?CFG.addrKo:CFG.addrEn)}</b><small>${esc(L==="ko"?CFG.addrEn:CFG.addrKo)}</small></div></div>
-  <div class="two"><a class="btn" href="${GMAP}" target="_blank" rel="noopener">${esc(u.gmap)}</a><a class="btn l" href="${NMAP}" target="_blank" rel="noopener">${esc(u.nmap)}</a></div>
-  <div class="two"><button class="btn l" id="taxiB">🚕 ${esc(u.taxi)}</button><button class="btn l" id="cpB">${esc(u.copy)}</button></div></div>
-  <div class="taxi" id="taxi"><small>이곳으로 가 주세요</small><b>서울 중구 명동3길 36<br>라인호텔 명동</b><small>을지로입구역 앞 · 롯데백화점 맞은편</small></div></section>
-
- <section id="eat"><div class="st"><h2>${esc(u.eat)}</h2></div><div class="eat">${near.map(e=>`<a href="${gmapsPlace(e)}" target="_blank" rel="noopener"><b>${esc(nm(e))}</b><small>${esc(t.cats[e.k])} · ${walkMin(e.m)}${esc(u.min)} · ★${e.r}</small></a>`).join("")}</div></section>
-
- <section id="info"><div class="st"><h2>${esc(u.info)}</h2></div>
-  <details open><summary>${esc(u.ci)}</summary><div class="c"><p>${u.ciT}</p></div></details>
-  <details><summary>${esc(u.amen)}</summary><div class="c"><p>${t.inList.map(esc).join(" · ")}</p></div></details>
-  <details><summary>${esc(u.rules)}</summary><div class="c">${t.ruleList.map(r=>`<p>• ${esc(r)}</p>`).join("")}</div></details>
-  <details><summary>${esc(u.air)}</summary><div class="c"><p>${esc(t.airTxt)}</p></div></details>
-  <details><summary>${esc(u.faq)}</summary><div class="c">${t.sugg.map(q=>`<p><b>${esc(q)}</b><br>${esc(faq(q))}</p>`).join("")}</div></details></section>
-
- <footer><b>LINE HOTEL MYEONGDONG</b><br>${esc(CFG.addrKo)} (04534)<br>T. <a href="tel:+82237898111">+82-2-3789-8111</a> · E. <a href="mailto:${CFG.email}">${CFG.email}</a><br><span style="font-size:11px">Emergency 112 · 119 · Travel Hotline 1330</span></footer>`;
- $("#acts").querySelectorAll("[data-to]").forEach(b=>b.onclick=()=>document.getElementById(b.dataset.to).scrollIntoView({behavior:"smooth"}));
- $("#app").querySelectorAll("[data-g]").forEach(b=>b.onclick=()=>{rg=b.dataset.g;const y=scrollY;render();scrollTo(0,y)});
- $("#app").querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>openRoom(b.dataset.r));
- $("#taxiB").onclick=()=>{const x=$("#taxi");x.style.display=x.style.display==="block"?"none":"block"};$("#cpB").onclick=()=>copyText(CFG.addrKo+" / "+CFG.addrEn);
+let L=pickLang("lh_lang"),G="sup",CAT="all";
+function nm(e){const p=e.n.split(/ (?=[가-힣])/);return L==="ko"?(p[1]||p[0]):p[0];}
+function render(){
+ const t=T[L];document.documentElement.lang=L;
+ $$("[data-t^=nav]").forEach((a,i)=>a.textContent=t.nav[i]);
+ $("#lang").innerHTML=ic("globe","sm")+" "+LNAME[L];
+ const hb=$("#hdBook");hb.textContent=t.book;hb.href=BOOK;
+ $("#hLoc").innerHTML=ic("pin","sm")+t.loc;$("#hH").textContent=t.h;$("#hP").textContent=t.p;
+ const A=[["cal",BOOK,1],["pin","#go"],["fork","#eat"],["phone","tel:"+CFG.tel]];
+ $("#acts").innerHTML=A.map((a,i)=>`<a class="act ${a[2]?"pri":""}" href="${a[1]}" ${a[1].startsWith("http")?'target="_blank" rel="noopener"':""}>${ic(a[0])}${t.acts[i]}</a>`).join("");
+ $("#mdT").textContent=t.mdT;$("#mdP").textContent=t.mdP;
+ $("#spots").innerHTML=SPOTS.map(s=>{const x=t.spots[s.k];return `<article class="spot"><img src="img/${s.img}" alt="${esc(x[0])}" loading="lazy"><div class="tx"><span class="wk">${ic("walk","sm")}${walkMin(dist(CFG.lat,CFG.lng,s.lat,s.lng))} ${t.walk}</span><h3>${x[0]}</h3><p>${x[1]}</p></div></article>`}).join("");
+ $("#day").innerHTML=t.day.map(d=>`<li><time>${d[0]}</time><div><b>${d[1]}</b><p>${d[2]}</p></div></li>`).join("");
+ $("#rmT").textContent=t.rmT;$("#rmP").textContent=t.rmP;
+ $("#seg").innerHTML=["sup","eco"].map((g,i)=>`<button aria-pressed="${G===g}" data-g="${g}">${t.seg[i]}</button>`).join("");
+ $$("#seg button").forEach(b=>b.onclick=()=>{G=b.dataset.g;render();});
+ $("#roomRail").innerHTML=ROOMS.filter(r=>r.g===G).map(r=>`<button class="room" data-id="${r.id}"><div class="ph"><img src="img/${r.id}-card.jpg" alt="${esc(r.n[L])}" loading="lazy"></div><div class="rt"><h3>${r.n[L]}</h3><div class="meta"><span>${r.a}㎡</span><span>${r.c} ${t.guests}</span><span class="tag ${r.w?"win":""}">${r.w?t.win:t.nowin}</span></div></div></button>`).join("");
+ $$(".room").forEach(b=>b.onclick=()=>openRoom(b.dataset.id));
+ $("#amen").innerHTML=t.amen.map(a=>`<li>${ic("check")}${a}</li>`).join("");
+ renderPre($("#prep"),L,"lh_pre");
+ $("#goT").textContent=t.goT;$("#goP").textContent=t.goP;
+ $("#routes").innerHTML=t.routes.map(r=>`<div class="route"><div class="top">${ic(r[0])}<div><h3>${r[1]}</h3><div class="sub">${r[2]}</div></div>${r[3]?`<span class="best">${t.best}</span>`:""}</div><ol class="steps">${r[4].map(s=>`<li>${s}</li>`).join("")}</ol></div>`).join("");
+ $("#stns").innerHTML=STNS.map(s=>`<div class="stn">${s.ln.map(l=>`<span class="ln" style="background:${l[1]}">${l[0]}</span>`).join("")}<b>${t.stn[s.id]}</b><span class="m">${walkMin(dist(CFG.lat,CFG.lng,s.lat,s.lng))} ${t.walk}</span></div>`).join("");
+ $("#gmBtn").href=`https://www.google.com/maps/search/?api=1&query=${CFG.lat},${CFG.lng}`;$("#nmBtn").href=nmap("라인호텔 명동");
+ $("#txS").textContent=t.txS;const tc=$("#txC");tc.innerHTML=ic("copy","sm")+t.copy;tc.onclick=()=>copyText(CFG.addrKo,tc,t.copied);
+ $("#eatT").textContent=t.eatT;$("#eatP").textContent=t.eatP;
+ $("#eatTip").innerHTML=`${ic("cal")}<div><b>${t.tipT}</b><p>${t.tipP}</p><a class="lnk" href="https://apps.apple.com/app/id1639046576" target="_blank" rel="noopener">CatchTable Global ${ic("arrow","sm")}</a></div>`;
+ $("#chips").innerHTML=Object.entries(t.cats).map(([k,v])=>`<button aria-pressed="${CAT===k}" data-k="${k}">${v}</button>`).join("");
+ $$("#chips button").forEach(b=>b.onclick=()=>{CAT=b.dataset.k;render();});
+ $("#eats").innerHTML=EAT.map(e=>({...e,m:dist(CFG.lat,CFG.lng,e.lat,e.lng)})).filter(e=>CAT==="all"||e.k===CAT).sort((a,b)=>a.m-b.m).map(e=>`<li class="eat"><b>${nm(e)}</b><p>${e.d[L]}</p><span class="h"><span class="d">${e.m}${t.m}</span>${e.h?" · "+e.h:""}</span><a href="${gmap(e)}" target="_blank" rel="noopener">${ic("pin","sm")}${t.map}</a></li>`).join("");
+ $("#infT").textContent=t.infT;
+ $("#kv").innerHTML=t.kv.map(k=>`<div><span>${k[0]}</span><b>${k[1]}</b></div>`).join("");
+ $("#acc").innerHTML=t.acc.map((a,i)=>`<details ${i?"":"open"}><summary>${a[0]}</summary><div class="in"><ul>${a[1].map(x=>`<li>${x}</li>`).join("")}</ul></div></details>`).join("");
+ $("#ct").innerHTML=`<a href="mailto:${CFG.email}">${ic("mail","sm")}${CFG.email}</a><a href="tel:${CFG.tel}">${ic("phone","sm")}${CFG.tel}</a><span>${L==="ko"?CFG.addrKo:CFG.addrEn}</span>`;
+ $("#cred").innerHTML=t.cred+" "+CRED.map(c=>`<a href="${c[1]}" target="_blank" rel="noopener">${c[0]}</a>`).join(", ")+".";
+ reveal();
 }
-function nm(e){const n=e.n.replace(/ \(.*\)/,"");const k=n.match(/[\uac00-\ud7a3][\uac00-\ud7a3 ]*$/);if(!k)return n;return L==="ko"?k[0].trim():n.slice(0,k.index).trim()}
-function openRoom(id){const r=ROOMS.find(x=>x.id===id),u=U[L];
- $("#pn").innerHTML=`<div style="position:relative"><button class="x" onclick="closeSheet()">×</button><span class="cnt" id="cnt">1 / 6</span><div class="gal" id="gal">${[1,2,3,4,5,6].map(i=>`<img src="img/${id}-${i}.jpg" alt="">`).join("")}</div></div>
- <div class="in"><h3>${esc(r.n[L])}</h3><div class="spec"><div><b>${r.a}㎡</b><span>${esc(u.area)}</span></div><div><b>${r.b.map(([k,n])=>BED[k][L]+(n>1?"×"+n:"")).join("+")}</b><span>${esc(u.bed)}</span></div><div><b>${r.c}</b><span>${esc(u.cap)}</span></div><div><b>${esc(r.w?u.yes:u.no)}</b><span>${esc(u.view)}</span></div></div>
- <a class="btn" href="${BOOK}" target="_blank" rel="noopener">${esc(u.book)} →</a></div>`;
- $("#sheet").classList.add("on");const g=$("#gal");g.onscroll=()=>$("#cnt").textContent=(Math.round(g.scrollLeft/g.clientWidth)+1)+" / 6"}
-function closeSheet(){$("#sheet").classList.remove("on")}
-$("#sbg").onclick=closeSheet;
-$("#lang").onclick=()=>{L=({ko:"en",en:"zh",zh:"ja",ja:"ko"})[L];try{localStorage.setItem("line_lang",L)}catch(e){}render()};
-setInterval(()=>{const im=document.querySelectorAll(".hero img"),d=document.querySelectorAll(".dots i");if(!im.length)return;im[hi].classList.remove("on");d[hi].classList.remove("on");hi=(hi+1)%im.length;im[hi].classList.add("on");d[hi].classList.add("on")},4500);
+function openRoom(id){
+ const t=T[L],r=ROOMS.find(x=>x.id===id),sh=$("#sheet");
+ $("#gal").innerHTML=[1,2,3,4,5,6].map(i=>`<img src="img/${id}-${i}.jpg" alt="${esc(r.n[L])} ${i}" loading="lazy">`).join("");
+ $("#shT").textContent=r.n[L];$("#shC").textContent=t.photo;
+ const beds=[...new Set(r.b)].map(c=>`${r.b.split(c).length-1}× ${t.bed[c]}`).join(" + ");
+ $("#spec").innerHTML=`<div><span>${t.size}</span><b>${r.a}㎡</b></div><div><span>${t.cap}</span><b>${r.c}</b></div><div><span>${t.beds}</span><b style="font-size:14px">${beds}</b></div>`;
+ $("#shP").textContent=r.w?t.win:t.nowin;
+ const b=$("#shB");b.textContent=t.bookRoom;b.href=BOOK;
+ $(".pn .x").innerHTML=ic("close");
+ sh.classList.add("open");sh.setAttribute("aria-hidden","false");requestAnimationFrame(()=>requestAnimationFrame(()=>sh.classList.add("show")));$(".pn .x").focus();
+}
+function closeRoom(){const sh=$("#sheet");sh.classList.remove("show");sh.setAttribute("aria-hidden","true");setTimeout(()=>sh.classList.remove("open"),300);}
+$$("[data-x]").forEach(e=>e.onclick=closeRoom);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeRoom();});
+$("#lang").onclick=()=>{L=LANGS[(LANGS.indexOf(L)+1)%LANGS.length];store.set("lh_lang",L);render();};
+(function slider(){const im=$$("#frame img"),d=$("#dots");let i=0;d.innerHTML=im.map((_,k)=>`<button aria-label="Photo ${k+1}" class="${k?"":"on"}"></button>`).join("");const db=$$("button",d);
+ const go=k=>{im[i].classList.remove("on");db[i].classList.remove("on");i=k;im[i].classList.add("on");db[i].classList.add("on");};
+ db.forEach((b,k)=>b.onclick=()=>go(k));if(!matchMedia("(prefers-reduced-motion: reduce)").matches)setInterval(()=>go((i+1)%im.length),5200);})();
 render();
-</script></body></html>
+</script>
+</body>
+</html>
