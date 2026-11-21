@@ -338,6 +338,37 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
 
 @media (min-width:760px){.mks{grid-template-columns:repeat(3,minmax(0,1fr))}.ddcard{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}.ddimgs{aspect-ratio:auto;min-height:380px}.duo{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.frame{aspect-ratio:16/4.4}.hcopy2 h1{font-size:clamp(32px,4.6vw,54px)}.studios{grid-template-columns:repeat(3,minmax(0,1fr))}.cis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (hover:hover) and (pointer:fine){.act:hover{background:#FAF6EE}.act.pri:hover{background:#EC5A40}}
+/* promo */
+.mq{overflow:hidden;margin:14px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+.mq-t{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq-t span{white-space:nowrap;padding:12px 18px;font-weight:800;font-size:14.5px;letter-spacing:.01em}
+.mq-t i{font-style:normal;color:var(--brass);align-self:center}
+@keyframes mq{to{transform:translateX(-50%)}}
+.prf{padding-top:40px}
+.eyebrow{font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);margin-bottom:12px}
+.nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r1);overflow:hidden}
+.nums div{background:var(--surf);padding:18px 16px}
+.nums b{display:block;font-family:var(--disp);font-size:clamp(30px,8vw,44px);line-height:1;letter-spacing:-.03em;color:var(--ink);font-variant-numeric:tabular-nums}
+.nums span{display:block;margin-top:6px;font-size:13.5px;color:var(--mute);line-height:1.4}
+.pks{list-style:none;border-top:1px solid var(--line)}
+.pks li{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.pks .pn{font-family:var(--disp);font-size:20px;font-weight:700;color:var(--brass)}
+.pks b{font-size:16.5px}.pks p{color:var(--mute);font-size:14px;margin-top:2px}
+.pks em{font-style:normal;font-size:12px;font-weight:800;letter-spacing:.04em;padding:5px 10px;border-radius:var(--r3);background:var(--brass);color:var(--onbrass);white-space:nowrap}
+.whos{display:grid;gap:10px}
+.wh{padding:18px;border-radius:var(--r2);background:var(--surf);border:1px solid var(--line);border-left:4px solid var(--brass)}
+.wh b{font-size:17px}.wh p{color:var(--mute);font-size:14.5px;margin-top:2px}
+.ctab{text-align:center;padding:40px 22px;border-radius:var(--r1);background:var(--ink);color:var(--bg)}
+.ctab h2{font-family:var(--disp);font-size:clamp(28px,7vw,44px);line-height:1.1;letter-spacing:-.02em}
+.ctab p{opacity:.75;margin:10px 0 20px}
+.ctab .btn{max-width:360px;margin:0 auto}
+.sticky{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;display:flex;align-items:center;gap:10px;padding:8px 8px 8px 16px;border-radius:var(--r3);background:var(--ink);color:var(--bg);box-shadow:0 10px 30px rgba(0,0,0,.35);transform:translateY(140%);transition:transform .35s var(--ease)}
+.sticky.show{transform:none}
+.sticky span{flex:1;min-width:0;font-weight:800;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sticky a{flex:none;height:42px;display:flex;align-items:center;padding:0 18px;border-radius:var(--r3);background:var(--brass);color:var(--onbrass);font-weight:800;font-size:14.5px}
+footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+@media (min-width:760px){.nums{grid-template-columns:repeat(4,minmax(0,1fr))}.whos{grid-template-columns:repeat(3,minmax(0,1fr))}.sticky{left:auto;right:24px;width:420px}}
+@media (prefers-reduced-motion:reduce){.mq-t{animation:none}}
 </style>
 </head>
 <body>
@@ -356,7 +387,9 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
  <div class="acts" id="acts"></div>
 </div>
 
+<div class="mq" id="mq"></div>
 <div class="wrap">
+<section id="prf" class="prf rv"></section>
 <section id="ddm">
  <div class="sec-h rv"><h2 id="ddT"></h2><p id="ddP"></p></div>
  <article class="ddcard rv">
@@ -373,6 +406,9 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
   <article class="big rv"><div class="ph"><img src="img/b_cgc.jpg" alt="" loading="lazy"></div><div class="bt" id="cgCard"></div></article>
  </div>
 </section>
+
+<section id="perks"></section>
+<section id="who"></section>
 
 <section id="stay">
  <div class="sec-h rv"><h2 id="abT"></h2><p id="abP"></p></div>
@@ -410,14 +446,18 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
  <ul class="eats" id="eats"></ul>
 </section>
 
+<section id="faq"></section>
+
 <section id="info">
  <div class="sec-h rv"><h2 id="infT"></h2></div>
  <div class="kv rv" id="kv"></div>
  <div class="acc rv" id="acc"></div>
 </section>
+<section><div class="ctab rv" id="ctaBand"></div></section>
 </div>
 </main>
 
+<div class="sticky" id="stickyCta"></div>
 <footer><div class="wrap">
  <div class="logo">BRIDGE</div>
  <div class="ct" id="ct"></div>
@@ -515,6 +555,70 @@ function renderPre(el,lang,key){
 function copyText(t,btn,label){(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{const o=btn.innerHTML;btn.textContent=label;setTimeout(()=>btn.innerHTML=o,1400)}).catch(()=>{});}
 function reveal(){if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){$$(".rv").forEach(e=>e.classList.add("in"));return;}
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px"});$$(".rv").forEach(e=>io.observe(e));}
+
+/* ===== promo blocks: marquee · numbers · included perks · who · FAQ · sticky CTA ===== */
+const PR={
+line:{
+en:{mq:["1 min to Euljiro 1-ga Stn","24h front desk","9 room types","Free bag storage until 23:00","Street food 5 min away"],
+ prf:["Proven by the numbers",[["1 min","to Euljiro 1-ga Station"],["3","subway lines within a 10-min walk"],["9","room types · up to 4 guests"],["24h","front desk on 5F"]]],
+ pk:["Included with every stay","The basics are on us — no add-ons, no surprise fees.",[["Bag storage until 23:00","On your check-out day — shop, eat, then pick up your bags.","FREE"],["5F lobby lounge","Coffee, tea, microwave and paper cups, any time.","FREE"],["Bottled water","In your room on day one, then the 5F purifier.","FREE"],["Phone charger","Borrow one at the desk (₩10,000 cash deposit, returned).","FREE"],["Daily tidy-up","Fresh towels and trash out daily; linen every 3 days.","DAILY"],["This guest app","Myeongdong guide, taxi card and checklist in 4 languages.","FREE"]]],
+ who:["Made for the way you travel",[["Shoppers","The Myeongdong main street is a 3-minute walk."],["Families & friends","Family, triple and quad rooms sleep up to 4."],["First time in Seoul","Airport bus 6001 stops nearby, and the taxi card is ready."]]],
+ faq:["Before you book",[["Can I leave my bags before check-in?","Yes. The front desk on 5F is open 24 hours."],["Are toothbrushes provided?","No. Under government guidelines we don't provide toothbrushes, toothpaste or razors — please bring your own."],["Is there parking?","There is no on-site parking. The subway is the easiest way in."]]],
+ cta:["Ready for Myeongdong?","Book direct on our official website.","Check rates & book"]},
+ko:{mq:["을지로입구역 1분","24시간 프런트","객실 9종","체크아웃 날 23시까지 짐 보관 무료","길거리 음식 5분"],
+ prf:["숫자로 보는 라인호텔",[["1분","을지로입구역까지"],["3개","도보 10분 내 지하철 노선"],["9종","객실 · 최대 4인"],["24시간","5층 프런트 운영"]]],
+ pk:["모든 숙박에 기본 포함","기본은 호텔이 챙겨요. 추가 요금 걱정 없이.",[["23시까지 짐 보관","체크아웃 당일 쇼핑하고 밥 먹고 짐 찾아 가세요.","무료"],["5층 로비 라운지","커피·차·전자레인지·종이컵 언제든.","무료"],["생수","첫날 객실 제공, 이후 5층 정수기.","무료"],["휴대폰 충전기","프런트 대여 (보증금 현금 1만 원, 반납 시 환불).","무료"],["매일 객실 정비","수건·쓰레기는 매일, 린넨은 3일마다.","매일"],["게스트 앱","명동 가이드·택시 카드·체크리스트 4개 국어.","무료"]]],
+ who:["이런 여행에 딱",[["쇼핑 여행","명동 메인 거리까지 걸어서 3분."],["가족·친구 여행","패밀리·트리플·쿼드룸으로 최대 4인."],["서울 첫 여행","공항버스 6001이 가까이 서고 택시 카드도 준비돼 있어요."]]],
+ faq:["예약 전에 확인하세요",[["체크인 전에 짐을 맡길 수 있나요?","네. 5층 프런트가 24시간 운영해요."],["칫솔이 있나요?","정부 지침에 따라 칫솔·치약·면도기는 제공하지 않아요. 꼭 챙겨 오세요."],["주차가 되나요?","호텔 주차장은 없어요. 지하철이 가장 편해요."]]],
+ cta:["명동 갈 준비 되셨나요?","공식 홈페이지에서 바로 예약하세요.","요금 확인 · 예약"]},
+zh:{mq:["乙支路入口站1分钟","24小时前台","9种房型","退房当天23点前免费寄存","街头小吃步行5分钟"],
+ prf:["用数字说话",[["1分钟","到乙支路入口站"],["3条","步行10分钟内的地铁线"],["9种","房型 · 最多4人"],["24小时","5楼前台"]]],
+ pk:["每晚住宿都包含","基础服务由我们准备，没有额外费用。",[["行李寄存至23点","退房当天尽情购物用餐，再来取行李。","免费"],["5楼大堂休息区","咖啡、茶、微波炉、纸杯随时使用。","免费"],["瓶装水","首日客房提供，之后使用5楼饮水机。","免费"],["手机充电器","前台借用（现金押金1万韩元，归还退还）。","免费"],["每日整理","每天更换毛巾、收垃圾，每3天换床单。","每天"],["入住指南App","明洞攻略、出租车卡、清单，4种语言。","免费"]]],
+ who:["适合这样的旅行",[["购物党","步行3分钟到明洞主街。"],["家庭与朋友","家庭房、三人房、四人房，最多4人。"],["第一次来首尔","机场巴士6001就在附近，出租车卡已备好。"]]],
+ faq:["预订前须知",[["入住前可以寄存行李吗？","可以，5楼前台24小时服务。"],["提供牙刷吗？","按政府规定不提供牙刷、牙膏、剃须刀，请自备。"],["可以停车吗？","酒店没有停车场，建议乘坐地铁。"]]],
+ cta:["准备好逛明洞了吗？","在官网直接预订。","查看房价并预订"]},
+ja:{mq:["乙支路入口駅 徒歩1分","24時間フロント","客室9タイプ","アウト当日23時まで荷物預かり無料","屋台まで徒歩5分"],
+ prf:["数字で見るLINE HOTEL",[["1分","乙支路入口駅まで"],["3路線","徒歩10分圏内の地下鉄"],["9タイプ","客室 · 最大4名"],["24時間","5階フロント"]]],
+ pk:["すべての宿泊に含まれます","基本はホテルにおまかせ。追加料金の心配なし。",[["23時まで荷物預かり","チェックアウト当日、買い物と食事を楽しんでから受け取り。","無料"],["5階ロビーラウンジ","コーヒー・お茶・電子レンジ・紙コップをいつでも。","無料"],["ミネラルウォーター","初日は客室に、以降は5階の浄水器で。","無料"],["スマホ充電器","フロントで貸出（現金保証金1万ウォン、返却時返金）。","無料"],["毎日の簡易清掃","タオル交換とゴミ回収は毎日、リネンは3日ごと。","毎日"],["ゲストアプリ","明洞ガイド・タクシーカード・チェックリストを4言語で。","無料"]]],
+ who:["こんな旅にぴったり",[["ショッピング派","明洞メイン通りまで徒歩3分。"],["家族・友人旅","ファミリー・トリプル・クアッドで最大4名。"],["はじめてのソウル","空港バス6001が近くに停車、タクシーカードも用意。"]]],
+ faq:["予約の前に",[["チェックイン前に荷物を預けられますか？","はい。5階フロントは24時間対応です。"],["歯ブラシはありますか？","政府の方針により歯ブラシ・歯磨き粉・カミソリは提供していません。ご持参ください。"],["駐車場はありますか？","ホテル駐車場はありません。地下鉄が便利です。"]]],
+ cta:["明洞へ出かける準備はOK？","公式サイトから直接予約できます。","料金を見て予約"]}},
+bridge:{
+en:{mq:["1 stop to DDP","Dongmyo flea market 7 min","Emart 3 min","Airport bus 6002 · Dongmyo stop","Sindang Hanjeungmak 9 min"],
+ prf:["Proven by the numbers",[["33","private studios"],["1 stop","to Dongdaemun & DDP"],["4","subway lines nearby"],["3 min","to Emart"]]],
+ pk:["Included with every stay","Everything you need to live like a local for a few days.",[["Your own kitchenette","Cook your Emart finds in your studio.","IN ROOM"],["Self check-in","Lobby kiosk + passport. No queue, any time.","24H"],["Free self lockers","Before check-in and after check-out.","SOON"],["Airport bus 6002","Stops at Dongmyo — a 10-min walk.","DIRECT"],["Local food picks","Our #1: Sindang Hanjeungmak, 9 min away.","FREE"],["This guest app","Checklist, routes and taxi card in 4 languages.","FREE"]]],
+ who:["Made for the way you travel",[["Vintage hunters","Dongmyo flea market is 7 minutes on foot."],["Longer stays","Kitchenette in every studio, Emart next door."],["Night owls","DDP and late-night fashion malls are one stop away."]]],
+ faq:["Before you book",[["Is there a front desk?","Check-in is self-service at the lobby kiosk. We help by email any time."],["Can I cook?","Yes — every studio has a kitchenette."],["Where is the nearest airport bus stop?","Airport bus 6002 stops at Dongmyo-ap (Hyehwa Police Station), about 10 min on foot."]]],
+ cta:["Your Seoul base in Dongdaemun","Group stay or a question? Email us.","Email BRIDGE"]},
+ko:{mq:["DDP까지 1정거장","동묘시장 7분","이마트 3분","공항버스 6002 동묘 정차","신당한증막 9분"],
+ prf:["숫자로 보는 브릿지",[["33실","독립 스튜디오"],["1정거장","동대문·DDP까지"],["4개","가까운 지하철 노선"],["3분","이마트까지"]]],
+ pk:["모든 숙박에 기본 포함","며칠 동안 동네 사람처럼 살아 보는 데 필요한 것.",[["전용 간이주방","이마트에서 산 재료로 방에서 요리.","객실"],["셀프 체크인","로비 키오스크 + 여권. 줄 없이 언제든.","24시간"],["무료 셀프 짐 보관함","체크인 전에도, 체크아웃 후에도.","오픈 예정"],["공항버스 6002","동묘 정차, 걸어서 10분.","직행"],["로컬 맛집 추천","1순위 신당한증막, 걸어서 9분.","무료"],["게스트 앱","체크리스트·오는 길·택시 카드 4개 국어.","무료"]]],
+ who:["이런 여행에 딱",[["빈티지 헌터","동묘 벼룩시장까지 걸어서 7분."],["장기 숙박","전 객실 간이주방, 바로 옆 이마트."],["밤 문화","DDP와 심야 패션몰이 한 정거장."]]],
+ faq:["예약 전에 확인하세요",[["프런트가 있나요?","체크인은 로비 키오스크에서 셀프로 해요. 이메일로 언제든 도와드려요."],["요리할 수 있나요?","네, 모든 스튜디오에 간이주방이 있어요."],["가까운 공항버스 정류장은?","공항버스 6002가 동묘앞(서울혜화경찰서)에 서요. 걸어서 약 10분."]]],
+ cta:["동대문에 차린 나의 서울 베이스","단체 숙박이나 문의는 메일로 주세요.","브릿지에 메일 보내기"]},
+zh:{mq:["DDP仅1站","东庙市场7分钟","易买得3分钟","机场巴士6002东庙停靠","新堂汗蒸幕9分钟"],
+ prf:["用数字说话",[["33间","独立开间"],["1站","到东大门·DDP"],["4条","附近地铁线"],["3分钟","到易买得"]]],
+ pk:["每晚住宿都包含","像本地人一样住几天所需的一切。",[["独立小厨房","用易买得买来的食材在房间做饭。","客房"],["自助入住","大堂自助机+护照，随时入住不排队。","24小时"],["免费自助行李柜","入住前、退房后都能用。","即将开放"],["机场巴士6002","东庙停靠，步行10分钟。","直达"],["本地美食推荐","首推新堂汗蒸幕，步行9分钟。","免费"],["入住指南App","清单、路线、出租车卡，4种语言。","免费"]]],
+ who:["适合这样的旅行",[["古着控","步行7分钟到东庙跳蚤市场。"],["长住","每间都有小厨房，隔壁就是易买得。"],["夜猫子","DDP和深夜服装商场仅1站。"]]],
+ faq:["预订前须知",[["有前台吗？","在大堂自助机办理入住，随时可邮件联系我们。"],["可以做饭吗？","可以，每间开间都有小厨房。"],["最近的机场巴士站在哪？","机场巴士6002停靠东庙前（首尔惠化警察署），步行约10分钟。"]]],
+ cta:["你在东大门的首尔基地","团体入住或咨询请发邮件。","发邮件给BRIDGE"]},
+ja:{mq:["DDPまで1駅","東廟市場 徒歩7分","イーマート 徒歩3分","空港バス6002 東廟停車","新堂ハンジュンマク 徒歩9分"],
+ prf:["数字で見るBRIDGE",[["33室","個室スタジオ"],["1駅","東大門・DDPまで"],["4路線","近くの地下鉄"],["3分","イーマートまで"]]],
+ pk:["すべての宿泊に含まれます","数日間、地元の人のように暮らすために。",[["専用キッチン","イーマートで買った食材を部屋で料理。","客室"],["セルフチェックイン","ロビーのキオスク+パスポート。並ばずいつでも。","24時間"],["無料セルフロッカー","チェックイン前もアウト後も。","まもなく"],["空港バス6002","東廟に停車、徒歩10分。","直行"],["ローカルグルメ","イチオシは新堂ハンジュンマク、徒歩9分。","無料"],["ゲストアプリ","チェックリスト・行き方・タクシーカードを4言語で。","無料"]]],
+ who:["こんな旅にぴったり",[["古着ハンター","東廟フリーマーケットまで徒歩7分。"],["長期滞在","全室キッチン付き、隣はイーマート。"],["夜型さん","DDPと深夜営業のファッションビルが1駅。"]]],
+ faq:["予約の前に",[["フロントはありますか？","チェックインはロビーのキオスクでセルフです。メールでいつでもサポートします。"],["料理できますか？","はい、全スタジオにキッチンがあります。"],["最寄りの空港バス停は？","空港バス6002が東廟前（ソウル恵化警察署）に停車、徒歩約10分。"]]],
+ cta:["東大門につくる、わたしのソウル拠点","団体利用やお問い合わせはメールで。","BRIDGEにメール"]}}};
+function renderPromo(app,L,o){
+ const p=PR[app][L],q=s=>document.querySelector(s);
+ const mq=q("#mq");if(mq){const row=p.mq.map(x=>`<span>${x}</span><i>✦</i>`).join("");mq.innerHTML=`<div class="mq-t">${row}${row}</div>`;}
+ const pf=q("#prf");if(pf)pf.innerHTML=`<p class="eyebrow">${p.prf[0]}</p><div class="nums">${p.prf[1].map(n=>`<div><b>${n[0]}</b><span>${n[1]}</span></div>`).join("")}</div>`;
+ const pk=q("#perks");if(pk)pk.innerHTML=`<div class="sec-h rv"><h2>${p.pk[0]}</h2><p>${p.pk[1]}</p></div><ol class="pks">${p.pk[2].map((x,i)=>`<li class="rv"><span class="pn">${String(i+1).padStart(2,"0")}</span><div><b>${x[0]}</b><p>${x[1]}</p></div><em>${x[2]}</em></li>`).join("")}</ol>`;
+ const wh=q("#who");if(wh)wh.innerHTML=`<div class="sec-h rv"><h2>${p.who[0]}</h2></div><div class="whos">${p.who[1].map(x=>`<div class="wh rv"><b>${x[0]}</b><p>${x[1]}</p></div>`).join("")}</div>`;
+ const fq=q("#faq");if(fq)fq.innerHTML=`<div class="sec-h rv"><h2>${p.faq[0]}</h2></div><div class="acc rv">${p.faq[1].map(x=>`<details><summary>${x[0]}</summary><div class="in"><p>${x[1]}</p></div></details>`).join("")}</div>`;
+ const ct=q("#ctaBand");if(ct)ct.innerHTML=`<h2>${p.cta[0]}</h2><p>${p.cta[1]}</p><a class="btn" href="${o.href}" ${o.href.startsWith("http")?'target="_blank" rel="noopener"':""}>${p.cta[2]}</a>`;
+ const sb=q("#stickyCta");if(sb){sb.innerHTML=`<span>${p.cta[0]}</span><a href="${o.href}" ${o.href.startsWith("http")?'target="_blank" rel="noopener"':""}>${p.cta[2]}</a>`;
+  if(!sb.dataset.bound){sb.dataset.bound=1;const hero=q(".hero");const io=new IntersectionObserver(es=>sb.classList.toggle("show",!es[0].isIntersecting));if(hero)io.observe(hero);}}
+}
 
 const EAT=[
   {n:"Gyeryugwan 계류관", k:"chicken", lat:37.5660865,lng:127.0203022, pid:"ChIJ5_3OEqSjfDURUazbxoV2R5M", h:"16:00–23:00", r:4.7, d:{en:"Oak-wood roast chicken stuffed with mushroom rice. Share 1 chicken for 2.",zh:"橡木烤鸡，内塞蘑菇饭，2人分享1只。",ja:"オーク材で焼くきのこご飯詰めローストチキン。2人で1羽。",ko:"참나무 장작 통닭 + 능이버섯밥. 2인 1마리."}},
@@ -650,6 +754,7 @@ function render(){
  $("#acc").innerHTML=t.acc.map((a,i)=>`<details ${i?"":"open"}><summary>${a[0]}</summary><div class="in"><ul>${a[1].map(x=>`<li>${x}</li>`).join("")}</ul></div></details>`).join("");
  $("#ct").innerHTML=`<a href="mailto:${CFG.email}">${ic("mail","sm")}${CFG.email}</a><span>${L==="ko"?CFG.addrKo:CFG.addrEn}</span>`;
  $("#cred").innerHTML=t.cred+" "+CRED.map(c=>`<a href="${c[1]}" target="_blank" rel="noopener">${c[0]}</a>`).join(", ")+".";
+ renderPromo("bridge",L,{href:"mailto:"+CFG.email});
  reveal();
 }
 $("#lang").onclick=()=>{L=LANGS[(LANGS.indexOf(L)+1)%LANGS.length];store.set("br_lang",L);render();};
