@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap">
 <style>
 :root{
- --bg:#101217;--bg2:#161920;--surf:#1C2029;--line:#2A2F3A;--ink:#F4EFE7;--mute:#A8A196;--dim:#6F6A62;
+ --bg:#101217;--bg2:#161920;--surf:#1C2029;--line:#2A2F3A;--ink:#F6F2EB;--mute:#C2BBB0;--dim:#8F897F;
  --brass:#D7B172;--brass2:#B8924F;--onbrass:#1A1408;
  --sans:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR","PingFang SC","Hiragino Sans",sans-serif;
  --disp:"Playfair Display","Pretendard Variable",Georgia,serif;
@@ -265,6 +265,39 @@ footer .ct a{display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
 footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 @media (min-width:760px){.nums{grid-template-columns:repeat(4,minmax(0,1fr))}.whos{grid-template-columns:repeat(3,minmax(0,1fr))}.sticky{left:auto;right:24px;width:420px}}
 @media (prefers-reduced-motion:reduce){.mq-t{animation:none}}
+/* bottom nav + readability */
+body{font-size:17px;line-height:1.65;padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+.bnav{position:fixed;left:0;right:0;bottom:0;z-index:55;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:6px 6px calc(6px + env(safe-area-inset-bottom));background:var(--bg2);border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.12)}
+.bnav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:56px;border-radius:14px;color:var(--mute);font-size:12px;font-weight:700;line-height:1.2;text-align:center;padding:4px 2px;transition:color .2s,background-color .2s}
+.bnav button .ic{width:24px;height:24px}
+.bnav button[aria-current=page]{color:var(--brass);background:color-mix(in srgb,var(--brass) 14%,transparent)}
+.bnav span{display:block;max-width:100%;overflow-wrap:anywhere}
+.tabs,.sticky{display:none!important}
+section{padding:44px 0 4px}
+.sec-h h2{margin-bottom:2px}
+.sec-h p{font-size:16px}
+footer{padding-bottom:28px}
+@media (min-width:760px){.bnav{left:50%;right:auto;bottom:16px;transform:translateX(-50%);width:560px;border-radius:22px;border:1px solid var(--line)}body{padding-bottom:110px}}
+/* flair */
+:root{--g1:var(--brass);--g2:#FFE7B0}
+.sec-h h2,.ctab h2{background:linear-gradient(100deg,var(--ink) 0%,var(--ink) 40%,var(--g1) 70%,var(--g2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nums b{background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.frame{box-shadow:0 0 0 1px color-mix(in srgb,var(--g1) 45%,transparent),0 24px 60px -20px color-mix(in srgb,var(--g1) 55%,transparent)}
+.frame::before{content:"";position:absolute;inset:-40%;z-index:1;pointer-events:none;background:conic-gradient(from 0deg,transparent 0 70%,color-mix(in srgb,var(--g2) 35%,transparent) 80%,transparent 90%);animation:spin 9s linear infinite;mix-blend-mode:screen;opacity:.5}
+@keyframes spin{to{transform:rotate(1turn)}}
+.act.pri,.btn,.hd .book{background:linear-gradient(120deg,var(--g1),var(--g2),var(--g1));background-size:200% 100%;animation:sheen 5s ease-in-out infinite;color:var(--onbrass);border:0}
+@keyframes sheen{50%{background-position:100% 0}}
+.btn.ghost{background:transparent;animation:none;color:var(--ink);border:1px solid var(--line)}
+.ctab{background:radial-gradient(120% 140% at 0% 0%,color-mix(in srgb,var(--g1) 55%,var(--ink)) 0%,var(--ink) 55%),var(--ink);position:relative;overflow:hidden}
+.ctab h2{background:linear-gradient(100deg,var(--bg),var(--g2));-webkit-background-clip:text;background-clip:text}
+.pks li em,.pk-b,.wk{box-shadow:0 0 0 3px color-mix(in srgb,var(--g1) 20%,transparent)}
+.wh{border-left:0;position:relative;overflow:hidden}
+.wh::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--g1),var(--g2))}
+.bnav button[aria-current=page]{color:var(--onbrass);background:linear-gradient(135deg,var(--g1),var(--g2));box-shadow:0 6px 18px -6px var(--g1)}
+.spot,.room,.mkc,.big{transition:transform .25s var(--ease),box-shadow .25s}
+@media (hover:hover){.spot:hover,.room:hover,.mkc:hover,.big:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px color-mix(in srgb,var(--g1) 70%,transparent)}}
+.mq{background:linear-gradient(90deg,var(--bg2),color-mix(in srgb,var(--g1) 18%,var(--bg2)),var(--bg2))}
+@media (prefers-reduced-motion:reduce){.frame::before,.act.pri,.btn,.hd .book{animation:none}}
 </style>
 </head>
 <body>
@@ -345,11 +378,10 @@ footer{padding-bottom:calc(96px + env(safe-area-inset-bottom))}
  <div class="fee rv" id="fee"></div>
  <div class="acc rv" id="acc"></div>
 </section>
-<section><div class="ctab rv" id="ctaBand"></div></section>
+<section id="ctaSec"><div class="ctab rv" id="ctaBand"></div></section>
 </div>
 </main>
 
-<div class="sticky" id="stickyCta"></div>
 <footer><div class="wrap">
  <div class="logo">LINE HOTEL</div>
  <div class="ct" id="ct"></div>
@@ -449,6 +481,21 @@ function renderPre(el,lang,key){
 function copyText(t,btn,label){(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{const o=btn.innerHTML;btn.textContent=label;setTimeout(()=>btn.innerHTML=o,1400)}).catch(()=>{});}
 function reveal(){if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){$$(".rv").forEach(e=>e.classList.add("in"));return;}
  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px"});$$(".rv").forEach(e=>io.observe(e));}
+/* ===== page tabs (bottom nav) ===== */
+ICON.home='<path d="M4 11l8-7 8 7v9h-5.5v-6h-5v6H4z"/>';
+const PG={cur:"home",map:{},order:[]};
+function initPages(pages,icons){
+ PG.order=Object.keys(pages);
+ for(const [pg,sels] of Object.entries(pages)) sels.forEach(sel=>$$(sel).forEach(el=>{el.dataset.pg=pg;if(el.id)PG.map[el.id]=pg;}));
+ const nav=document.createElement("nav");nav.className="bnav";nav.id="bnav";nav.setAttribute("aria-label","Main");
+ nav.innerHTML=PG.order.map((p,i)=>`<button data-p="${p}">${ic(icons[i])}<span></span></button>`).join("");
+ document.body.appendChild(nav);
+ $$("button",nav).forEach(b=>b.onclick=()=>{go(b.dataset.p);window.scrollTo({top:0,behavior:"instant"});history.replaceState(null,"","#"+b.dataset.p);});
+ document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute("href").slice(1);if(!id)return;const pg=PG.map[id]||(PG.order.includes(id)?id:null);if(!pg)return;e.preventDefault();go(pg);const t=document.getElementById(id);if(t&&!PG.order.includes(id))setTimeout(()=>t.scrollIntoView({behavior:"smooth"}),30);else window.scrollTo({top:0});history.replaceState(null,"","#"+id);});
+ const h=location.hash.slice(1);go(PG.map[h]||(PG.order.includes(h)?h:"home"));if(h&&PG.map[h])setTimeout(()=>{const t=document.getElementById(h);t&&t.scrollIntoView();},60);
+}
+function go(p){PG.cur=p;$$("[data-pg]").forEach(el=>el.hidden=el.dataset.pg!==p);$$("#bnav button").forEach(b=>b.setAttribute("aria-current",b.dataset.p===p?"page":"false"));$$(".rv").forEach(e=>e.classList.add("in"));}
+function navLabels(labels){$$("#bnav button span").forEach((s,i)=>s.textContent=labels[i]);}
 
 /* ===== promo blocks: marquee · numbers · included perks · who · FAQ · sticky CTA ===== */
 const PR={
@@ -642,6 +689,7 @@ function render(){
  $("#ct").innerHTML=`<a href="mailto:${CFG.email}">${ic("mail","sm")}${CFG.email}</a><a href="tel:${CFG.tel}">${ic("phone","sm")}${CFG.tel}</a><span>${L==="ko"?CFG.addrKo:CFG.addrEn}</span>`;
  $("#cred").innerHTML=t.cred+" "+CRED.map(c=>`<a href="${c[1]}" target="_blank" rel="noopener">${c[0]}</a>`).join(", ")+".";
  renderPromo("line",L,{href:BOOK});
+ navLabels({en:["Home","Myeongdong","Eat","Stay","Trip prep"],ko:["홈","명동관광","맛집","객실·체크인","여행준비"],zh:["首页","明洞观光","美食","客房·入住","行前准备"],ja:["ホーム","明洞観光","グルメ","客室・入館","旅の準備"]}[L]);
  reveal();
 }
 function openRoom(id){
@@ -662,6 +710,7 @@ $("#lang").onclick=()=>{L=LANGS[(LANGS.indexOf(L)+1)%LANGS.length];store.set("lh
 (function slider(){const im=$$("#frame picture"),d=$("#dots");let i=0;d.innerHTML=im.map((_,k)=>`<button aria-label="Photo ${k+1}" class="${k?"":"on"}"></button>`).join("");const db=$$("button",d);
  const go=k=>{im[i].classList.remove("on");db[i].classList.remove("on");i=k;im[i].classList.add("on");db[i].classList.add("on");};
  db.forEach((b,k)=>b.onclick=()=>go(k));if(!matchMedia("(prefers-reduced-motion: reduce)").matches)setInterval(()=>go((i+1)%im.length),5200);})();
+initPages({home:[".hero","#mq","#prf","#perks","#who","#ctaSec"],md:["#md"],eat:["#eat"],stay:["#ci","#rooms","#info"],trip:["#prep","#go","#faq"]},["home","walk","fork","bed","plane"]);
 render();
 </script>
 </body>
