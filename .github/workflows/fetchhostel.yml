@@ -1,0 +1,40 @@
+name: fetchhostel
+on:
+  push:
+    paths: [".github/workflows/fetchhostel.yml"]
+permissions:
+  contents: write
+jobs:
+  f:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p tmpimg
+          g() { curl -fsSL -A "Mozilla/5.0" -o "tmpimg/$1" "$2" || echo "FAIL $1"; }
+          B=https://bookandbedtokyo.com/images
+          g bb1.jpg $B/live/shinjuku/bed-single.jpg
+          g bb2.jpg $B/shinjuku/interior/img-4426.jpg
+          g bb3.jpg $B/live/shinsaibashi/bookshelf-beds.jpg
+          g bb4.jpg $B/live/shinsaibashi/lobby-01.jpg
+          g bb5.jpg $B/live/shinjuku/bed-superior.jpg
+          N=https://assets.ninehours.co.jp
+          g nh1.jpg $N/img/top/img_kv_main.jpg
+          g nh2.jpg $N/img/top/img_kv_3.jpg
+          g nh3.jpg $N/img/top/img_kv_5.jpg
+          g nh4.jpg $N/images/news/23703-66-ec1d310503950a46e6c10f0e349c663e-3900x2340.jpg
+          g nh5.jpg $N/images/news/23703-66-8fc7b9397da2e4bec65e52b9ca50bde6-2667x2000.jpg
+          g nh6.jpg $N/images/news/23703-68-41499011b1ff7978daa58ad385223838-3900x2520.jpg
+          G=https://staygenerator.com/web/media
+          g ge1.jpg "$G/banners/destinations/copenhagen/shuffleboard-bar-copenhagen-hostel-generator-(37).jpg?width=1024&mode=max&quality=100"
+          g ge2.jpg "$G/gallery-images/madrid/generator-hostel-madrid-broken-shaker-rooftop-space.jpg?width=1024&mode=max&quality=100"
+          g ge3.jpg "$G/gallery-images/berlin-mitte/gen_berlin_cmyk_2.jpg?width=1024&mode=max&quality=100"
+          g ge4.jpg "$G/gallery-images/berlin-alexanderplatz/spaces/berlin_alexanderplatz_pool_table_and_games-4.jpg?width=1024&mode=max&quality=100"
+          g ge5.jpg "$G/banners/destinations/amsterdam/generator-hostel-amsterdam-events-gen-sessions-hunkering-(19)-1199x800.jpg?width=1024&mode=max&quality=100"
+          W=https://www.wombats-hostels.com/fileadmin/_processed_
+          g wo1.webp $W/a/9/csm_london_dc1ac5019e.webp
+          g wo2.webp $W/f/2/csm_vienna_01_3034003367.webp
+          g wo3.webp $W/a/e/csm_budapest_33c8d4ec93.webp
+          ls -la tmpimg
+          git config user.name bot && git config user.email bot@users.noreply.github.com
+          git add tmpimg && git commit -m "hostel imgs" && git push
