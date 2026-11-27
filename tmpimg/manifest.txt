@@ -1,0 +1,22 @@
+PAGE https://m.blog.naver.com/6_bbang/223941995046 imgs=150 len=185611
+tok 6152 3
+OK fuk_6152.jpg 51713 https://mblogthumb-phinf.pstatic.net/MjAyNTA3MjFfMTYz/MDAxNzUzMDY3ODU5NzQ4.04LzeP_STQjU-N8Reqc1sLJKGzlEZKijcxg-1-uDsVgg.8fOv1jp85jT7L_--Un5AZqOr7wECm1l9CKKo-3dFHj8g.JPEG/IMG%EF%BC%BF6152.jpg?type=w800
+PAGE https://m.blog.naver.com/zoodin1/224273622767 imgs=81 len=158633
+tok 0673 3
+OK vis_0673.jpg 137346 https://mblogthumb-phinf.pstatic.net/MjAyNjA1MDNfMjk3/MDAxNzc3Nzc1MDQyMDI1.kIxAV0A7GkDC3EbfN8IzI4S-LpEAv_8aWiD0rDBD6M0g.Q8ruhWIlZ9qBNPJBJdfO4RNN26gYMCOmsiXs4FCHn2gg.JPEG/IMG%EF%BC%BF0673.JPG?type=w800
+tok 0674 3
+OK vis_0674.jpg 109910 https://mblogthumb-phinf.pstatic.net/MjAyNjA1MDNfMTMy/MDAxNzc3Nzc1MDM5MjY3.iiiKugrCOi1vqVsNLluxPaoIf7FSbkQx3UzBhjxpl2Ag.yHlmQuaWNRJQyuwpAjM9KlAfhczJ5dZ6ch8P1a7v1zUg.JPEG/IMG%EF%BC%BF0674.JPG?type=w800
+tok 0675 3
+OK vis_0675.jpg 146899 https://mblogthumb-phinf.pstatic.net/MjAyNjA1MDNfMTEg/MDAxNzc3Nzc1MDM4MzI0.pCa1JFR4fqmJgN39dFd2c39pEM1Wv_fcjmBMrbM2CAMg.NH7-Eazxwe26XgaKfUdwesHGyBbQ-sB5RnWsywo17yQg.JPEG/IMG%EF%BC%BF0675.JPG?type=w800
+tok 0665 3
+OK vis_0665.jpg 86113 https://mblogthumb-phinf.pstatic.net/MjAyNjA1MDNfMTc1/MDAxNzc3Nzc1MDM5MjE0.4WuWdha9jkRByw-Eg8khqiCfjluO7fTCuTcKAfDXMLUg.tNL2S-v1y6VGP60jw-1cu52IDcfSHv_8L7XCYIpwHDcg.JPEG/IMG%EF%BC%BF0665.JPG?type=w800
+PAGE https://m.blog.naver.com/dltlsdud213/224231924103 imgs=102 len=202880
+scale kw at [160635]
+OK cen_1.jpg 82618 https://mblogthumb-phinf.pstatic.net/MjAyNjAzMjdfMjM3/MDAxNzc0NTQxODUwMTQ1.KKX8bMqmMw0D-4z7HZn3WGW-JeHVvs7QjEKmVWeUONcg.bEVIcGtsl4GBcpGGiknq_vAIf-UK0JG4MPw6DwYxIdkg.JPEG/IMG%EF%BC%BF9026.jpg?type=w800
+FAIL cen_2.jpg https://mblogthumb-phinf.pstatic.net/MjAyNjAzMjdfMjM3/MDAxNzc0NTQxODUwMTQ1.KKX8bMqmMw0D-4z7HZn3WGW-JeHVvs7QjEKmVWeUONcg.bEVIcGtsl4GBcpGGiknq_vAIf-UK0JG4MPw6DwYxIdkg.JPEG/IMG%EF%BC%BF9026.jpg?type=w800_blur HTTP Error 404: Not Found
+OK cen_3.jpg 82618 https://mblogthumb-phinf.pstatic.net/MjAyNjAzMjdfMjM3/MDAxNzc0NTQxODUwMTQ1.KKX8bMqmMw0D-4z7HZn3WGW-JeHVvs7QjEKmVWeUONcg.bEVIcGtsl4GBcpGGiknq_vAIf-UK0JG4MPw6DwYxIdkg.JPEG/IMG%EF%BC%BF9026.jpg?type=w800
+OK forza.jpg 75686 https://www.hotelforza.jp/hakataguchi/images/posts/gbp-20260825-luggage-scales.jpg
+OK mic1.webp 14408 https://image.made-in-china.com/202f0j00fbZlAhtEbFUC/Airport-Luggage-Weight-Measurement-Machine-Hotel-Baggage-Suitcase-Weighing-Scale.webp
+OK mic2.webp 22270 https://image.made-in-china.com/202f0j00TqslbntWEFRO/Airport-Hotel-Coin-Operated-Luggage-Scale-300kg-Heavy-Duty-Weight-Measuring-Machine.webp
+FAIL ie1.png https://vending-machines.ie/wp-content/uploads/2026/09/exec-1ec29418-0732-4067-8751-c737237dbee8.png HTTP Error 403: Forbidden
+FAIL ie2.png https://vending-machines.ie/wp-content/uploads/2026/09/exec-24d3779b-f7b0-4376-8368-358b3a51dccf.png HTTP Error 403: Forbidden
