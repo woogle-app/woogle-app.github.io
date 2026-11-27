@@ -13,9 +13,12 @@ jobs:
       - run: pip install faster-whisper
       - run: |
           python3 - <<'PY'
+          import subprocess,numpy as np
           from faster_whisper import WhisperModel
+          raw=subprocess.run(["ffmpeg","-loglevel","error","-i","stt/a.mp3","-f","f32le","-ac","1","-ar","16000","-"],capture_output=True).stdout
+          audio=np.frombuffer(raw,dtype=np.float32)
           m=WhisperModel("medium",device="cpu",compute_type="int8")
-          seg,_=m.transcribe("stt/a.mp3",language="ko",vad_filter=True,beam_size=1)
+          seg,_=m.transcribe(audio,language="ko",vad_filter=True,beam_size=1)
           with open("stt/out.txt","w") as f:
               for s in seg:
                   f.write(f"[{int(s.start)//60:02d}:{int(s.start)%60:02d}] {s.text.strip()}\n"); f.flush()
