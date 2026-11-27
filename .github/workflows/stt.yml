@@ -1,0 +1,25 @@
+name: stt
+on:
+  push:
+    branches: [tmpstt]
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install faster-whisper
+      - run: |
+          python3 - <<'PY'
+          from faster_whisper import WhisperModel
+          m=WhisperModel("medium",device="cpu",compute_type="int8")
+          seg,_=m.transcribe("stt/a.mp3",language="ko",vad_filter=True,beam_size=1)
+          with open("stt/out.txt","w") as f:
+              for s in seg:
+                  f.write(f"[{int(s.start)//60:02d}:{int(s.start)%60:02d}] {s.text.strip()}\n"); f.flush()
+          PY
+      - run: |
+          git config user.name bot && git config user.email bot@users.noreply.github.com
+          git add stt/out.txt && git commit -m "transcript" && git push
