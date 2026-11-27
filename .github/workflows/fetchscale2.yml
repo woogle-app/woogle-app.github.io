@@ -1,0 +1,38 @@
+name: fetchscale2
+on:
+  push:
+    paths: [".github/workflows/fetchscale2.yml"]
+permissions:
+  contents: write
+jobs:
+  f:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          cat > fx.py <<'EOT'
+          import urllib.request,os
+          os.makedirs('tmpimg',exist_ok=True)
+          log=open('tmpimg/manifest2.txt','w')
+          def save(name,u,ref=None):
+              h={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36','Accept':'image/*,*/*'}
+              if ref: h['Referer']=ref
+              try:
+                  d=urllib.request.urlopen(urllib.request.Request(u,headers=h),timeout=40).read(); open('tmpimg/'+name,'wb').write(d); log.write(f'OK {name} {len(d)}\n')
+              except Exception as e: log.write(f'FAIL {name} {e}\n')
+          V='https://vending-machines.ie/wp-content/uploads/2024/06/'
+          for n in ['allsuites','citadines2','frasersuites','holidayinn2','ibis2','ibis7','ibisstyles','lobby3','lobby7','lobby13','mercure4','vandervalk','alvorada','bb','campanile','citadines','f1','ibis8','lobby9','lobby10']:
+              save('eu_'+n+'.jpg',V+n+'.jpg','https://vending-machines.ie/luggage-scales-machines/')
+          save('casa1.jpg','https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3942127435114314543')
+          for i,m in enumerate(['4024108203200591913','4022989364481128923','3819021215735099444','4024108202814729124']): save(f'grace{i+1}.jpg','https://lookaside.instagram.com/seo/google_widget/crawler/?media_id='+m)
+          save('shinjuku.jpg','https://media-cdn.tripadvisor.com/media/photo-s/11/13/2a/49/luggage-weighing-scale.jpg')
+          save('ali1.jpg','https://sc04.alicdn.com/kf/H8612740e2f9e47098bfc0b05431ead7fw.jpg')
+          save('ali2.jpg','https://sc04.alicdn.com/kf/H4036cfd83c724d119c244f35595a801aN.jpg')
+          save('mic3.webp','https://image.made-in-china.com/202f0j00EaykslScAehL/Coin-Operating-Weight-Check-Scale-Airport-Hotel-Luggage-Weighing-Scale.webp')
+          log.close()
+
+          EOT
+          python3 fx.py
+          rm fx.py
+          git config user.name bot && git config user.email bot@users.noreply.github.com
+          git add tmpimg && git commit -m "scale imgs2" && git push
