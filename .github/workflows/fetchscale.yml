@@ -1,0 +1,61 @@
+name: fetchscale
+on:
+  push:
+    paths: [".github/workflows/fetchscale.yml"]
+permissions:
+  contents: write
+jobs:
+  f:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          cat > fx.py <<'EOT'
+          import re,urllib.request,html,os,sys
+          UA={'User-Agent':'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 Mobile Safari/604.1'}
+          def get(u,b=False):
+              r=urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=40).read()
+              return r if b else r.decode('utf8','ignore')
+          os.makedirs('tmpimg',exist_ok=True)
+          log=open('tmpimg/manifest.txt','w')
+          def save(name,u):
+              try:
+                  d=get(u,True); open('tmpimg/'+name,'wb').write(d); log.write(f'OK {name} {len(d)} {u}\n')
+              except Exception as e: log.write(f'FAIL {name} {u} {e}\n')
+          def imgs(h): return [(m.start(),html.unescape(m.group(0))) for m in re.finditer(r'https://mblogthumb-phinf\.pstatic\.net/[^"\'\\\s)<>]+',h)]
+          def w800(u): return re.sub(r'type=w\d+','type=w800',u) if 'type=' in u else u+'?type=w800'
+          # Fukuoka & Vischio by filename token
+          for page,toks,pre in [('https://m.blog.naver.com/6_bbang/223941995046',['6152'],'fuk'),('https://m.blog.naver.com/zoodin1/224273622767',['0673','0674','0675','0665'],'vis')]:
+              try:
+                  h=get(page); L=imgs(h); log.write(f'PAGE {page} imgs={len(L)} len={len(h)}\n')
+                  for t in toks:
+                      c=[u for _,u in L if ('%EF%BC%BF'+t in u or '＿'+t in u or t+'.' in u)]
+                      log.write(f'tok {t} {len(c)}\n')
+                      if c: save(f'{pre}_{t}.jpg',w800(c[0]))
+              except Exception as e: log.write(f'PAGEFAIL {page} {e}\n')
+          # Centara: images near keyword
+          try:
+              page='https://m.blog.naver.com/dltlsdud213/224231924103'
+              h=get(page); L=imgs(h); log.write(f'PAGE {page} imgs={len(L)} len={len(h)}\n')
+              pos=[m.start() for m in re.finditer('저울',h)]
+              log.write(f'scale kw at {pos}\n')
+              seen=[]
+              for p in pos[:3]:
+                  near=sorted(L,key=lambda x:abs(x[0]-p))[:3]
+                  for _,u in near:
+                      if u not in seen: seen.append(u)
+              for i,u in enumerate(seen[:5]): save(f'cen_{i+1}.jpg',w800(u))
+          except Exception as e: log.write(f'PAGEFAIL cen {e}\n')
+          D={'forza.jpg':'https://www.hotelforza.jp/hakataguchi/images/posts/gbp-20260825-luggage-scales.jpg',
+          'mic1.webp':'https://image.made-in-china.com/202f0j00fbZlAhtEbFUC/Airport-Luggage-Weight-Measurement-Machine-Hotel-Baggage-Suitcase-Weighing-Scale.webp',
+          'mic2.webp':'https://image.made-in-china.com/202f0j00TqslbntWEFRO/Airport-Hotel-Coin-Operated-Luggage-Scale-300kg-Heavy-Duty-Weight-Measuring-Machine.webp',
+          'ie1.png':'https://vending-machines.ie/wp-content/uploads/2026/09/exec-1ec29418-0732-4067-8751-c737237dbee8.png',
+          'ie2.png':'https://vending-machines.ie/wp-content/uploads/2026/09/exec-24d3779b-f7b0-4376-8368-358b3a51dccf.png'}
+          for n,u in D.items(): save(n,u)
+          log.close()
+
+          EOT
+          python3 fx.py
+          rm fx.py
+          git config user.name bot && git config user.email bot@users.noreply.github.com
+          git add tmpimg && git commit -m "scale imgs" && git push
